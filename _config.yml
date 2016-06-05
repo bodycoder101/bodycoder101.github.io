@@ -5,7 +5,7 @@
 # Site
 title: 行者
 subtitle:
-description:
+description: 编程界的健身爱好者
 author: bodycoder 
 language: zh-Hans
 timezone:
@@ -71,6 +71,6 @@ deploy:
   type: git
   repo: git@github.com:bodycoder101/bodycoder101.github.io.git
   branch: master
-avatar: https://avatars2.githubusercontent.com/u/16630093?v=3&s=460
+avatar: /uploads/avatar.png
 duoshuo_shortname: bodycoder
 baidu_analytics: dd8827e73226b2d2b93d0b55640287c0
