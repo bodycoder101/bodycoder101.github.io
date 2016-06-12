@@ -1,5 +1,5 @@
 ---
-title: 用hexo搭建个人博客
+title: 用hexo搭建个人博客[转]
 date: 2016-06-05 02:45:07
 tags: hexo
 categories: blog
