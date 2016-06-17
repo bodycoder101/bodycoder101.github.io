@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 行者的技术博客
+title: Chengli's blog
 subtitle:
 description: 编程界的健身爱好者
 author: bodycoder 
@@ -71,6 +71,19 @@ deploy:
   type: git
   repo: git@github.com:bodycoder101/bodycoder101.github.io.git
   branch: master
+
 avatar: /uploads/avatar.png
 duoshuo_shortname: bodycoder
 baidu_analytics: dd8827e73226b2d2b93d0b55640287c0
+
+# plugins:
+#- hexo-generator-feed
+#- hexo-generator-sitemap
+
+sitemap:
+  path: sitemap.xml
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20

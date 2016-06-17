@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chengli&#39;s blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://bodycoder101.github.io/"/>
+  <updated>2016-06-09T15:17:07.256Z</updated>
+  <id>http://bodycoder101.github.io/</id>
+  
+  <author>
+    <name>bodycoder</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用hexo搭建个人博客[转]</title>
+    <link href="http://bodycoder101.github.io/2016/06/05/%E8%BD%AC-%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/</id>
+    <published>2016-06-04T18:45:07.000Z</published>
+    <updated>2016-06-09T15:17:07.256Z</updated>
+    
+    <content type="html">&lt;p&gt;从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。&lt;br&gt;现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;关于博客源码的备份和同步更新&quot;&gt;&lt;a href=&quot;#关于博客源码的备份和同步更新&quot; class=&quot;headerlink&quot; title=&quot;关于博客源码的备份和同步更新&quot;&gt;&lt;/a&gt;关于博客源码的备份和同步更新&lt;/h3&gt;&lt;h4 id=&quot;方案选择&quot;&gt;&lt;a href=&quot;#方案选择&quot; class=&quot;headerlink&quot; title=&quot;方案选择&quot;&gt;&lt;/a&gt;方案选择&lt;/h4&gt;&lt;p&gt;这个让我费时不少，因为考虑到有时候在自己笔记本上更新博客，有时候在实验室电脑上更新，这个时候问题就出现了。其一，不可能每次带U盘copy，其二，如果用百度云或者Dropbox这类云盘，感觉总是有些麻烦的。&lt;br&gt;所以还是考虑用github 存放源码，但是有遇到两个选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种方案是重新开一个repo，这样一个repo放博客生成的静态文件，另外一个repo专门放博客源码。&lt;/li&gt;
+&lt;li&gt;另外一种方案是一个repo开两个分支，其中一个master分支主要放静态文件，另外一个分支（自己命名）hexo，专门放博客源码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一种方案总感觉冗余，而第二种看起来更加简洁干净（操作起来也遇到了不少麻烦），最终还是选择第二种方案。&lt;/p&gt;
+&lt;h4 id=&quot;出现问题&quot;&gt;&lt;a href=&quot;#出现问题&quot; class=&quot;headerlink&quot; title=&quot;出现问题&quot;&gt;&lt;/a&gt;出现问题&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;问题描述&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为我是先在本地&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git init 、git add origin &amp;lt;server&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;初始化本地文件夹，然后&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &amp;quot;description&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push origin hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;最后一步失败。尝试过git pull命令、并将hexo分支文件清空，然而都无济于事。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解决问题：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;删掉这个库zouzls.github.io,然后重新新建，开两个分支，并设置hexo默认分支，此时两个分支为空。&lt;br&gt;在本地新建一个文件夹，git clone server地址,然后copy原来的博客站文件过来当前文件夹，运行下列命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &amp;quot;description&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push origin hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后解决问题，博客源码推送到hexo分支，再在新的电脑将源码clone下来就OK了，前提是已经安装有git、nodejs、hexo。至于由博客生成的静态html文件如何放到master分支，网上太多教程就不详述了。&lt;/p&gt;
+&lt;h3 id=&quot;最后&quot;&gt;&lt;a href=&quot;#最后&quot; class=&quot;headerlink&quot; title=&quot;最后&quot;&gt;&lt;/a&gt;最后&lt;/h3&gt;&lt;p&gt;人生有涯，知也无涯。&lt;br&gt;坚持学习，保持好奇心。&lt;br&gt;坚持锻炼身体。&lt;br&gt;转载来自：&lt;a href=&quot;http://zouzls.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://zouzls.github.io/&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。&lt;br&gt;现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="http://bodycoder101.github.io/categories/blog/"/>
+    
+    
+      <category term="hexo" scheme="http://bodycoder101.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git使用技巧</title>
+    <link href="http://bodycoder101.github.io/2016/06/04/git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://bodycoder101.github.io/2016/06/04/git使用技巧/</id>
+    <published>2016-06-04T01:50:04.000Z</published>
+    <updated>2016-06-04T16:50:04.263Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
