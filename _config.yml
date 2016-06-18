@@ -73,12 +73,6 @@ deploy:
   branch: master
 
 avatar: /uploads/avatar.png
-duoshuo_shortname: bodycoder
-baidu_analytics: dd8827e73226b2d2b93d0b55640287c0
-
-# plugins:
-#- hexo-generator-feed
-#- hexo-generator-sitemap
 
 sitemap:
   path: sitemap.xml
@@ -87,3 +81,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
+search:
+  path: search.xml
+  field: post
