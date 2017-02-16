@@ -97,7 +97,7 @@
 <meta name="description" content="编程界的健身爱好者">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chengli's blog">
-<meta property="og:url" content="http://bodycoder101.github.io/index.html">
+<meta property="og:url" content="http://bodycoder101.github.io/tags/JAVA/index.html">
 <meta property="og:site_name" content="Chengli's blog">
 <meta property="og:description" content="编程界的健身爱好者">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
 
 
 
-  <title> Chengli's blog </title>
+  <title> 标签: JAVA | Chengli's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -286,377 +284,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/16/JAVA的学习之第四章/" itemprop="url">
-                  JAVA的学习之第四章
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T21:01:13+08:00" content="2017-02-16">
-              2017-02-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/16/JAVA的学习之第四章/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/JAVA的学习之第四章/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/16/JAVA的学习之第四章/" class="leancloud_visitors" data-flag-title="JAVA的学习之第四章">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.对实例域做出修改的方法称为<strong>更改器</strong>方法，仅仅访问实例域而不进行修改的方法称为<strong>访问器</strong>方法；</p>
-<p>2.在一个源文件中，只能有一个公共类，但可以有任意数目的非公共类；</p>
-<p>3.数据成员也就是实例域，建议都是使用private修饰，确保封装性；</p>
-<p>4.私有的方法（private）不会被外部的其他类操作调用，可以将其删去，如果方法是公有的（public）就不能将其删去，因为其他代码可能依赖它；</p>
-<p>5.修饰符中的final以及static的区别和联系？<br>static表示不要实例化就可以使用，修饰的变量或者方法被所有实例共享；<br>final表示不可改变，终态，可以理解为常量，一旦在类中定义并且初始化，就不可改变；</p>
-<p>6.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Employee</span><br><span class="line">&#123;</span><br><span class="line"> private static int nextId=1;//该类的所有事例将共享一个nextID，也就是说只有一个</span><br><span class="line"> private int id;//所有实例（对象）均有各自的拷贝</span><br><span class="line">....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p> 7.静态方法不能操作对象，不能在静态方法中访问实例域，只能访问自身类中的静态域；可以通过类名直接调用静态方法；由static修饰的变量或者函数，表示属于类且不属于类对象的变量和函数；</p>
-<p> 8.类中的静态main方法，用于测试类<br> 二，值调用和引用调用，Java对对像采用的是值专递；总结：</p>
-<ul>
-<li>一个方法不能修改一个基本的数据类型的参数（数值型和布尔型）</li>
-<li>一个方法可以改变一个对象参数的状态；</li>
-<li>一个方法不能让对象参数引用一个新的对象；</li>
-</ul>
-<p>9.如果构造器中没有显式的给域赋予初值，那么就会被自动的赋予默认值：数值为0、布尔值为false，对象引用为null；</p>
-<p>10，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">publi Employee(String name,doble salary)//类的构造器</span><br><span class="line">&#123;</span><br><span class="line">this.name=name;//this指示隐式参数，也就是实际的实例值，参数变量用相同的名字将实例域屏蔽起来</span><br><span class="line">this.salary=salary;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>11，Java使用包（package）的主要原因是确保类名的唯一性，相当于C++中的命名空间（namespace），一个源文件中只能包含一个公共类（public static void main(){}）</p>
-<ul>
-<li>列表项</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Window extends Container</span><br><span class="line">&#123;</span><br><span class="line"> String warningString;//没有指定访问修饰符public 和 private，这里的变量默认不是private，意味着java.awt包中所有的类的方法都可以访问该变量！</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        JAVA
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
       
 
-  
-  
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2017/02/16/JAVA的学习之第四章/" itemprop="url">
               
-                
-                <a class="post-title-link" href="/2016/06/05/转-用hexo搭建个人博客/" itemprop="url">
-                  用hexo搭建个人博客[转]
-                </a>
+                <span itemprop="name">JAVA的学习之第四章</span>
               
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T02:45:07+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/05/转-用hexo搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/转-用hexo搭建个人博客/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/05/转-用hexo搭建个人博客/" class="leancloud_visitors" data-flag-title="用hexo搭建个人博客[转]">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。<br>现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/转-用hexo搭建个人博客/#more" rel="contents">
-              阅读全文 &raquo;
             </a>
-          </div>
         
-      
-    </div>
+      </h1>
 
-    <div>
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-02-16T21:01:13+08:00"
+              content="2017-02-16" >
+          02-16
+        </time>
+      </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/04/git使用技巧/" itemprop="url">
-                  git使用技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-04T09:50:04+08:00" content="2016-06-04">
-              2016-06-04
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/04/git使用技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/04/git使用技巧/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/04/git使用技巧/" class="leancloud_visitors" data-flag-title="git使用技巧">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
+  </div>
 
   
 

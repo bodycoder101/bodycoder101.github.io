@@ -31,7 +31,7 @@ menu:
   archives: /archives
   tags: /tags
   #commonweal: /404.html
-  #guestbook: /guestbook
+  guestbook: /guestbook
 
 
 # Enable/Disable menu icons.
@@ -244,7 +244,7 @@ mathjax:
 
 
 # Swiftype Search API Key
-swiftype_key: Gqpu6Msnmrrmx-gos-bD
+# swiftype_key: Gqpu6Msnmrrmx-gos-bD
 
 # Baidu Analytics ID
 baidu_analytics: dd8827e73226b2d2b93d0b55640287c0
