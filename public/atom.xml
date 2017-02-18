@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bodycoder101.github.io/"/>
-  <updated>2017-02-16T13:13:40.000Z</updated>
+  <updated>2017-02-18T14:10:12.000Z</updated>
   <id>http://bodycoder101.github.io/</id>
   
   <author>
@@ -16,15 +16,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JAVA的学习之第五章</title>
+    <link href="http://bodycoder101.github.io/2017/02/17/JAVA%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/"/>
+    <id>http://bodycoder101.github.io/2017/02/17/JAVA的学习之第五章/</id>
+    <published>2017-02-16T16:00:00.000Z</published>
+    <updated>2017-02-18T14:10:12.000Z</updated>
+    
+    <content type="html">&lt;p&gt;本章主要是讲述OOP中的&lt;strong&gt;继承（inheritance）&lt;/strong&gt;，利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;一、类、超类和子类&quot;&gt;&lt;a href=&quot;#一、类、超类和子类&quot; class=&quot;headerlink&quot; title=&quot;一、类、超类和子类&quot;&gt;&lt;/a&gt;一、类、超类和子类&lt;/h2&gt;&lt;p&gt;继承的定义：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class Manager extends Employee//Java 用关键字extends代替C++中的冒号：，Java中所有的继承都是公有继承，没有私有继承和保护继承&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//add new files and methods&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Employee称为超类（superclass），基类（base class）或父类（parent class）；Maanager称为子类（subclass）、派生类（derived class）或孩子类（child class）。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-易错点：&quot;&gt;&lt;a href=&quot;#1-易错点：&quot; class=&quot;headerlink&quot; title=&quot;1. 易错点：&quot;&gt;&lt;/a&gt;1. 易错点：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Manager boss=new Manger(...);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Employee[] staff=new Employee[3];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;staff[0]=boss;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;boss.setBonus(5000);//OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;staff[0].setBonus(5000);//EROR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Manager m=staff[i];//EROR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Employee[] staff=managers;//OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Manager boss=(Manager) staff[0];//ok&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上个例子中，变量staff[0]与boss引用同一个对象，编译器将staff[0]看成Employee对象，故语句6错误；&lt;br&gt;语句8错误的原因，并不是所有的雇员都是经理，小不能赋值给大；&lt;br&gt;语句9正确的原因，所有的经理都是雇员，大（子类，大指的是域值大）可以赋值给小（父类）；&lt;br&gt;总结：&lt;strong&gt;只能大赋小&lt;/strong&gt;&lt;br&gt;语句10正确的原因，父类赋值给子类必须进行强制类型转换，编译通过（本身staff[0]就是存储Manager类对象，只不过staff是Employee类的对象数组）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：在将父类转换为之类之前，应该使用&lt;strong&gt;instanceof&lt;/strong&gt;进行检查。&lt;/p&gt;
+&lt;h2 id=&quot;二、JAVA中-Object类是所有类的超类&quot;&gt;&lt;a href=&quot;#二、JAVA中-Object类是所有类的超类&quot; class=&quot;headerlink&quot; title=&quot;二、JAVA中 Object类是所有类的超类&quot;&gt;&lt;/a&gt;二、JAVA中 Object类是所有类的超类&lt;/h2&gt;&lt;h3 id=&quot;1-有关散列hasCode的问题：&quot;&gt;&lt;a href=&quot;#1-有关散列hasCode的问题：&quot; class=&quot;headerlink&quot; title=&quot;1.有关散列hasCode的问题：&quot;&gt;&lt;/a&gt;1.有关散列hasCode的问题：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s=&amp;quot;OK&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;StringBuilder sb=new StringBuilder(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.out.println(s.hashCode()+&amp;quot; &amp;quot;+sb.hasCode());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;String t=new String(&amp;quot;OK&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;StringBuilder tb=new StringBuilder(t);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.out.println(t.hashCode()+&amp;quot;&amp;quot;+tb.hasCode());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;打印出来可知，字符串s和t拥有相同的散列码，&lt;strong&gt;字符串的散列码是由内容导出的，所以字符串的散列码相等，字符串缓冲sb与tb有着不同的散列码，散列码是该对象的存储地址，可以看到不相等&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-toString方法&quot;&gt;&lt;a href=&quot;#2-toString方法&quot; class=&quot;headerlink&quot; title=&quot;2.toString方法&quot;&gt;&lt;/a&gt;2.toString方法&lt;/h3&gt;&lt;p&gt;绝大多数的toString方法，遵循以下格式：&lt;br&gt;类的名字，随后是一对方括号起来的域值；&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public String toString()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return getClass().getName()+&amp;quot;[name=&amp;quot;+name+&amp;quot;,salary=&amp;quot;+salary+&amp;quot;,hireDay&amp;quot;+hireDay+&amp;quot;]&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;只要对象与一个字符串通过操作符&lt;strong&gt;“+”&lt;/strong&gt;连接起来，Java编译就会自动地调用toString方法，获得对象的字符串描述；&lt;/p&gt;
+&lt;h3 id=&quot;3-泛型数组列表&quot;&gt;&lt;a href=&quot;#3-泛型数组列表&quot; class=&quot;headerlink&quot; title=&quot;3.泛型数组列表&quot;&gt;&lt;/a&gt;3.泛型数组列表&lt;/h3&gt;&lt;p&gt;主要是实现动态数组&lt;br&gt; &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ArrayList&amp;lt;Employee&amp;gt; staff=new ArrayList&amp;lt;&amp;gt;(填写初始容量);//在添加或删除元素时，具有自动调节数组容量的功能；&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; ArrayList是一个采用类型参数的范类型&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本章主要是讲述OOP中的&lt;strong&gt;继承（inheritance）&lt;/strong&gt;，利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="http://bodycoder101.github.io/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JAVA的学习之第四章</title>
     <link href="http://bodycoder101.github.io/2017/02/16/JAVA%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/"/>
     <id>http://bodycoder101.github.io/2017/02/16/JAVA的学习之第四章/</id>
     <published>2017-02-16T13:01:13.000Z</published>
-    <updated>2017-02-16T13:13:40.000Z</updated>
+    <updated>2017-02-18T14:12:06.000Z</updated>
     
     <content type="html">&lt;p&gt;1.对实例域做出修改的方法称为&lt;strong&gt;更改器&lt;/strong&gt;方法，仅仅访问实例域而不进行修改的方法称为&lt;strong&gt;访问器&lt;/strong&gt;方法；&lt;/p&gt;
 &lt;p&gt;2.在一个源文件中，只能有一个公共类，但可以有任意数目的非公共类；&lt;/p&gt;
 &lt;p&gt;3.数据成员也就是实例域，建议都是使用private修饰，确保封装性；&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;4.私有的方法（private）不会被外部的其他类操作调用，可以将其删去，如果方法是公有的（public）就不能将其删去，因为其他代码可能依赖它；&lt;/p&gt;
 &lt;p&gt;5.修饰符中的final以及static的区别和联系？&lt;br&gt;static表示不要实例化就可以使用，修饰的变量或者方法被所有实例共享；&lt;br&gt;final表示不可改变，终态，可以理解为常量，一旦在类中定义并且初始化，就不可改变；&lt;/p&gt;
 &lt;p&gt;6.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class Employee&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; private static int nextId=1;//该类的所有事例将共享一个nextID，也就是说只有一个&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; private int id;//所有实例（对象）均有各自的拷贝&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -47,7 +79,7 @@
     
       &lt;p&gt;1.对实例域做出修改的方法称为&lt;strong&gt;更改器&lt;/strong&gt;方法，仅仅访问实例域而不进行修改的方法称为&lt;strong&gt;访问器&lt;/strong&gt;方法；&lt;/p&gt;
 &lt;p&gt;2.在一个源文件中，只能有一个公共类，但可以有任意数目的非公共类；&lt;/p&gt;
-&lt;p&gt;3.数据成员也就是
+&lt;p&gt;3.数据成员也就是实例域，建议都是使用private修饰，确保封装性；&lt;/p&gt;
     
     </summary>
     
