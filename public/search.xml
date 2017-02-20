@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title></title>
+      <url>http://bodycoder101.github.io/2017/02/20/%E6%96%B0%E7%8E%AF%E5%A2%83%E4%B8%8BHexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%8F%8A%E7%BB%B4%E6%8A%A4/</url>
+      <content type="html"><![CDATA[<hr>
+<p>title： 新环境下Hexo博客部署及维护<br>date： 2017-02-20 19:21:12</p>
+<h2 id="tags：-git，hexo"><a href="#tags：-git，hexo" class="headerlink" title="tags： git，hexo"></a>tags： git，hexo</h2><p>   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。<br>   <a id="more"></a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>之前博主已经将博客源码推送至github中，和多数人一样，是一个仓库做两个分支：</p>
+<ul>
+<li>master分支：存放博客部署的静态文件(也就是public文件夹下的内容)</li>
+<li>hexo分支：存放博客源文件，配置文件等</li>
+</ul>
+<p>在新环境(Windows)下安装配置<em>Git，Node.js，Python</em>;Python建议下载2.7版本，安装好后别忘了配置环境变量。<br>提供下载链接：</p>
+<ul>
+<li><a href="https://github.com/waylau/git-for-win" target="_blank" rel="external">Git</a></li>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://www.python.org/downloads/" target="_blank" rel="external">Python</a></li>
+</ul>
+<h2 id="新环境部署"><a href="#新环境部署" class="headerlink" title="新环境部署"></a>新环境部署</h2><p>首先在我们新环境下为我们的博客新建一个目录blog。在该目录下右键执行<strong>Git Bash Here,</strong>然后克隆你的远程仓库，也就是hexo分支上的内容；<br><code>git clone https://github.com/bodycoder101/bodycoder101.github.io.git newBlog</code></p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>出现clone失败报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GitHub.IO.ProcessException: fatal: unable to stat &apos;plugins/toolongname/example/app/platforms/toolongname/toolongname/build/intermediates/classes/debug/org/toolongname/toolongname/toolongname$toolongname$toolongname.class&apos;: Filename too long</span><br></pre></td></tr></table></figure></p>
+<p>后面各种找解决方法，终于找到一个靠谱的方案: <a href="http://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows" target="_blank" rel="external">Solution</a>，原因也解释的很清楚；<br>在Bash中键入命令:<code>git config --system core.longpaths true</code>; 问题解决。</p>
+<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p>进入博客根目录：<code>cd newBlog</code>；然后依次键入下列命令<strong>[1]</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install</span><br><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>出现各种问题，无法安装<em>hexo</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! System Windows_NT 6.1.7601</span><br><span class="line">npm ERR! command &quot;c:\\Program Files\\nodejs\\node.exe&quot; &quot;c:\\Program Files\\nodej</span><br><span class="line">s\\node_modules\\npm\\bin\\npm-cli.js&quot; &quot;install&quot;</span><br><span class="line">npm ERR! cwd f:\Workspace\Angular_workspace\angular-phonecat</span><br><span class="line">npm ERR! node -v v0.10.28</span><br><span class="line">npm ERR! npm -v 1.4.9</span><br><span class="line">npm ERR! path C:\Users\Shivam\AppData\Roaming\npm-cache\inherits\2.0.1\package</span><br><span class="line">npm ERR! code EPERM</span><br><span class="line">npm ERR! errno 50</span><br><span class="line">npm ERR! stack Error: EPERM, unlink &apos;C:\Users\Shivam\AppData\Roaming\npm-cache\i</span><br><span class="line">nherits\2.0.1\package&apos;</span><br><span class="line">npm http 200 https://registry.npmjs.org/qs</span><br></pre></td></tr></table></figure></p>
+<p>找到解决方案，依次键入下列命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">npm cache clean</span><br><span class="line">npm install express</span><br></pre></td></tr></table></figure></p>
+<p>问题完美的解决，然后重新执行[1]处命令，就在博主认为可以愉快的写博客的时候，问题又出现了；</p>
+<h3 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h3><p>执行<code>hexo clean</code>,出现下列问题：<br><img src="https://github.com/bodycoder101/MarkdownPhotos/blob/master/hexo_clean_error.png" alt=""><br>根据提示键入命令安装：<br><code>npm rebuild node-sass</code><br>安装过程出现各种<code>npm error，gyp error</code>，在查找问题过程中，出错信息提示：<br><img src="https://github.com/bodycoder101/MarkdownPhotos/blob/master/could_not_find_python.png" alt=""></p>
+<p>那就新环境下安装<strong>Python！</strong>，忘安装了..<br>至此，问题全部解决，可以愉快的写博客了！</p>
+<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p>1.<a href="http://www.lzblog.cn/2016/11/21/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5%E5%8F%8A%E6%9B%B4%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" target="_blank" rel="external">Hexo博客多电脑同步及更换电脑后处理方式</a><br>2.<a href="http://www.rvclient.com/2016/05/21/hexo-everywhere/" target="_blank" rel="external">在不同的电脑维护Hexo和写作</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JAVA的学习之第五章]]></title>
       <url>http://bodycoder101.github.io/2017/02/17/JAVA%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/</url>
       <content type="html"><![CDATA[<p>本章主要是讲述OOP中的<strong>继承（inheritance）</strong>，利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。<br><a id="more"></a></p>
@@ -70,12 +100,6 @@
 <p>然后解决问题，博客源码推送到hexo分支，再在新的电脑将源码clone下来就OK了，前提是已经安装有git、nodejs、hexo。至于由博客生成的静态html文件如何放到master分支，网上太多教程就不详述了。</p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>人生有涯，知也无涯。<br>坚持学习，保持好奇心。<br>坚持锻炼身体。<br>转载来自：<a href="http://zouzls.github.io/" target="_blank" rel="external">http://zouzls.github.io/</a></p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git使用技巧]]></title>
-      <url>http://bodycoder101.github.io/2016/06/04/git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-      <content type="html"></content>
     </entry>
     
   
