@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git, hexo," />
+  <meta name="keywords" content="git hexo," />
 
 
 
@@ -102,7 +102,7 @@
 <meta property="og:description" content="之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。">
 <meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/hexo_clean_error.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/could_not_find_python.png">
-<meta property="og:updated_time" content="2017-02-20T12:21:48.115Z">
+<meta property="og:updated_time" content="2017-02-20T12:40:42.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新环境下Hexo博客部署及维护">
 <meta name="twitter:description" content="之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。">
@@ -379,11 +379,11 @@
 <li><a href="https://www.python.org/downloads/" target="_blank" rel="external">Python</a></li>
 </ul>
 <h2 id="新环境部署"><a href="#新环境部署" class="headerlink" title="新环境部署"></a>新环境部署</h2><p>首先在我们新环境下为我们的博客新建一个目录blog。在该目录下右键执行<strong>Git Bash Here,</strong>然后克隆你的远程仓库，也就是hexo分支上的内容；<br><code>git clone https://github.com/bodycoder101/bodycoder101.github.io.git newBlog</code></p>
-<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>出现clone失败报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GitHub.IO.ProcessException: fatal: unable to stat &apos;plugins/toolongname/example/app/platforms/toolongname/toolongname/build/intermediates/classes/debug/org/toolongname/toolongname/toolongname$toolongname$toolongname.class&apos;: Filename too long</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>出现clone失败报错（Filename too long）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GitHub.IO.ProcessException: fatal: unable to stat &apos;plugins/toolongname/example/app/platforms/toolongname/toolongname/build/intermediates/classes/debug/org/toolongname/toolongname/toolongname$toolongname$toolongname.class&apos;: Filename too long</div></pre></td></tr></table></figure></p>
 <p>后面各种找解决方法，终于找到一个靠谱的方案: <a href="http://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows" target="_blank" rel="external">Solution</a>，原因也解释的很清楚；<br>在Bash中键入命令:<code>git config --system core.longpaths true</code>; 问题解决。</p>
-<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p>进入博客根目录：<code>cd newBlog</code>；然后依次键入下列命令<strong>[1]</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install</span><br><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>出现各种问题，无法安装<em>hexo</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! System Windows_NT 6.1.7601</span><br><span class="line">npm ERR! command &quot;c:\\Program Files\\nodejs\\node.exe&quot; &quot;c:\\Program Files\\nodej</span><br><span class="line">s\\node_modules\\npm\\bin\\npm-cli.js&quot; &quot;install&quot;</span><br><span class="line">npm ERR! cwd f:\Workspace\Angular_workspace\angular-phonecat</span><br><span class="line">npm ERR! node -v v0.10.28</span><br><span class="line">npm ERR! npm -v 1.4.9</span><br><span class="line">npm ERR! path C:\Users\Shivam\AppData\Roaming\npm-cache\inherits\2.0.1\package</span><br><span class="line">npm ERR! code EPERM</span><br><span class="line">npm ERR! errno 50</span><br><span class="line">npm ERR! stack Error: EPERM, unlink &apos;C:\Users\Shivam\AppData\Roaming\npm-cache\i</span><br><span class="line">nherits\2.0.1\package&apos;</span><br><span class="line">npm http 200 https://registry.npmjs.org/qs</span><br></pre></td></tr></table></figure></p>
-<p>找到解决方案，依次键入下列命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">npm cache clean</span><br><span class="line">npm install express</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p>进入博客根目录：<code>cd newBlog</code>；然后依次键入下列命令<strong>[1]</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div><div class="line">npm install</div><div class="line">npm install hexo -server --save</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>出现各种问题，无法安装<em>hexo</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">npm ERR! System Windows_NT 6.1.7601</div><div class="line">npm ERR! command &quot;c:\\Program Files\\nodejs\\node.exe&quot; &quot;c:\\Program Files\\nodej</div><div class="line">s\\node_modules\\npm\\bin\\npm-cli.js&quot; &quot;install&quot;</div><div class="line">npm ERR! cwd f:\Workspace\Angular_workspace\angular-phonecat</div><div class="line">npm ERR! node -v v0.10.28</div><div class="line">npm ERR! npm -v 1.4.9</div><div class="line">npm ERR! path C:\Users\Shivam\AppData\Roaming\npm-cache\inherits\2.0.1\package</div><div class="line">npm ERR! code EPERM</div><div class="line">npm ERR! errno 50</div><div class="line">npm ERR! stack Error: EPERM, unlink &apos;C:\Users\Shivam\AppData\Roaming\npm-cache\i</div><div class="line">nherits\2.0.1\package&apos;</div><div class="line">npm http 200 https://registry.npmjs.org/qs</div></pre></td></tr></table></figure></p>
+<p>找到解决方案，依次键入下列命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config get registry</div><div class="line">npm cache clean</div><div class="line">npm install express</div></pre></td></tr></table></figure></p>
 <p>问题完美的解决，然后重新执行[1]处命令，就在博主认为可以愉快的写博客的时候，问题又出现了；</p>
 <h3 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h3><p>执行<code>hexo clean</code>,出现下列问题：<br><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/hexo_clean_error.png" alt=""><br>根据提示键入命令安装：<br><code>npm rebuild node-sass</code><br>安装过程出现各种<code>npm error，gyp error</code>，在查找问题过程中，出错信息提示：<br><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/could_not_find_python.png" alt=""></p>
 <p>那就新环境下安装<strong>Python！</strong>，忘安装了..<br>至此，问题全部解决，可以愉快的写博客了！</p>
@@ -425,7 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git-hexo/" rel="tag">#git, hexo</a>
+            <a href="/tags/git-hexo/" rel="tag">#git hexo</a>
           
         </div>
       

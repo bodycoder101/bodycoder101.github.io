@@ -1,7 +1,7 @@
 ﻿---
 title: 新环境下Hexo博客部署及维护
 date: 2017-02-20
-tags: git, hexo
+tags: git hexo
 ---
    之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。
    <!-- more -->
@@ -23,7 +23,7 @@ tags: git, hexo
 首先在我们新环境下为我们的博客新建一个目录blog。在该目录下右键执行**Git Bash Here,**然后克隆你的远程仓库，也就是hexo分支上的内容；
 ` git clone https://github.com/bodycoder101/bodycoder101.github.io.git newBlog`
 ### 问题一
-出现clone失败报错：
+出现clone失败报错（Filename too long）：
 ```
 GitHub.IO.ProcessException: fatal: unable to stat 'plugins/toolongname/example/app/platforms/toolongname/toolongname/build/intermediates/classes/debug/org/toolongname/toolongname/toolongname$toolongname$toolongname.class': Filename too long
 ```
