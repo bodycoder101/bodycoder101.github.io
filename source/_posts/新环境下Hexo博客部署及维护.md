@@ -1,9 +1,8 @@
 ﻿---
-title： 新环境下Hexo博客部署及维护
-date： 2017-02-20 19:21:12
-tags： git，hexo
+title: 新环境下Hexo博客部署及维护
+date: 2017-02-20
+tags: git, hexo
 ---
-
    之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。
    <!-- more -->
 ## 准备工作
@@ -62,11 +61,11 @@ npm install express
 问题完美的解决，然后重新执行[1]处命令，就在博主认为可以愉快的写博客的时候，问题又出现了；
 ### 问题三
 执行` hexo clean`,出现下列问题：
-![](https://github.com/bodycoder101/MarkdownPhotos/blob/master/hexo_clean_error.png)
+![](https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/hexo_clean_error.png)
 根据提示键入命令安装：
 `npm rebuild node-sass`
 安装过程出现各种` npm error，gyp error`，在查找问题过程中，出错信息提示：
-![](https://github.com/bodycoder101/MarkdownPhotos/blob/master/could_not_find_python.png)
+![](https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/could_not_find_python.png)
 
 那就新环境下安装**Python！**，忘安装了..
 至此，问题全部解决，可以愉快的写博客了！

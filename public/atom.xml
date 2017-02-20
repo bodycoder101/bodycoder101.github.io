@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bodycoder101.github.io/"/>
-  <updated>2017-02-20T11:31:07.440Z</updated>
+  <updated>2017-02-20T12:21:48.115Z</updated>
   <id>http://bodycoder101.github.io/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>新环境下Hexo博客部署及维护</title>
     <link href="http://bodycoder101.github.io/2017/02/20/%E6%96%B0%E7%8E%AF%E5%A2%83%E4%B8%8BHexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%8F%8A%E7%BB%B4%E6%8A%A4/"/>
     <id>http://bodycoder101.github.io/2017/02/20/新环境下Hexo博客部署及维护/</id>
-    <published>2017-02-20T11:31:07.440Z</published>
-    <updated>2017-02-20T11:31:07.440Z</updated>
+    <published>2017-02-19T16:00:00.000Z</published>
+    <updated>2017-02-20T12:21:48.115Z</updated>
     
-    <content type="html">&lt;hr&gt;
-&lt;p&gt;title： 新环境下Hexo博客部署及维护&lt;br&gt;date： 2017-02-20 19:21:12&lt;/p&gt;
-&lt;h2 id=&quot;tags：-git，hexo&quot;&gt;&lt;a href=&quot;#tags：-git，hexo&quot; class=&quot;headerlink&quot; title=&quot;tags： git，hexo&quot;&gt;&lt;/a&gt;tags： git，hexo&lt;/h2&gt;&lt;p&gt;   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。&lt;br&gt;   &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。&lt;br&gt;   &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;之前博主已经将博客源码推送至github中，和多数人一样，是一个仓库做两个分支：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;master分支：存放博客部署的静态文件(也就是public文件夹下的内容)&lt;/li&gt;
@@ -43,19 +41,19 @@
 &lt;p&gt;出现各种问题，无法安装&lt;em&gt;hexo&lt;/em&gt;:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! System Windows_NT 6.1.7601&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! command &amp;quot;c:\\Program Files\\nodejs\\node.exe&amp;quot; &amp;quot;c:\\Program Files\\nodej&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s\\node_modules\\npm\\bin\\npm-cli.js&amp;quot; &amp;quot;install&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! cwd f:\Workspace\Angular_workspace\angular-phonecat&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! node -v v0.10.28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! npm -v 1.4.9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! path C:\Users\Shivam\AppData\Roaming\npm-cache\inherits\2.0.1\package&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! code EPERM&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! errno 50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ERR! stack Error: EPERM, unlink &amp;apos;C:\Users\Shivam\AppData\Roaming\npm-cache\i&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nherits\2.0.1\package&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm http 200 https://registry.npmjs.org/qs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;找到解决方案，依次键入下列命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm config get registry&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install express&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;问题完美的解决，然后重新执行[1]处命令，就在博主认为可以愉快的写博客的时候，问题又出现了；&lt;/p&gt;
-&lt;h3 id=&quot;问题三&quot;&gt;&lt;a href=&quot;#问题三&quot; class=&quot;headerlink&quot; title=&quot;问题三&quot;&gt;&lt;/a&gt;问题三&lt;/h3&gt;&lt;p&gt;执行&lt;code&gt;hexo clean&lt;/code&gt;,出现下列问题：&lt;br&gt;&lt;img src=&quot;https://github.com/bodycoder101/MarkdownPhotos/blob/master/hexo_clean_error.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;根据提示键入命令安装：&lt;br&gt;&lt;code&gt;npm rebuild node-sass&lt;/code&gt;&lt;br&gt;安装过程出现各种&lt;code&gt;npm error，gyp error&lt;/code&gt;，在查找问题过程中，出错信息提示：&lt;br&gt;&lt;img src=&quot;https://github.com/bodycoder101/MarkdownPhotos/blob/master/could_not_find_python.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;问题三&quot;&gt;&lt;a href=&quot;#问题三&quot; class=&quot;headerlink&quot; title=&quot;问题三&quot;&gt;&lt;/a&gt;问题三&lt;/h3&gt;&lt;p&gt;执行&lt;code&gt;hexo clean&lt;/code&gt;,出现下列问题：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/hexo_clean_error.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;根据提示键入命令安装：&lt;br&gt;&lt;code&gt;npm rebuild node-sass&lt;/code&gt;&lt;br&gt;安装过程出现各种&lt;code&gt;npm error，gyp error&lt;/code&gt;，在查找问题过程中，出错信息提示：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/could_not_find_python.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;那就新环境下安装&lt;strong&gt;Python！&lt;/strong&gt;，忘安装了..&lt;br&gt;至此，问题全部解决，可以愉快的写博客了！&lt;/p&gt;
 &lt;h2 id=&quot;参考博客&quot;&gt;&lt;a href=&quot;#参考博客&quot; class=&quot;headerlink&quot; title=&quot;参考博客&quot;&gt;&lt;/a&gt;参考博客&lt;/h2&gt;&lt;p&gt;1.&lt;a href=&quot;http://www.lzblog.cn/2016/11/21/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5%E5%8F%8A%E6%9B%B4%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo博客多电脑同步及更换电脑后处理方式&lt;/a&gt;&lt;br&gt;2.&lt;a href=&quot;http://www.rvclient.com/2016/05/21/hexo-everywhere/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;在不同的电脑维护Hexo和写作&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title： 新环境下Hexo博客部署及维护&lt;br&gt;date： 2017-02-20 19:21:12&lt;/p&gt;
-&lt;h2 id=&quot;tags：-git，hexo&quot;&gt;&lt;a href=&quot;#tags：-git，hexo&quot; class=&quot;headerlink&quot; title=&quot;tags： git，hexo&quot;&gt;&lt;/a&gt;tags： git，hexo&lt;/h2&gt;&lt;p&gt;   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。&lt;br&gt;
+      &lt;p&gt;   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。&lt;br&gt;
     
     </summary>
     
+    
+      <category term="git, hexo" scheme="http://bodycoder101.github.io/tags/git-hexo/"/>
     
   </entry>
   
