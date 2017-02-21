@@ -5,21 +5,25 @@
     
   <url>
     <loc>http://bodycoder101.github.io/2017/02/20/%E6%96%B0%E7%8E%AF%E5%A2%83%E4%B8%8BHexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%8F%8A%E7%BB%B4%E6%8A%A4/</loc>
-    <lastmod>2017-02-20T12:40:42.189Z</lastmod>
+    <lastmod>2017-02-21T05:16:41.796Z</lastmod>
     <data>
         <display>
         <title>新环境下Hexo博客部署及维护</title>
         <pubTime>2017-02-19T16:00:00.000Z</pubTime>
         
-        <tag>git hexo</tag>
+        <tag>git</tag>
+         
+        <tag>hexo</tag>
          
          
            
+             
+              <breadCrumb title="Git/Github" url="http://bodycoder101.github.io/categories/Git-Github/"/>
+          
         </display>
     </data>
     </url>
 
-    
     
     
     

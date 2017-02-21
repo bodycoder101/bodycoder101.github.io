@@ -1,7 +1,10 @@
 ﻿---
 title: 新环境下Hexo博客部署及维护
 date: 2017-02-20
-tags: git hexo
+categories: Git/Github
+tags: 
+- git
+- hexo
 ---
    之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。
    <!-- more -->

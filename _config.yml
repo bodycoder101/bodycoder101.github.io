@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Chengli's blog（茅草屋）
+title: 茅草屋
 subtitle: Zero
 description: 编程界的健身爱好者
 author: Bodycoder 
@@ -44,8 +44,13 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: 其他：Others
 category_map:
+  编程：Programming
+  健身：Bodybuilding
+  读书笔记：Life-Talk
+  转载：Reproduced from others
+  其他：Others
 tag_map:
 
 # Date / Time format
@@ -85,6 +90,6 @@ feed:
   path: atom.xml
   limit: 20
 
-search:
-  path: search.xml
-  field: post
+#search:
+#  path: search.xml
+#  field: post
