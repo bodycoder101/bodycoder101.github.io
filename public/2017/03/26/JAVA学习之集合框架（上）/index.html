@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -112,15 +112,31 @@
 
 
 
-<meta name="description" content="编程界的健身爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="茅草屋">
-<meta property="og:url" content="http://bodycoder101.github.io/index.html">
+<meta name="description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。
+集合的作用
+在类的内部对数据进行组织；
+简单而快速地搜索大数量的条目数据；
+提供统一的接口，将不同对象封装在一起，便于操作和管">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习之集合框架（上）">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/index.html">
 <meta property="og:site_name" content="茅草屋">
-<meta property="og:description" content="编程界的健身爱好者">
+<meta property="og:description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。
+集合的作用
+在类的内部对数据进行组织；
+简单而快速地搜索大数量的条目数据；
+提供统一的接口，将不同对象封装在一起，便于操作和管">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%AE%80%E7%89%88.png">
+<meta property="og:updated_time" content="2017-03-26T09:32:49.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="茅草屋">
-<meta name="twitter:description" content="编程界的健身爱好者">
+<meta name="twitter:title" content="Java学习之集合框架（上）">
+<meta name="twitter:description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。
+集合的作用
+在类的内部对数据进行组织；
+简单而快速地搜索大数量的条目数据；
+提供统一的接口，将不同对象封装在一起，便于操作和管">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png">
 
 
 
@@ -141,7 +157,7 @@
 
 
 
-  <title> 茅草屋 </title>
+  <title> Java学习之集合框架（上） | 茅草屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,9 +187,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,9 +303,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -311,10 +325,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/26/JAVA学习之集合框架（上）/" itemprop="url">
-                  Java学习之集合框架（上）
-                </a>
+                Java学习之集合框架（上）
               
             
           </h1>
@@ -389,9 +400,7 @@
       
 
       
-        
-          
-            <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有<strong>共同属性</strong>的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。</p>
+        <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有<strong>共同属性</strong>的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。</p>
 <h1 id="集合的作用"><a href="#集合的作用" class="headerlink" title="集合的作用"></a>集合的作用</h1><ul>
 <li>在类的内部对数据进行组织；</li>
 <li>简单而快速地搜索大数量的条目数据；</li>
@@ -423,524 +432,98 @@
 <p>-EOF</p>
 <h1 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h1><p><a href="http://blog.csdn.net/qq_33290787/article/details/51781036" target="_blank" rel="external">Java集合框架</a><br><a href="http://www.open-open.com/lib/view/open1474167415464.html" target="_blank" rel="external">Java - 集合框架完全解析</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="Bodycoder wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号，博主会不定期推出好玩的内容！</div>
+</div>
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
     </div>
+  </div>
 
-    <div>
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/20/新环境下Hexo博客部署及维护/" itemprop="url">
-                  新环境下Hexo博客部署及维护
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-20T00:00:00+08:00" content="2017-02-20">
-              2017-02-20
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git-Github/" itemprop="url" rel="index">
-                    <span itemprop="name">Git/Github</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/20/新环境下Hexo博客部署及维护/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/新环境下Hexo博客部署及维护/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/20/新环境下Hexo博客部署及维护/" class="leancloud_visitors" data-flag-title="新环境下Hexo博客部署及维护">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>   之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/20/新环境下Hexo博客部署及维护/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/新环境下Hexo博客部署及维护/" rel="next" title="新环境下Hexo博客部署及维护">
+                <i class="fa fa-chevron-left"></i> 新环境下Hexo博客部署及维护
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/17/JAVA的学习之继承/" itemprop="url">
-                  JAVA的学习之继承
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-17T00:00:00+08:00" content="2017-02-17">
-              2017-02-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/17/JAVA的学习之继承/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/JAVA的学习之继承/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/17/JAVA的学习之继承/" class="leancloud_visitors" data-flag-title="JAVA的学习之继承">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>本章主要是讲述OOP中的<strong>继承（inheritance）</strong>，利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/17/JAVA的学习之继承/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2017/03/26/JAVA学习之集合框架（上）/"
+     data-title="Java学习之集合框架（上）"
+     data-content=""
+     data-url="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/16/JAVA的学习之对象与类/" itemprop="url">
-                  JAVA的学习之对象与类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T21:01:13+08:00" content="2017-02-16">
-              2017-02-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/16/JAVA的学习之对象与类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/JAVA的学习之对象与类/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/16/JAVA的学习之对象与类/" class="leancloud_visitors" data-flag-title="JAVA的学习之对象与类">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1.对实例域做出修改的方法称为<strong>更改器</strong>方法，仅仅访问实例域而不进行修改的方法称为<strong>访问器</strong>方法；</p>
-<p>2.在一个源文件中，只能有一个公共类，但可以有任意数目的非公共类；</p>
-<p>3.数据成员也就是实例域，建议都是使用private修饰，确保封装性；</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/16/JAVA的学习之对象与类/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/05/转-用hexo搭建个人博客/" itemprop="url">
-                  用hexo搭建个人博客[转]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T02:45:07+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/05/转-用hexo搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/转-用hexo搭建个人博客/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/05/转-用hexo搭建个人博客/" class="leancloud_visitors" data-flag-title="用hexo搭建个人博客[转]">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。<br>现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/转-用hexo搭建个人博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -948,6 +531,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/26/JAVA学习之集合框架（上）/"
+           data-title="Java学习之集合框架（上）" data-url="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -967,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -1074,6 +674,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关概念"><span class="nav-number">1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的作用"><span class="nav-number">2.</span> <span class="nav-text">集合的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合和数组的选择"><span class="nav-number">3.</span> <span class="nav-text">集合和数组的选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合框架体系结构"><span class="nav-number">4.</span> <span class="nav-text">集合框架体系结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">5.</span> <span class="nav-text">代码演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博文"><span class="nav-number">6.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1186,6 +797,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
