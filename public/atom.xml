@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bodycoder101.github.io/"/>
-  <updated>2017-03-26T09:32:49.565Z</updated>
+  <updated>2017-03-26T09:41:24.750Z</updated>
   <id>http://bodycoder101.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://bodycoder101.github.io/2017/03/26/JAVA%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
     <id>http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/</id>
     <published>2017-03-26T06:39:43.000Z</published>
-    <updated>2017-03-26T09:32:49.565Z</updated>
+    <updated>2017-03-26T09:41:24.750Z</updated>
     
     <content type="html">&lt;h1 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot; title=&quot;相关概念&quot;&gt;&lt;/a&gt;相关概念&lt;/h1&gt;&lt;p&gt;框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有&lt;strong&gt;共同属性&lt;/strong&gt;的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;集合的作用&quot;&gt;&lt;a href=&quot;#集合的作用&quot; class=&quot;headerlink&quot; title=&quot;集合的作用&quot;&gt;&lt;/a&gt;集合的作用&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;在类的内部对数据进行组织；&lt;/li&gt;
 &lt;li&gt;简单而快速地搜索大数量的条目数据；&lt;/li&gt;
@@ -57,7 +58,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot; title=&quot;相关概念&quot;&gt;&lt;/a&gt;相关概念&lt;/h1&gt;&lt;p&gt;框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储
+      &lt;h1 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot; title=&quot;相关概念&quot;&gt;&lt;/a&gt;相关概念&lt;/h1&gt;&lt;p&gt;框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有&lt;strong&gt;共同属性&lt;/strong&gt;的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。&lt;/p&gt;
     
     </summary>
     
@@ -108,9 +109,9 @@
       <category term="Git/Github" scheme="http://bodycoder101.github.io/categories/Git-Github/"/>
     
     
-      <category term="hexo" scheme="http://bodycoder101.github.io/tags/hexo/"/>
-    
       <category term="git" scheme="http://bodycoder101.github.io/tags/git/"/>
+    
+      <category term="hexo" scheme="http://bodycoder101.github.io/tags/hexo/"/>
     
   </entry>
   
