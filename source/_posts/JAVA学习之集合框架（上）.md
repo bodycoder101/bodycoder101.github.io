@@ -38,7 +38,7 @@ tags: Java
 
 **课程类（Course.java）**
 
-```
+```java
 package com.imooc.collection;
 
 public class Course {
@@ -57,7 +57,7 @@ public class Course {
 
 **学生类（Student.java)**
 
-```
+```java
 package com.imooc.collection;
 
 import java.util.HashSet;
@@ -81,7 +81,7 @@ public class Student {
 
 **ArrayList增删改查（ListTest.java）**
 
-```
+```java
 package com.imooc.collection;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -194,7 +194,7 @@ public class ListTest {
 
 **Set集合的基本用法(SetTest.java)**
 
-```
+```java
 package com.imooc.collection;
 
 import java.util.ArrayList;

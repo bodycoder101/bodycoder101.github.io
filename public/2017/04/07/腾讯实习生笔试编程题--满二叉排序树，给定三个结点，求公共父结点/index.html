@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="实习," />
 
 
 
@@ -112,16 +112,19 @@
 
 
 
-<meta name="description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
+<meta name="description" content="今年（2017）腾讯暑期实习生招聘笔试感觉好难，题目分两个部分总共2个小时，第一部分是30道不定项选择题，第二部分包含2道简答题和2道编程题，第一道编程题做了一半，没完全写出来，现在有时间总结一下：题目：一颗满二叉排序树，节点值范围为：1~2^(N-1),给定三个子节点，求最大的公共父节点；     如输入层数N=4，子节点11,13,15; 则输出:12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用hexo搭建个人博客[转]">
-<meta property="og:url" content="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/index.html">
+<meta property="og:title" content="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/index.html">
 <meta property="og:site_name" content="茅草屋">
-<meta property="og:description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
-<meta property="og:updated_time" content="2017-02-20T11:51:29.312Z">
+<meta property="og:description" content="今年（2017）腾讯暑期实习生招聘笔试感觉好难，题目分两个部分总共2个小时，第一部分是30道不定项选择题，第二部分包含2道简答题和2道编程题，第一道编程题做了一半，没完全写出来，现在有时间总结一下：题目：一颗满二叉排序树，节点值范围为：1~2^(N-1),给定三个子节点，求最大的公共父节点；     如输入层数N=4，子节点11,13,15; 则输出:12">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/N_4Trees.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Result.png">
+<meta property="og:updated_time" content="2017-04-07T09:53:52.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用hexo搭建个人博客[转]">
-<meta name="twitter:description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
+<meta name="twitter:title" content="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点">
+<meta name="twitter:description" content="今年（2017）腾讯暑期实习生招聘笔试感觉好难，题目分两个部分总共2个小时，第一部分是30道不定项选择题，第二部分包含2道简答题和2道编程题，第一道编程题做了一半，没完全写出来，现在有时间总结一下：题目：一颗满二叉排序树，节点值范围为：1~2^(N-1),给定三个子节点，求最大的公共父节点；     如输入层数N=4，子节点11,13,15; 则输出:12">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/N_4Trees.jpg">
 
 
 
@@ -142,7 +145,7 @@
 
 
 
-  <title> 用hexo搭建个人博客[转] | 茅草屋 </title>
+  <title> 腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点 | 茅草屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +313,7 @@
             
             
               
-                用hexo搭建个人博客[转]
+                腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点
               
             
           </h1>
@@ -322,8 +325,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T02:45:07+08:00" content="2016-06-05">
-              2016-06-05
+            <time itemprop="dateCreated" datetime="2017-04-07T14:57:31+08:00" content="2017-04-07">
+              2017-04-07
             </time>
           </span>
 
@@ -336,8 +339,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/笔试面试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试面试</span>
                   </a>
                 </span>
 
@@ -352,8 +355,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/05/转-用hexo搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/转-用hexo搭建个人博客/" itemprop="commentsCount"></span>
+                <a href="/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,7 +366,7 @@
 
           
           
-             <span id="/2016/06/05/转-用hexo搭建个人博客/" class="leancloud_visitors" data-flag-title="用hexo搭建个人博客[转]">
+             <span id="/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/" class="leancloud_visitors" data-flag-title="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,26 +388,27 @@
       
 
       
-        <p>从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。<br>现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。<br><a id="more"></a></p>
-<h3 id="关于博客源码的备份和同步更新"><a href="#关于博客源码的备份和同步更新" class="headerlink" title="关于博客源码的备份和同步更新"></a>关于博客源码的备份和同步更新</h3><h4 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h4><p>这个让我费时不少，因为考虑到有时候在自己笔记本上更新博客，有时候在实验室电脑上更新，这个时候问题就出现了。其一，不可能每次带U盘copy，其二，如果用百度云或者Dropbox这类云盘，感觉总是有些麻烦的。<br>所以还是考虑用github 存放源码，但是有遇到两个选择：</p>
-<ul>
-<li>一种方案是重新开一个repo，这样一个repo放博客生成的静态文件，另外一个repo专门放博客源码。</li>
-<li>另外一种方案是一个repo开两个分支，其中一个master分支主要放静态文件，另外一个分支（自己命名）hexo，专门放博客源码。</li>
-</ul>
-<p>第一种方案总感觉冗余，而第二种看起来更加简洁干净（操作起来也遇到了不少麻烦），最终还是选择第二种方案。</p>
-<h4 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h4><ul>
-<li>问题描述</li>
-</ul>
-<p>因为我是先在本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init 、git add origin &lt;server&gt;</div></pre></td></tr></table></figure></p>
-<p>初始化本地文件夹，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &quot;description&quot;</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure></p>
-<p>最后一步失败。尝试过git pull命令、并将hexo分支文件清空，然而都无济于事。</p>
-<ul>
-<li>解决问题：</li>
-</ul>
-<p>删掉这个库zouzls.github.io,然后重新新建，开两个分支，并设置hexo默认分支，此时两个分支为空。<br>在本地新建一个文件夹，git clone server地址,然后copy原来的博客站文件过来当前文件夹，运行下列命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &quot;description&quot;</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
-<p>然后解决问题，博客源码推送到hexo分支，再在新的电脑将源码clone下来就OK了，前提是已经安装有git、nodejs、hexo。至于由博客生成的静态html文件如何放到master分支，网上太多教程就不详述了。</p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>人生有涯，知也无涯。<br>坚持学习，保持好奇心。<br>坚持锻炼身体。<br>转载来自：<a href="http://zouzls.github.io/" target="_blank" rel="external">http://zouzls.github.io/</a></p>
+        <p>今年（2017）腾讯暑期实习生招聘笔试感觉好难，题目分两个部分总共2个小时，第一部分是30道不定项选择题，第二部分包含2道简答题和2道编程题，<br>第一道编程题做了一半，没完全写出来，现在有时间总结一下：<br>题目：一颗满二叉排序树，节点值范围为：1~2^(N-1),给定三个子节点，求最大的公共父节点；<br>     如输入层数N=4，子节点11,13,15; 则输出:12<br>     <a id="more"></a></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>解决这道题的关键，主要是要清晰的知道二叉排序树的性质：<strong>左节点的值小于父节点的值，右节点值大于父节点的值。</strong><br>当<strong>N=4</strong>时，共有15个节点对应的满二叉排序树为（可利用二分法从上到下建立二叉排序树）：<br><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/N_4Trees.jpg" alt="">;<br>可以知道有以下性质：</p>
+<ol>
+<li>以8为根节点，在左子树中一直往右走，可以找到左子树的最大值7，比根节点小1；</li>
+<li>右子树一直往左走，可以找到右子树的最小值9，比根节点大1；</li>
+<li>根节点的值是最左端的值和最右端的值之和的一半。</li>
+</ol>
+<p>我们可以这样找最大的公共父结点（可以用分治法）：</p>
+<ol>
+<li>如果输入的结点在根结点的两边，则最大公共父结点必然是根结点，直接返回根结点；</li>
+<li>如果输入的结点都在根结点的左边，往左子树遍历，更新根结点的值，利用性质<em>1 &amp; 3</em>，得到新树的最右结点及根结点的值；</li>
+<li>如果输入的结点都在根结点的右边，往右子树遍历，更新根结点的值，利用性质<em>2 &amp; 3</em>，得到新树的最左结点及根结点的值；</li>
+<li>重复2.3步骤，直到出现1情况，结束。</li>
+</ol>
+<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><p><strong>实现方法1</strong>是实现题目要求的，只输入层数<strong>N</strong>和<strong>3</strong>个子结点值，得到最大公共父结点；<br><strong>实现方法2</strong>是扩展的，具有更好的通用性，输入层数<strong>N</strong>、子结点个数<strong>n</strong>及子结点的值，得到最大公共父结点。</p>
+<h2 id="实现方法1"><a href="#实现方法1" class="headerlink" title="实现方法1"></a>实现方法1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Main</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">		<span class="keyword">while</span> (in.hasNextInt()) &#123;</div><div class="line">			<span class="comment">// 树的高度</span></div><div class="line">			<span class="keyword">int</span> k = in.nextInt();</div><div class="line"></div><div class="line">			<span class="comment">// 最开始根节点的值</span></div><div class="line">			<span class="keyword">int</span> root = (<span class="keyword">int</span>) Math.pow(<span class="number">2</span>, k) / <span class="number">2</span>;</div><div class="line"></div><div class="line">			<span class="comment">// 最开始的最左叶子节点和最右叶子节点</span></div><div class="line">			<span class="keyword">int</span> leftNode = <span class="number">1</span>;</div><div class="line">			<span class="keyword">int</span> rightNode = (<span class="keyword">int</span>) Math.pow(<span class="number">2</span>, k) - <span class="number">1</span>;</div><div class="line"></div><div class="line">			<span class="comment">// 输入任意3叶子节点的值</span></div><div class="line">			<span class="keyword">int</span> node1 = in.nextInt();</div><div class="line">			<span class="keyword">int</span> node2 = in.nextInt();</div><div class="line">			<span class="keyword">int</span> node3 = in.nextInt();</div><div class="line"></div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++) &#123;</div><div class="line">				<span class="comment">// 3个叶子节点全在根节点的左部,更新最右节点和根节点</span></div><div class="line">				<span class="keyword">if</span> (node1 &lt; root &amp;&amp; node2 &lt; root &amp;&amp; node3 &lt; root) &#123;</div><div class="line">					rightNode = root - <span class="number">1</span>;</div><div class="line">					root = (leftNode + rightNode) / <span class="number">2</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				<span class="comment">// 3个叶子节点全在根节点的右部,更新最左节点和根节点</span></div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (node1 &gt; root &amp;&amp; node2 &gt; root &amp;&amp; node3 &gt; root) &#123;</div><div class="line">					leftNode = root + <span class="number">1</span>;</div><div class="line">					root = (leftNode + rightNode) / <span class="number">2</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				<span class="comment">// 一大一小的情形下根节点即为最大公共父节点</span></div><div class="line">				<span class="keyword">else</span> &#123;</div><div class="line">					System.out.println(root);</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现方法2"><a href="#实现方法2" class="headerlink" title="实现方法2"></a>实现方法2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 改进版，输入层数N，节点数n，个数范围为：2-2^-1</div><div class="line"> * 输出二叉排序树的公共父节点</div><div class="line"> *</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">		Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">		<span class="keyword">while</span> (in.hasNextInt()) &#123;</div><div class="line">			<span class="comment">// 树的高度</span></div><div class="line">			<span class="keyword">int</span> N = in.nextInt();</div><div class="line"></div><div class="line">			<span class="comment">// 最开始根节点的值</span></div><div class="line">			<span class="keyword">int</span> root = (<span class="keyword">int</span>) Math.pow(<span class="number">2</span>, N) / <span class="number">2</span>;</div><div class="line"></div><div class="line">			<span class="comment">// 最开始的最左叶子节点和最右叶子节点</span></div><div class="line">			<span class="keyword">int</span> leftNode = <span class="number">1</span>;</div><div class="line">			<span class="keyword">int</span> rightNode = (<span class="keyword">int</span>) Math.pow(<span class="number">2</span>, N) - <span class="number">1</span>;</div><div class="line"></div><div class="line">			<span class="comment">// 输入任意n叶子节点的值</span></div><div class="line">			<span class="keyword">int</span> n = in.nextInt();</div><div class="line">			<span class="keyword">int</span>[] arrNodes = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrNodes.length; i++) &#123;</div><div class="line">				arrNodes[i] = in.nextInt();</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="comment">// 从上到下按层次遍历N层</span></div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</div><div class="line">				<span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</div><div class="line"></div><div class="line">					<span class="comment">// 都在左边，count+1；</span></div><div class="line">					<span class="keyword">if</span> (arrNodes[j] &lt; root) &#123;</div><div class="line">						count += <span class="number">1</span>;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					<span class="comment">// 都在右边，count+2</span></div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (arrNodes[j] &gt; root) &#123;</div><div class="line">						count += <span class="number">2</span>;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					<span class="comment">// 其中有一个是根节点</span></div><div class="line">					<span class="keyword">else</span> &#123;</div><div class="line">						count += <span class="number">0</span>;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">				&#125;</div><div class="line"></div><div class="line">				<span class="comment">/**</span></div><div class="line">				 * count的值n或者2n或者两者之间，</div><div class="line">				 * n代表都在左边，更新最右节点和根节点</div><div class="line">				 * 2n代表都在右边，更新最左节点和根节点</div><div class="line">				 * 两者之间代表，分布在根节点两边，直接返回根节点</div><div class="line">				 */</div><div class="line">				<span class="keyword">if</span> (count == n) &#123;</div><div class="line">					rightNode = root - <span class="number">1</span>;</div><div class="line">					root = (leftNode + rightNode) / <span class="number">2</span>;</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> (count == <span class="number">2</span> * n) &#123;</div><div class="line"></div><div class="line">					leftNode = root + <span class="number">1</span>;</div><div class="line">					root = (leftNode + rightNode) / <span class="number">2</span>;</div><div class="line"></div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					System.out.println(root);</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		in.close();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Result.png" alt=""></p>
+<h1 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h1><ol>
+<li><a href="http://www.cnblogs.com/f91og/p/6663633.html" target="_blank" rel="external">f91og的博客</a></li>
+</ol>
 
       
     </div>
@@ -447,7 +451,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/实习/" rel="tag">#实习</a>
           
         </div>
       
@@ -456,13 +460,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/26/JAVA学习之集合框架（上）/" rel="next" title="Java学习之集合框架（上）">
+                <i class="fa fa-chevron-left"></i> Java学习之集合框架（上）
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/16/JAVA的学习之对象与类/" rel="prev" title="JAVA的学习之对象与类">
-                JAVA的学习之对象与类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -477,10 +481,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/06/05/转-用hexo搭建个人博客/"
-     data-title="用hexo搭建个人博客[转]"
+        <div class="ds-share flat" data-thread-key="2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/"
+     data-title="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点"
      data-content=""
-     data-url="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/">
+     data-url="http://bodycoder101.github.io/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -507,8 +511,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/05/转-用hexo搭建个人博客/"
-           data-title="用hexo搭建个人博客[转]" data-url="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/">
+      <div class="ds-thread" data-thread-key="2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/"
+           data-title="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点" data-url="http://bodycoder101.github.io/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/">
       </div>
     
   </div>
@@ -655,7 +659,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于博客源码的备份和同步更新"><span class="nav-number">1.</span> <span class="nav-text">关于博客源码的备份和同步更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案选择"><span class="nav-number">1.1.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出现问题"><span class="nav-number">1.2.</span> <span class="nav-text">出现问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">2.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现代码"><span class="nav-number">2.</span> <span class="nav-text">实现代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法1"><span class="nav-number">2.1.</span> <span class="nav-text">实现方法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法2"><span class="nav-number">2.2.</span> <span class="nav-text">实现方法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试结果"><span class="nav-number">3.</span> <span class="nav-text">测试结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博文"><span class="nav-number">4.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
             
           </div>
         </section>
