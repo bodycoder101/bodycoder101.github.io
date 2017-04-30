@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,next," />
+  <meta name="keywords" content="Dynamic Programming," />
 
 
 
@@ -112,16 +112,19 @@
 
 
 
-<meta name="description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
+<meta name="description" content="从 二月中旬到四月底 这段时间一直忙于找实习，做准备，刷题，牛客上刷了蛮多算法题，遇到过比较多用动态规划解的题，现在实习的事情基本上也已经定下来了，手上也收到几个还满意的offer，一直想找一个时间去总结下此类题目的解法，思路总是有点模糊，容易忘记，现乘着有时间正好总结一下，也方便后面查阅。动态规划最经典的题目莫过于求两个字符串的最长公共子序列（LCS）问题了，我就以这个问题为例子，总结下动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用hexo搭建个人博客[转]">
-<meta property="og:url" content="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/index.html">
+<meta property="og:title" content="动态规划之最长公共子序列（longest common subsequence）问题的求解">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/index.html">
 <meta property="og:site_name" content="茅草屋">
-<meta property="og:description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
-<meta property="og:updated_time" content="2017-04-28T03:48:15.116Z">
+<meta property="og:description" content="从 二月中旬到四月底 这段时间一直忙于找实习，做准备，刷题，牛客上刷了蛮多算法题，遇到过比较多用动态规划解的题，现在实习的事情基本上也已经定下来了，手上也收到几个还满意的offer，一直想找一个时间去总结下此类题目的解法，思路总是有点模糊，容易忘记，现乘着有时间正好总结一下，也方便后面查阅。动态规划最经典的题目莫过于求两个字符串的最长公共子序列（LCS）问题了，我就以这个问题为例子，总结下动态规划">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/%E5%AD%90%E9%97%AE%E9%A2%98%E5%85%B7%E6%9C%89%E7%9A%84%E9%87%8D%E5%8F%A0%E6%80%A7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E5%9B%9E%E6%BA%AF%E8%BF%87%E7%A8%8B.png">
+<meta property="og:updated_time" content="2017-04-30T14:14:56.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用hexo搭建个人博客[转]">
-<meta name="twitter:description" content="从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。">
+<meta name="twitter:title" content="动态规划之最长公共子序列（longest common subsequence）问题的求解">
+<meta name="twitter:description" content="从 二月中旬到四月底 这段时间一直忙于找实习，做准备，刷题，牛客上刷了蛮多算法题，遇到过比较多用动态规划解的题，现在实习的事情基本上也已经定下来了，手上也收到几个还满意的offer，一直想找一个时间去总结下此类题目的解法，思路总是有点模糊，容易忘记，现乘着有时间正好总结一下，也方便后面查阅。动态规划最经典的题目莫过于求两个字符串的最长公共子序列（LCS）问题了，我就以这个问题为例子，总结下动态规划">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/%E5%AD%90%E9%97%AE%E9%A2%98%E5%85%B7%E6%9C%89%E7%9A%84%E9%87%8D%E5%8F%A0%E6%80%A7.png">
 
 
 
@@ -142,7 +145,7 @@
 
 
 
-  <title> 用hexo搭建个人博客[转] | 茅草屋 </title>
+  <title> 动态规划之最长公共子序列（longest common subsequence）问题的求解 | 茅草屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +313,7 @@
             
             
               
-                用hexo搭建个人博客[转]
+                动态规划之最长公共子序列（longest common subsequence）问题的求解
               
             
           </h1>
@@ -322,8 +325,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T02:45:07+08:00" content="2016-06-05">
-              2016-06-05
+            <time itemprop="dateCreated" datetime="2017-04-30T16:57:23+08:00" content="2017-04-30">
+              2017-04-30
             </time>
           </span>
 
@@ -336,8 +339,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
                   </a>
                 </span>
 
@@ -352,8 +355,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/05/转-用hexo搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/转-用hexo搭建个人博客/" itemprop="commentsCount"></span>
+                <a href="/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,7 +366,7 @@
 
           
           
-             <span id="/2016/06/05/转-用hexo搭建个人博客/" class="leancloud_visitors" data-flag-title="用hexo搭建个人博客[转]">
+             <span id="/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/" class="leancloud_visitors" data-flag-title="动态规划之最长公共子序列（longest common subsequence）问题的求解">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,26 +388,53 @@
       
 
       
-        <p>从很久之前就想要有一个属于自己的博客，如果互联网是一个世界的话，一个有着自己独特域名的博客应该就是在这个世界里面的自己的家吧。由于毕业后工作，后来又忙着考研，这个简单的愿望一直搁浅。<br>现在趁着有闲暇的精力，终于把这个一拖再拖的事情给实现，搭建过程总体是简单的，没有费多少力气，但是还是遇到了一些小问题，现在将遇到的问题记录下来。<br><a id="more"></a></p>
-<h3 id="关于博客源码的备份和同步更新"><a href="#关于博客源码的备份和同步更新" class="headerlink" title="关于博客源码的备份和同步更新"></a>关于博客源码的备份和同步更新</h3><h4 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h4><p>这个让我费时不少，因为考虑到有时候在自己笔记本上更新博客，有时候在实验室电脑上更新，这个时候问题就出现了。其一，不可能每次带U盘copy，其二，如果用百度云或者Dropbox这类云盘，感觉总是有些麻烦的。<br>所以还是考虑用github 存放源码，但是有遇到两个选择：</p>
+        <p>从 二月中旬到四月底 这段时间一直忙于找实习，做准备，刷题，牛客上刷了蛮多算法题，遇到过比较多用动态规划解的题，现在实习的事情基本上也已经定下来了，手上也收到几个还满意的offer，一直想找一个时间去总结下此类题目的解法，思路总是有点模糊，容易忘记，现乘着有时间正好总结一下，也方便后面查阅。动态规划最经典的题目莫过于求两个字符串的最长公共子序列（LCS）问题了，我就以这个问题为例子，总结下动态规划的特点及适用场景。</p>
+<a id="more"></a>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>给定两个字符串（母串）：</p>
 <ul>
-<li>一种方案是重新开一个repo，这样一个repo放博客生成的静态文件，另外一个repo专门放博客源码。</li>
-<li>另外一种方案是一个repo开两个分支，其中一个master分支主要放静态文件，另外一个分支（自己命名）hexo，专门放博客源码。</li>
+<li>ABCBDAB</li>
+<li>BDCABA<br>所谓的公共子序列（可以不连续出现）指的是在两个母串都出现过且顺序和母串保持一致，如： <strong>AB</strong> CBD <strong>A</strong> B 与 BDC <strong>ABA</strong>，公共子序列为ABA。最长公共子序列（LCS）也就是公共子序列中长度最长的那个。而子串是加了更严格条件的子序列，要求在两个母串中连续出现，如：ABC <strong>BD</strong> AB 与 <strong>BD</strong> CABA，BD是公共子串。两个母串的最长公共子序列为 <strong>BCBA</strong> ,最长公共子串为 <strong>AB</strong>。</li>
 </ul>
-<p>第一种方案总感觉冗余，而第二种看起来更加简洁干净（操作起来也遇到了不少麻烦），最终还是选择第二种方案。</p>
-<h4 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h4><ul>
-<li>问题描述</li>
-</ul>
-<p>因为我是先在本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init 、git add origin &lt;server&gt;</div></pre></td></tr></table></figure></p>
-<p>初始化本地文件夹，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &quot;description&quot;</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure></p>
-<p>最后一步失败。尝试过git pull命令、并将hexo分支文件清空，然而都无济于事。</p>
+<p>对于 <strong>母串</strong>：<br> $X={X<em>{1},X</em>{2},X<em>{3},…,X</em>{m}}$<br>$Y={y<em>{1},y</em>{2},y<em>{3},y</em>{n}}$<br>求最长公共子序列和最长公共子串。</p>
+<h1 id="最长公共子序列（LCS）"><a href="#最长公共子序列（LCS）" class="headerlink" title="最长公共子序列（LCS）"></a>最长公共子序列（LCS）</h1><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>假设$Z={z<em>{1},z</em>{2},z<em>{3},….,z</em>{k}}$是 <em>X</em> 与 <em>Y</em> 的最长公共子序列（LCS），则有（<strong>从后往前分析</strong>）：<br>数组 <strong>LCS[i,j]</strong> 保存的是最长公共子序列的 <strong>长度</strong></p>
+<ol>
+<li>若$x<em>{m}=y</em>{n}$, 则有：</li>
+</ol>
 <ul>
-<li>解决问题：</li>
+<li>$z<em>{k}=x</em>{m}=y_{n}$,则Z(k-1)是X(m-1)和Y(n-1)的LCS</li>
+<li>LCS(m,n)=LCS(m-1,n-1)+1</li>
 </ul>
-<p>删掉这个库zouzls.github.io,然后重新新建，开两个分支，并设置hexo默认分支，此时两个分支为空。<br>在本地新建一个文件夹，git clone server地址,然后copy原来的博客站文件过来当前文件夹，运行下列命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &quot;description&quot;</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
-<p>然后解决问题，博客源码推送到hexo分支，再在新的电脑将源码clone下来就OK了，前提是已经安装有git、nodejs、hexo。至于由博客生成的静态html文件如何放到master分支，网上太多教程就不详述了。</p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>人生有涯，知也无涯。<br>坚持学习，保持好奇心。<br>坚持锻炼身体。<br>转载来自：<a href="http://zouzls.github.io/" target="_blank" rel="external">http://zouzls.github.io/</a></p>
+<ol>
+<li>若$x<em>{m}!=y</em>{n}$，则有：</li>
+</ol>
+<ul>
+<li>若最终$z<em>{k}!=x</em>{m}$，则 LCS(m,n)= LCS(m-1,n)</li>
+<li>若最终$z<em>{k}!=y</em>{n}$,则 LCS(m,n)= LCS(m,n-1)</li>
+<li>LCS(m,n)=Max{LCS(m-1,n), LCS(m,n-1)}</li>
+</ul>
+<p>由于子问题具有 <strong>高度重叠性（见下图）</strong>，可以用二维数组LCS[m][n]保存中间状态，为以后重复利用，用 <strong>空间换时间</strong>，这也是动态规划的核心思想。</p>
+<p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/%E5%AD%90%E9%97%AE%E9%A2%98%E5%85%B7%E6%9C%89%E7%9A%84%E9%87%8D%E5%8F%A0%E6%80%A7.png" alt=""></p>
+<h2 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h2><p>使用动态规划求解，LCS的 <strong>状态转移方程</strong> 为：</p>
+<ul>
+<li>LCS[i,j]=0                           if i=0 or j=0</li>
+<li>LCS[i,j]=LCS[i-1, j-1] + 1           if i, j&gt;0, and xi=yj</li>
+<li>LCS[i,j]=Max(LCS[i,j-1],LCS[i-1,j])  if i,j&gt;0, and xi!=yj</li>
+</ul>
+<h2 id="伪代码描述"><a href="#伪代码描述" class="headerlink" title="伪代码描述"></a>伪代码描述</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i=<span class="number">0</span> to m <span class="keyword">do</span> LCS[i,<span class="number">0</span>]←<span class="number">0</span></div><div class="line"><span class="keyword">for</span> j=<span class="number">1</span> to n <span class="keyword">do</span> LCS[<span class="number">0</span>,j]←<span class="number">0</span> <span class="comment">//也就是将数组第一行和第一列初始化为0</span></div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span> to m <span class="keyword">do</span></div><div class="line">     <span class="keyword">for</span> j=<span class="number">1</span> to n <span class="keyword">do</span></div><div class="line">          <span class="keyword">if</span> X[i]=Y[j] then</div><div class="line">               LCS[i,j] = LCS[i<span class="number">-1</span>,j<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">               b[i,j] = “↖” ; <span class="comment">//设置了标志位，利用该标志位，打印出最长公共子序列</span></div><div class="line">          <span class="keyword">else</span> <span class="keyword">if</span> LCS[i<span class="number">-1</span>,j]≥C[i,j<span class="number">-1</span>] then</div><div class="line">               LCS[i,j] = LCS[i<span class="number">-1</span>,j]；</div><div class="line">               b[i,j] = “↑” ;</div><div class="line">          <span class="keyword">else</span></div><div class="line">               LCS[i,j] = LCS[i,j<span class="number">-1</span>]；</div><div class="line">               b[i,j] = “←” ;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> LCS and b</div></pre></td></tr></table></figure>
+<h2 id="回溯求出最长公共子序列的过程"><a href="#回溯求出最长公共子序列的过程" class="headerlink" title="回溯求出最长公共子序列的过程"></a>回溯求出最长公共子序列的过程</h2><p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E5%9B%9E%E6%BA%AF%E8%BF%87%E7%A8%8B.png" alt=""></p>
+<h2 id="参考实现代码"><a href="#参考实现代码" class="headerlink" title="参考实现代码"></a>参考实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCSLength</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n,<span class="keyword">char</span> *x,<span class="keyword">char</span> *y,<span class="keyword">int</span> **LCS,<span class="keyword">int</span> **b)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> i,j;  </div><div class="line"></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)  </div><div class="line">        LCS[i][<span class="number">0</span>] = <span class="number">0</span>;  <span class="comment">//将数组的第一行置为0</span></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; i++)  </div><div class="line">        LCS[<span class="number">0</span>][i] = <span class="number">0</span>; <span class="comment">//将数组的第一列置为0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)  <span class="comment">//按行的顺序分别求出LCS中各元素的值并保存</span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=n; j++)  </div><div class="line">        &#123;  </div><div class="line">            <span class="keyword">if</span>(x[i]==y[j])  </div><div class="line">            &#123;  </div><div class="line">                LCS[i][j]=LCS[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>;  </div><div class="line">                b[i][j]=<span class="number">1</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c[i<span class="number">-1</span>][j]&gt;=c[i][j<span class="number">-1</span>])  </div><div class="line">            &#123;  </div><div class="line">                LCS[i][j]=LCS[i<span class="number">-1</span>][j];  </div><div class="line">                b[i][j]=<span class="number">2</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">else</span>  </div><div class="line">            &#123;  </div><div class="line">                 LCS[i][j]=LCS[i][j<span class="number">-1</span>];  </div><div class="line">                 b[i][j]=<span class="number">3</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCS</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">char</span> *x,<span class="keyword">int</span> **b)</span>  <span class="comment">//自底向上求解（回溯），递归得到最长公共子序列</span></span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">if</span>(i==<span class="number">0</span> || j==<span class="number">0</span>)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">return</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">if</span>(b[i][j]==<span class="number">1</span>)  </div><div class="line">    &#123;  </div><div class="line">        LCS(i<span class="number">-1</span>,j<span class="number">-1</span>,x,b);  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;x[i]&lt;&lt;<span class="string">" "</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b[i][j]==<span class="number">2</span>)  </div><div class="line">    &#123;  </div><div class="line">        LCS(i<span class="number">-1</span>,j,x,b);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">else</span>  </div><div class="line">    &#123;  </div><div class="line">        LCS(i,j<span class="number">-1</span>,x,b);  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> x[<span class="number">10</span>] = &#123;<span class="string">"ABCBDAB"</span>&#125;;</div><div class="line">    <span class="keyword">char</span> y[<span class="number">10</span>] = &#123;<span class="string">"BDCABA"</span>&#125;;</div><div class="line">    <span class="keyword">int</span> b[<span class="number">10</span>][<span class="number">10</span>];</div><div class="line">    <span class="keyword">int</span> LCS[<span class="number">10</span>][<span class="number">10</span>];</div><div class="line">    <span class="keyword">int</span> m, n;</div><div class="line"></div><div class="line">    m = <span class="built_in">strlen</span>(x);</div><div class="line">    n = <span class="built_in">strlen</span>(y);</div><div class="line"></div><div class="line">    LCSLength(m, n, x, y, LCS, b); <span class="comment">//也就是LCS[m][n]的值为最大长度</span></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"LCS length is:"</span> &lt;&lt; LCS[m][n]&lt;&lt;<span class="string">'\n'</span>;</div><div class="line"></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"LCS:"</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    LCS(m, n, b, x,);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>由于每次调用至少 <strong>向上或向左或斜向上</strong> 移动一步，故最多调用(m + n)次就会遇到i = 0或j = 0的情况，此时开始返回。<br>返回时与递归调用时方向相反，步数相同，故算法时间复杂度为 <strong>Θ(m + n)</strong>。</p>
+<h1 id="动态规划题型总结"><a href="#动态规划题型总结" class="headerlink" title="动态规划题型总结"></a>动态规划题型总结</h1><p>使用动态规划解题需满足的条件：</p>
+<ul>
+<li>问题可分为多个相关子问题</li>
+<li>问题的最优解包含子问题的最优解，问题具有 <strong>最优子结构</strong></li>
+<li>子问题的解被重复利用（子问题的高度重叠性），<strong>将子问题的解保存在表中（一般是二维数组）</strong>，以后用到时直接存取，这是一种空间换时间的做法，也是DP的核心思想。</li>
+</ul>
+<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><ul>
+<li><a href="http://www.cnblogs.com/en-heng/p/3963803.html" target="_blank" rel="external">最长公共子序列与最长公共子串</a></li>
+<li><a href="http://blog.csdn.net/liufeng_king/article/details/8500084" target="_blank" rel="external">最长公共子序列问题(LCS)</a></li>
+<li><a href="http://blog.csdn.net/yysdsyl/article/details/4226630/" target="_blank" rel="external">动态规划解最长公共子序列问题</a></li>
+</ul>
 
       
     </div>
@@ -447,9 +477,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
-          
-            <a href="/tags/next/" rel="tag">#next</a>
+            <a href="/tags/Dynamic-Programming/" rel="tag">#Dynamic Programming</a>
           
         </div>
       
@@ -458,13 +486,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/27/求解子数组之和的最大值及相应的子数组/" rel="next" title="求解子数组之和的最大值及相应的子数组">
+                <i class="fa fa-chevron-left"></i> 求解子数组之和的最大值及相应的子数组
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/16/JAVA的学习之对象与类/" rel="prev" title="JAVA的学习之对象与类">
-                JAVA的学习之对象与类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,10 +507,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/06/05/转-用hexo搭建个人博客/"
-     data-title="用hexo搭建个人博客[转]"
+        <div class="ds-share flat" data-thread-key="2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/"
+     data-title="动态规划之最长公共子序列（longest common subsequence）问题的求解"
      data-content=""
-     data-url="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/">
+     data-url="http://bodycoder101.github.io/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -509,8 +537,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/05/转-用hexo搭建个人博客/"
-           data-title="用hexo搭建个人博客[转]" data-url="http://bodycoder101.github.io/2016/06/05/转-用hexo搭建个人博客/">
+      <div class="ds-thread" data-thread-key="2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/"
+           data-title="动态规划之最长公共子序列（longest common subsequence）问题的求解" data-url="http://bodycoder101.github.io/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/">
       </div>
     
   </div>
@@ -665,7 +693,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于博客源码的备份和同步更新"><span class="nav-number">1.</span> <span class="nav-text">关于博客源码的备份和同步更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案选择"><span class="nav-number">1.1.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出现问题"><span class="nav-number">1.2.</span> <span class="nav-text">出现问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">2.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最长公共子序列（LCS）"><span class="nav-number">2.</span> <span class="nav-text">最长公共子序列（LCS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">2.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题求解"><span class="nav-number">2.2.</span> <span class="nav-text">问题求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪代码描述"><span class="nav-number">2.3.</span> <span class="nav-text">伪代码描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯求出最长公共子序列的过程"><span class="nav-number">2.4.</span> <span class="nav-text">回溯求出最长公共子序列的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考实现代码"><span class="nav-number">2.5.</span> <span class="nav-text">参考实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">2.6.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划题型总结"><span class="nav-number">3.</span> <span class="nav-text">动态规划题型总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
           </div>
         </section>
