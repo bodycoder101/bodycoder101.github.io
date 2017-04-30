@@ -1,10 +1,8 @@
 ﻿---
 title: 新环境下Hexo博客部署及维护
 date: 2017-02-20
-categories: Git/Github
-tags: 
-- git
-- hexo
+categories: hexo
+tags: [git,hexo]
 ---
    之前的博客源码一直放在Linux（CentOS）环境下，最近想要更新博客，发现在Linux环境下编辑Markdown文件各种不方便；在Windows环境写好后再传到Linux环境下再部署总觉得多此一举，遂想要将博客迁移出来，期间遇到了各种问题，还好都解决了。将出现的问题及解决方法总结记录下来，以后或许还能用上。
    <!-- more -->
@@ -13,7 +11,7 @@ tags:
 
  - master分支：存放博客部署的静态文件(也就是public文件夹下的内容)
  - hexo分支：存放博客源文件，配置文件等
- 
+
 在新环境(Windows)下安装配置*Git，Node.js，Python*;Python建议下载2.7版本，安装好后别忘了配置环境变量。
 提供下载链接：
 
@@ -76,7 +74,3 @@ npm install express
 ## 参考博客
 1.[Hexo博客多电脑同步及更换电脑后处理方式](http://www.lzblog.cn/2016/11/21/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5%E5%8F%8A%E6%9B%B4%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/)
 2.[在不同的电脑维护Hexo和写作](http://www.rvclient.com/2016/05/21/hexo-everywhere/)
- 
-
-
-

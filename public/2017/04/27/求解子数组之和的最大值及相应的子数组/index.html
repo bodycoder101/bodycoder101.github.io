@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="算法,实习,动态规划," />
 
 
 
@@ -112,15 +112,19 @@
 
 
 
-<meta name="description" content="编程界的健身爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="茅草屋">
-<meta property="og:url" content="http://bodycoder101.github.io/categories/Java-SE/index.html">
+<meta name="description" content="参加了CVTE的2017实习生招聘在线笔试，最后一道编程题，写出了思路，但是无奈时间不太够，没有把代码完全写出来，现趁着有时间把思路整理一下，把实现代码写出来，也是一个不错的总结，也让我对DP有了更好的理解。网上搜索，发现这道题是《编程之美》中的一道题，所以也得出一个结论，这本书也是找工作实习必刷的大菜。
+题目描述有N个元素的整型数组arr，有正有负，数组中连续一个或多个元素组成一个子数组，这个数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="求解子数组之和的最大值及相应的子数组">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/04/27/求解子数组之和的最大值及相应的子数组/index.html">
 <meta property="og:site_name" content="茅草屋">
-<meta property="og:description" content="编程界的健身爱好者">
+<meta property="og:description" content="参加了CVTE的2017实习生招聘在线笔试，最后一道编程题，写出了思路，但是无奈时间不太够，没有把代码完全写出来，现趁着有时间把思路整理一下，把实现代码写出来，也是一个不错的总结，也让我对DP有了更好的理解。网上搜索，发现这道题是《编程之美》中的一道题，所以也得出一个结论，这本书也是找工作实习必刷的大菜。
+题目描述有N个元素的整型数组arr，有正有负，数组中连续一个或多个元素组成一个子数组，这个数">
+<meta property="og:updated_time" content="2017-04-28T03:45:21.461Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="茅草屋">
-<meta name="twitter:description" content="编程界的健身爱好者">
+<meta name="twitter:title" content="求解子数组之和的最大值及相应的子数组">
+<meta name="twitter:description" content="参加了CVTE的2017实习生招聘在线笔试，最后一道编程题，写出了思路，但是无奈时间不太够，没有把代码完全写出来，现趁着有时间把思路整理一下，把实现代码写出来，也是一个不错的总结，也让我对DP有了更好的理解。网上搜索，发现这道题是《编程之美》中的一道题，所以也得出一个结论，这本书也是找工作实习必刷的大菜。
+题目描述有N个元素的整型数组arr，有正有负，数组中连续一个或多个元素组成一个子数组，这个数">
 
 
 
@@ -141,7 +145,7 @@
 
 
 
-  <title> 分类: Java SE | 茅草屋 </title>
+  <title> 求解子数组之和的最大值及相应的子数组 | 茅草屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +175,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,103 +292,227 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Java SE
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/26/JAVA学习之集合框架（上）/" itemprop="url">
-              
-                <span itemprop="name">Java学习之集合框架（上）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-26T14:39:43+08:00"
-              content="2017-03-26" >
-          03-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/17/JAVA的学习之继承/" itemprop="url">
-              
-                <span itemprop="name">JAVA的学习之继承</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-17T00:00:00+08:00"
-              content="2017-02-17" >
-          02-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/16/JAVA的学习之对象与类/" itemprop="url">
-              
-                <span itemprop="name">JAVA的学习之对象与类</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-16T21:01:13+08:00"
-              content="2017-02-16" >
-          02-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                求解子数组之和的最大值及相应的子数组
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-27T22:42:30+08:00" content="2017-04-27">
+              2017-04-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔试面试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试面试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/27/求解子数组之和的最大值及相应的子数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/求解子数组之和的最大值及相应的子数组/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/27/求解子数组之和的最大值及相应的子数组/" class="leancloud_visitors" data-flag-title="求解子数组之和的最大值及相应的子数组">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参加了CVTE的2017实习生招聘在线笔试，最后一道编程题，写出了思路，但是无奈时间不太够，没有把代码完全写出来，现趁着有时间把思路整理一下，把实现代码写出来，也是一个不错的总结，也让我对DP有了更好的理解。网上搜索，发现这道题是《编程之美》中的一道题，所以也得出一个结论，这本书也是找工作实习必刷的大菜。</p>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>有N个元素的整型数组arr，有正有负，数组中连续一个或多个元素组成一个子数组，这个数组当然有很多子数组，求子数组之和的最大值及相应的子数组。<br>例如：输入[0，-2，3，5，-1，2]应返回7和[3,5,-1]，输入[-9，-2，-3，-5，-3]应返回-2，[-2];<br>要求设计一个o(n)的算法求解。<br><a id="more"></a></p>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>如果是用基本方法，找出所有的子数组，然后求和，取最大值，时间复杂度必然超过o(n),由于有子问题具有重叠性，可以考虑用 <strong>动态规划</strong> 求解，下面我就一步步分析，先由子数组之和的最大值分析求解引出，然后在求解子数组的始末下标，得到子数组。</p>
+<h1 id="求解子数组之和的最大值"><a href="#求解子数组之和的最大值" class="headerlink" title="求解子数组之和的最大值"></a>求解子数组之和的最大值</h1><p>考虑用DP求解，从后往前分析，考虑 <strong>最后一个元素</strong> arr[n-1]与最大子数组的关系，有下面三种情况(相应的3个子问题)：</p>
+<ol>
+<li>arr[n-1]单独构成最大子数组</li>
+<li>最大子数组以arr[n-1]结尾</li>
+<li>最大子数组跟arr[n-1]没有关系，最大子数组在arr[0–n-2]之间，转换为考虑元素arr[n-2]</li>
+</ol>
+<p>现假设：</p>
+<ul>
+<li>以arr[n-1]为结尾的最大子数组和为End[n-1]</li>
+<li>在[0–n-1]范围内最大的子数组和为All[n-1]</li>
+</ul>
+<p>则有：</p>
+<ul>
+<li>子问题1，对应arr[n-1]</li>
+<li>子问题2，对应End[n-1],有关系End[n-1]= max{End[n-2]+arr[n-1], arr[n-1]};</li>
+<li>子问题3，对应All[n-2]</li>
+</ul>
+<p>则有: <strong>All[n-1] = max(arr[n-1], End[n-1], All[n-2]); n&gt;1</strong><br>从后往前考虑，<strong>初始化情况为：End[0]=All[0]=arr[0]; n=1；</strong></p>
+<p>则根据分析，有 <strong>状态转移方程：</strong><br><strong>All[i] = max{arr[i],End[i-1]+arr[i],All[i-1]}</strong><br>给出代码：</p>
+<h2 id="基础代码"><a href="#基础代码" class="headerlink" title="基础代码"></a>基础代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> max(a,b) (a&gt;b ? a : b)</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Maxsum_dp</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> size)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> End[<span class="number">30</span>] = &#123;-INF&#125;;</div><div class="line">  <span class="keyword">int</span> All[<span class="number">30</span>] = &#123;-INF&#125;；</div><div class="line">  End[<span class="number">0</span>] = All[<span class="number">0</span>] = arr[<span class="number">0</span>];<span class="comment">//初始化</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt; size; i++)</div><div class="line">  &#123;</div><div class="line">    End[i]= max(End[i<span class="number">-1</span>]+arr[i],arr[i]);<span class="comment">//此处的理解：只是将状态转移方程分成两部分，说明End[n-2]为一个负数时，返回arr[n-1]</span></div><div class="line">    All[i]= max(End[i],All[i<span class="number">-1</span>]);</div><div class="line">  &#125;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> All[size<span class="number">-1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从上述代码中分析，只要我们从头遍历数组，累加求和，如果累加求和小于0（对应End[i-1]）,则从当前元素重新开始计数，<br>否则就一直累加，求其中的最大值即可。</p>
+<h2 id="扩展版代码"><a href="#扩展版代码" class="headerlink" title="扩展版代码"></a>扩展版代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Maxsum_ultimate</span><span class="params">(<span class="keyword">int</span> * arr, <span class="keyword">int</span> size)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> maxSum = -INF;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(sum &lt; <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            sum = arr[i];</div><div class="line">        &#125;<span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            sum += arr[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(sum &gt; maxSum)</div><div class="line">        &#123;</div><div class="line">            maxSum = sum;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置"><a href="#求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置" class="headerlink" title="求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置"></a>求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置</h1><p>分析：从扩展版代码中，可以知道，每当 当前子数组的和（sum）小于0时，便是新一轮子数组的开始；每当更新最大和（maxSum）时，便对应可能的结束下标，<strong>此时</strong> 只要用本轮的起始和结束位置更新对应的最大子数组的始末位置即可，直到程序结束，最大子数组的始末位置即被记录下来。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Maxsum_location</span><span class="params">(<span class="keyword">int</span> * arr, <span class="keyword">int</span> size, <span class="keyword">int</span> &amp; start, <span class="keyword">int</span> &amp; end)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> maxSum = -INF;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> substart = start = <span class="number">0</span>;  <span class="comment">/* substart记录每次当前起始位置 */</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(sum &lt; <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            sum = arr[i];</div><div class="line">            substart = i;     <span class="comment">/* 记录当前的起始位置 */</span></div><div class="line">        &#125;<span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            sum += arr[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(sum &gt; maxSum)</div><div class="line">        &#123;</div><div class="line">            maxSum = sum;</div><div class="line">            start = substart; <span class="comment">/* 记录并更新最大子数组起始位置 */</span></div><div class="line">            end = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h1><p> <a href="http://www.ahathinking.com/archives/120.html" target="_blank" rel="external">最大子数组和</a><br> <a href="http://www.cnblogs.com/xkfz007/archive/2012/05/17/2506299.html" target="_blank" rel="external">三种算法求解一个数组的子数组最大和</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="Bodycoder wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号，博主会不定期推出好玩的内容！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/实习/" rel="tag">#实习</a>
+          
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/" rel="next" title="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点">
+                <i class="fa fa-chevron-left"></i> 腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/27/求解子数组之和的最大值及相应的子数组/"
+     data-title="求解子数组之和的最大值及相应的子数组"
+     data-content=""
+     data-url="http://bodycoder101.github.io/2017/04/27/求解子数组之和的最大值及相应的子数组/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -392,6 +520,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/27/求解子数组之和的最大值及相应的子数组/"
+           data-title="求解子数组之和的最大值及相应的子数组" data-url="http://bodycoder101.github.io/2017/04/27/求解子数组之和的最大值及相应的子数组/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -411,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -527,6 +672,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求解子数组之和的最大值"><span class="nav-number">3.</span> <span class="nav-text">求解子数组之和的最大值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础代码"><span class="nav-number">3.1.</span> <span class="nav-text">基础代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展版代码"><span class="nav-number">3.2.</span> <span class="nav-text">扩展版代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置"><span class="nav-number">4.</span> <span class="nav-text">求解子数组之和最大值对应的子数组，即返回最大子数组的始末位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博文"><span class="nav-number">5.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -638,6 +794,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
