@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bodycoder101.github.io/"/>
-  <updated>2017-04-30T14:35:38.976Z</updated>
+  <updated>2017-06-13T12:22:43.970Z</updated>
   <id>http://bodycoder101.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://bodycoder101.github.io/2017/04/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88longest%20common%20subsequence%EF%BC%89%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3/"/>
     <id>http://bodycoder101.github.io/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/</id>
     <published>2017-04-30T08:57:23.000Z</published>
-    <updated>2017-04-30T14:35:38.976Z</updated>
+    <updated>2017-06-13T12:22:43.970Z</updated>
     
     <content type="html">&lt;p&gt;从 二月中旬到四月底 这段时间一直忙于找实习，做准备，刷题，牛客上刷了蛮多算法题，遇到过比较多用动态规划解的题，现在实习的事情基本上也已经定下来了，手上也收到几个还满意的offer，一直想找一个时间去总结下此类题目的解法，思路总是有点模糊，容易忘记，现乘着有时间正好总结一下，也方便后面查阅。动态规划最经典的题目莫过于求两个字符串的最长公共子序列（LCS）问题了，我就以这个问题为例子，总结下动态规划的特点及适用场景。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -89,7 +89,7 @@
     <link href="http://bodycoder101.github.io/2017/04/27/%E6%B1%82%E8%A7%A3%E5%AD%90%E6%95%B0%E7%BB%84%E4%B9%8B%E5%92%8C%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/"/>
     <id>http://bodycoder101.github.io/2017/04/27/求解子数组之和的最大值及相应的子数组/</id>
     <published>2017-04-27T14:42:30.000Z</published>
-    <updated>2017-04-28T03:45:21.461Z</updated>
+    <updated>2017-06-13T12:09:07.554Z</updated>
     
     <content type="html">&lt;p&gt;参加了CVTE的2017实习生招聘在线笔试，最后一道编程题，写出了思路，但是无奈时间不太够，没有把代码完全写出来，现趁着有时间把思路整理一下，把实现代码写出来，也是一个不错的总结，也让我对DP有了更好的理解。网上搜索，发现这道题是《编程之美》中的一道题，所以也得出一个结论，这本书也是找工作实习必刷的大菜。&lt;/p&gt;
 &lt;h1 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h1&gt;&lt;p&gt;有N个元素的整型数组arr，有正有负，数组中连续一个或多个元素组成一个子数组，这个数组当然有很多子数组，求子数组之和的最大值及相应的子数组。&lt;br&gt;例如：输入[0，-2，3，5，-1，2]应返回7和[3,5,-1]，输入[-9，-2，-3，-5，-3]应返回-2，[-2];&lt;br&gt;要求设计一个o(n)的算法求解。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -144,7 +144,7 @@
     <link href="http://bodycoder101.github.io/2017/04/07/%E8%85%BE%E8%AE%AF%E5%AE%9E%E4%B9%A0%E7%94%9F%E7%AC%94%E8%AF%95%E7%BC%96%E7%A8%8B%E9%A2%98--%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%8C%E7%BB%99%E5%AE%9A%E4%B8%89%E4%B8%AA%E7%BB%93%E7%82%B9%EF%BC%8C%E6%B1%82%E5%85%AC%E5%85%B1%E7%88%B6%E7%BB%93%E7%82%B9/"/>
     <id>http://bodycoder101.github.io/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/</id>
     <published>2017-04-07T06:57:31.000Z</published>
-    <updated>2017-04-28T03:47:32.281Z</updated>
+    <updated>2017-06-13T11:45:45.186Z</updated>
     
     <content type="html">&lt;p&gt;今年（2017）腾讯暑期实习生招聘笔试感觉好难，题目分两个部分总共2个小时，第一部分是30道不定项选择题，第二部分包含2道简答题和2道编程题，&lt;br&gt;第一道编程题做了一半，没完全写出来，现在有时间总结一下：&lt;br&gt;题目：一颗满二叉排序树，节点值范围为：1~2^(N-1),给定三个子节点，求最大的公共父节点；&lt;br&gt;     如输入层数N=4，子节点11,13,15; 则输出:12&lt;br&gt;     &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h1&gt;&lt;p&gt;解决这道题的关键，主要是要清晰的知道二叉排序树的性质：&lt;strong&gt;左节点的值小于父节点的值，右节点值大于父节点的值。&lt;/strong&gt;&lt;br&gt;当&lt;strong&gt;N=4&lt;/strong&gt;时，共有15个节点对应的满二叉排序树为（可利用二分法从上到下建立二叉排序树）：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/N_4Trees.jpg&quot; alt=&quot;&quot;&gt;;&lt;br&gt;可以知道有以下性质：&lt;/p&gt;
