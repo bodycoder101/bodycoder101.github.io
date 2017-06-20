@@ -273,7 +273,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -458,7 +458,7 @@ busuanzi_count:
   site_pv_header: <i class="fa fa-eye"> 本站总访问量</i>
   site_pv_footer: 次
   # custom pv span for one page only
-  page_pv: false
+  page_pv: true
   page_pv_header: <i class="fa fa-eye"> 阅读次数</i>
   page_pv_footer: 次
 

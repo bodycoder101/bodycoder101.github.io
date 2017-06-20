@@ -44,13 +44,13 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: 其他：Others
+default_category: Others
 category_map:
-  编程：Programming
-  健身：Bodybuilding
-  读书笔记：Life-Talk
-  转载：Reproduced from others
-  其他：Others
+  Programming
+  Bodybuilding
+  Life-Talk
+  Reproduced from others
+  Others
 tag_map:
 
 # Date / Time format

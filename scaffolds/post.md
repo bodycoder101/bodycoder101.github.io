@@ -3,5 +3,5 @@ title: {{ title }}
 date: {{ date }}
 categories:
 tags:
-copyright:
+copyright: true
 ---
