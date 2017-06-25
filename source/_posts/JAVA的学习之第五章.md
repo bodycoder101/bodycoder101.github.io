@@ -70,5 +70,3 @@ return getClass().getName()+"[name="+name+",salary="+salary+",hireDay"+hireDay+"
  ArrayList<Employee> staff=new ArrayList<>(填写初始容量);//在添加或删除元素时，具有自动调节数组容量的功能；
  ```
  ArrayList是一个采用类型参数的范类型
-
-
