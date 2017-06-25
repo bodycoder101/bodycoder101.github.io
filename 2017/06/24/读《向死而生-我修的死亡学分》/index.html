@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JAVA," />
+  <meta name="keywords" content="thinking," />
 
 
 
@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="本章主要是讲述OOP中的继承（inheritance），利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。">
-<meta name="keywords" content="JAVA">
+<meta name="description" content="前几天花了零碎的时间看完了开复老师的书《修的死亡学分》，之前是因为看了开复老师关于此书的记录片：筑梦者之李开复-《向死而生》,一直好奇像成功如开复，影响力大如开复这样的人，当人生可能走向尽头，会有怎样的感受与感悟，于是趁着京东图书大甩卖的时候也买了一本。">
+<meta name="keywords" content="thinking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA的学习之继承">
-<meta property="og:url" content="http://bodycoder101.github.io/2017/02/17/JAVA的学习之继承/index.html">
+<meta property="og:title" content="读《向死而生 - 我修的死亡学分》">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/06/24/读《向死而生-我修的死亡学分》/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="本章主要是讲述OOP中的继承（inheritance），利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。">
-<meta property="og:updated_time" content="2017-04-28T03:49:10.277Z">
+<meta property="og:description" content="前几天花了零碎的时间看完了开复老师的书《修的死亡学分》，之前是因为看了开复老师关于此书的记录片：筑梦者之李开复-《向死而生》,一直好奇像成功如开复，影响力大如开复这样的人，当人生可能走向尽头，会有怎样的感受与感悟，于是趁着京东图书大甩卖的时候也买了一本。">
+<meta property="og:updated_time" content="2017-06-25T12:40:35.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA的学习之继承">
-<meta name="twitter:description" content="本章主要是讲述OOP中的继承（inheritance），利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。">
+<meta name="twitter:title" content="读《向死而生 - 我修的死亡学分》">
+<meta name="twitter:description" content="前几天花了零碎的时间看完了开复老师的书《修的死亡学分》，之前是因为看了开复老师关于此书的记录片：筑梦者之李开复-《向死而生》,一直好奇像成功如开复，影响力大如开复这样的人，当人生可能走向尽头，会有怎样的感受与感悟，于是趁着京东图书大甩卖的时候也买了一本。">
 
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://bodycoder101.github.io/2017/02/17/JAVA的学习之继承/"/>
+  <link rel="canonical" href="http://bodycoder101.github.io/2017/06/24/读《向死而生-我修的死亡学分》/"/>
 
 
 
 
 
-  <title>JAVA的学习之继承 | 修行者</title>
+  <title>读《向死而生 - 我修的死亡学分》 | 修行者</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +306,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/02/17/JAVA的学习之继承/">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/06/24/读《向死而生-我修的死亡学分》/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bodycoder">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA的学习之继承</h1>
+          <h1 class="post-title" itemprop="name headline">读《向死而生 - 我修的死亡学分》</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-17T00:00:00+08:00">
-                2017-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T19:54:02+08:00">
+                2017-06-24
               </time>
             
 
@@ -358,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-SE/" itemprop="url" rel="index">
-                    <span itemprop="name">Java SE</span>
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
                   </a>
                 </span>
 
@@ -394,17 +394,40 @@
       
 
       
-        <p>本章主要是讲述OOP中的<strong>继承（inheritance）</strong>，利用继承，人们可以基于已存在的类构造一个新类，继承已存在的类也就是复用这些类的方法和域。<br><a id="more"></a></p>
-<h2 id="一、类、超类和子类"><a href="#一、类、超类和子类" class="headerlink" title="一、类、超类和子类"></a>一、类、超类和子类</h2><p>继承的定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Manager extends Employee//Java 用关键字extends代替C++中的冒号：，Java中所有的继承都是公有继承，没有私有继承和保护继承</div><div class="line">&#123;</div><div class="line">//add new files and methods</div><div class="line">&#125;</div><div class="line"></div><div class="line">Employee称为超类（superclass），基类（base class）或父类（parent class）；Maanager称为子类（subclass）、派生类（derived class）或孩子类（child class）。</div></pre></td></tr></table></figure></p>
-<h3 id="1-易错点："><a href="#1-易错点：" class="headerlink" title="1. 易错点："></a>1. 易错点：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Manager boss=new Manger(...);</div><div class="line">Employee[] staff=new Employee[3];</div><div class="line">staff[0]=boss;</div><div class="line"></div><div class="line">boss.setBonus(5000);//OK</div><div class="line">staff[0].setBonus(5000);//EROR</div><div class="line"></div><div class="line">Manager m=staff[i];//EROR</div><div class="line">Employee[] staff=managers;//OK</div><div class="line">Manager boss=(Manager) staff[0];//ok</div></pre></td></tr></table></figure>
-<p>上个例子中，变量staff[0]与boss引用同一个对象，编译器将staff[0]看成Employee对象，故语句6错误；<br>语句8错误的原因，并不是所有的雇员都是经理，小不能赋值给大；<br>语句9正确的原因，所有的经理都是雇员，大（子类，大指的是域值大）可以赋值给小（父类）；<br>总结：<strong>只能大赋小</strong><br>语句10正确的原因，父类赋值给子类必须进行强制类型转换，编译通过（本身staff[0]就是存储Manager类对象，只不过staff是Employee类的对象数组）</p>
-<p><strong>注意</strong>：在将父类转换为之类之前，应该使用<strong>instanceof</strong>进行检查。</p>
-<h2 id="二、JAVA中-Object类是所有类的超类"><a href="#二、JAVA中-Object类是所有类的超类" class="headerlink" title="二、JAVA中 Object类是所有类的超类"></a>二、JAVA中 Object类是所有类的超类</h2><h3 id="1-有关散列hasCode的问题："><a href="#1-有关散列hasCode的问题：" class="headerlink" title="1.有关散列hasCode的问题："></a>1.有关散列hasCode的问题：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String s=&quot;OK&quot;;</div><div class="line">StringBuilder sb=new StringBuilder(s);</div><div class="line">System.out.println(s.hashCode()+&quot; &quot;+sb.hasCode());</div><div class="line">String t=new String(&quot;OK&quot;);</div><div class="line">StringBuilder tb=new StringBuilder(t);</div><div class="line">System.out.println(t.hashCode()+&quot;&quot;+tb.hasCode());</div></pre></td></tr></table></figure>
-<p>打印出来可知，字符串s和t拥有相同的散列码，<strong>字符串的散列码是由内容导出的，所以字符串的散列码相等，字符串缓冲sb与tb有着不同的散列码，散列码是该对象的存储地址，可以看到不相等</strong></p>
-<h3 id="2-toString方法"><a href="#2-toString方法" class="headerlink" title="2.toString方法"></a>2.toString方法</h3><p>绝大多数的toString方法，遵循以下格式：<br>类的名字，随后是一对方括号起来的域值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public String toString()</div><div class="line">&#123;</div><div class="line">return getClass().getName()+&quot;[name=&quot;+name+&quot;,salary=&quot;+salary+&quot;,hireDay&quot;+hireDay+&quot;]&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>只要对象与一个字符串通过操作符<strong>“+”</strong>连接起来，Java编译就会自动地调用toString方法，获得对象的字符串描述；</p>
-<h3 id="3-泛型数组列表"><a href="#3-泛型数组列表" class="headerlink" title="3.泛型数组列表"></a>3.泛型数组列表</h3><p>主要是实现动态数组<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ArrayList&lt;Employee&gt; staff=new ArrayList&lt;&gt;(填写初始容量);//在添加或删除元素时，具有自动调节数组容量的功能；</div></pre></td></tr></table></figure></p>
-<p> ArrayList是一个采用类型参数的范类型</p>
+        <p>前几天花了零碎的时间看完了开复老师的书《修的死亡学分》，之前是因为看了开复老师关于此书的记录片：<a href="https://v.qq.com/x/page/e01581hmi3j.html" target="_blank" rel="external">筑梦者之李开复-《向死而生》</a>,一直好奇像成功如开复，影响力大如开复这样的人，当人生可能走向尽头，会有怎样的感受与感悟，于是趁着京东图书大甩卖的时候也买了一本。<br><a id="more"></a></p>
+<p>这本书主要是讲了开复老师在得癌症之后17个月的一些思考，以及战胜癌症后的心路历程。开复老师在反思了自己在得淋巴癌之前在自己一直坚持的“高效率、最有影响力”的准则，反而觉得这会给自己带来过大的压力，当身体有警告而没有正确对待，置之不理，最终可能出现大病。对于开复老师的一些感悟自己没经历过这些，确实也没太大的感悟，但文中阐述的一些观点我还是很赞同的，正如知乎上<a href="https://www.zhihu.com/question/31693540" target="_blank" rel="external">沈千亿</a>所讲:</p>
+<blockquote>
+<p>每一段他人的经历，对于一个成年且有独立思想的的人来说，都应该是一面观己观心的镜子，而不应该成为神龛或痰盂。</p>
+</blockquote>
+<h1 id="对待未知不在掌控时的心态"><a href="#对待未知不在掌控时的心态" class="headerlink" title="对待未知不在掌控时的心态"></a>对待未知不在掌控时的心态</h1><p>有时候最令人恐慌的是未知，且不在掌控，开复老师得知自己确诊淋巴癌时，尝试各种方法自救，刚开始的中药，能量疗法，葛森有机蔬菜疗法等比较盲目，后面和唐医生的聊天，医生套路似的安慰，然后推荐看此癌症的相关论文，开复老师开始自己研究病情，从研究这些学术论文开始，从茫然无知的恐慌，到了解病情，有了 <strong>“令人振奋的曙光”</strong>，如开复说：</p>
+<blockquote>
+<p>自己研究病情，就像自己坐在副驾驶，可以随时掌握路况。</p>
+</blockquote>
+<p>开复此时的兴奋在于了解了病情，有康复的希望，有了恢复的信心，而没有被癌症本身吓到。我没有这样的经历，不知道此时开复老师的心境，也是没有“心有戚戚焉”。但我倒觉得从这个过程中有最浅显的道理，对待未知不在掌控的情况，就是尽可能去了解，尽量减少未知，做到心中有数，然后不那么恐慌，然后再恢复那么点信心，然后再来点行动，或许就能找到令人振奋的曙光！</p>
+<h1 id="NESS管理法则"><a href="#NESS管理法则" class="headerlink" title="NESS管理法则"></a>NESS管理法则</h1><p>在后面的叙述中，提到了四个八十分管理法则，是关乎健康的四件大事（NESS）：</p>
+<ul>
+<li>饮食（Nutrilon）</li>
+<li>运动（Exercise）</li>
+<li>睡眠（Sleep）</li>
+<li>减压（Stress reduction）</li>
+</ul>
+<blockquote>
+<p>影响健康的这几个因素都有相互作用的，爱吃美食，如果能用运动去平衡，那就无妨；运动不足、睡眠质量不好，那就设法减压、用清净饮食调节身心负荷。</p>
+</blockquote>
+<p>这个刷新了我的一个认识，我觉得很多时候一项没做好，后面一定会受到影响，无法互补，从整体到局部来看，小的变化看上去不会太影响整体，实际上本质就不同了，所以很多时候我会过渡担心，这项没做好，后面就会出现很大的问题，这也使我有时候过度纠结于细节，徒增很多压力。而对于健康来讲，这几个局部因素影响了健康这个整体，而实际上这几个因素是可以互补平衡的，当饮食不是很好时，可以通过睡眠来调节，不需要每一项都达到一百分，只需平均八十分就可以，掌握平衡大法则就好。</p>
+<h1 id="面对焦虑的诀窍"><a href="#面对焦虑的诀窍" class="headerlink" title="面对焦虑的诀窍"></a>面对焦虑的诀窍</h1><p>有在乎的事，就会有相应的压力，开复老师在书中给了五个面对焦虑的诀窍，分别是：</p>
+<ol>
+<li>健康饮食：蔬菜、粗粮比垃圾食品更能舒缓心情。</li>
+<li>少喝咖啡：过量咖啡会消耗血清素，使情绪更糟糕。</li>
+<li><strong>制定计划：面对任何事情，设法获取全部信息并制定相应的处理计划，胸有成竹，自然可以降低焦虑感。</strong></li>
+<li>锻炼身体：运动可以释放内啡肽，有助于减压，保持头脑清醒。</li>
+<li>心存感恩：常将世间种种可爱放在心上，保持积极、正向的心态。</li>
+</ol>
+<p>我觉得最重要的还是有处理计划，不恐慌，当暂时想不到处理方法时，去运动，出汗回来，再想想有没方法处理，如果还是有问题，还不如睡个觉醒来再想。</p>
+<h1 id="最后想表达的"><a href="#最后想表达的" class="headerlink" title="最后想表达的"></a>最后想表达的</h1><blockquote>
+<p>健康、亲人、爱、事业构成的梦想，跟随内心、感受世界，这才是有意义的、非凡的人生。</p>
+</blockquote>
+<p>一个人要有这样一个梦想：<strong>健康、亲人、爱、事业</strong> 构成的梦想。健康确实很重要，特别是作为程序员，整天对着屏幕，坐着，很多时候处于亚健康状态，现在有时间还是去多健身吧，把一定的时间堆积在健身锻炼上面，养成一个习惯。</p>
 
       
     </div>
@@ -449,7 +472,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://bodycoder101.github.io/2017/02/17/JAVA的学习之继承/" title="JAVA的学习之继承">http://bodycoder101.github.io/2017/02/17/JAVA的学习之继承/</a>
+      <a href="http://bodycoder101.github.io/2017/06/24/读《向死而生-我修的死亡学分》/" title="读《向死而生 - 我修的死亡学分》">http://bodycoder101.github.io/2017/06/24/读《向死而生-我修的死亡学分》/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -465,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+            <a href="/tags/thinking/" rel="tag"><i class="fa fa-tag"></i> thinking</a>
           
         </div>
       
@@ -478,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/JAVA的学习之第五章/" rel="next" title="JAVA的学习之第五章">
-                <i class="fa fa-chevron-left"></i> JAVA的学习之第五章
+              <a href="/2017/04/30/动态规划之最长公共子序列（longest common subsequence）问题的求解/" rel="next" title="动态规划之最长公共子序列（longest common subsequence）问题的求解">
+                <i class="fa fa-chevron-left"></i> 动态规划之最长公共子序列（longest common subsequence）问题的求解
               </a>
             
           </div>
@@ -487,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/20/新环境下Hexo博客部署及维护/" rel="prev" title="新环境下Hexo博客部署及维护">
-                新环境下Hexo博客部署及维护 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -700,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、类、超类和子类"><span class="nav-number">1.</span> <span class="nav-text">一、类、超类和子类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-易错点："><span class="nav-number">1.1.</span> <span class="nav-text">1. 易错点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、JAVA中-Object类是所有类的超类"><span class="nav-number">2.</span> <span class="nav-text">二、JAVA中 Object类是所有类的超类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-有关散列hasCode的问题："><span class="nav-number">2.1.</span> <span class="nav-text">1.有关散列hasCode的问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-toString方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.toString方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-泛型数组列表"><span class="nav-number">2.3.</span> <span class="nav-text">3.泛型数组列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对待未知不在掌控时的心态"><span class="nav-number">1.</span> <span class="nav-text">对待未知不在掌控时的心态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NESS管理法则"><span class="nav-number">2.</span> <span class="nav-text">NESS管理法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面对焦虑的诀窍"><span class="nav-number">3.</span> <span class="nav-text">面对焦虑的诀窍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后想表达的"><span class="nav-number">4.</span> <span class="nav-text">最后想表达的</span></a></li></ol></div>
             
 
           </div>
