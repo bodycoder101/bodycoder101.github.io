@@ -120,7 +120,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/TCP_IP%E6%A8%A1%E5%9E%8B.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/data%20encapsulation.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/HTTP_Steps.png">
-<meta property="og:updated_time" content="2017-06-29T14:31:42.432Z">
+<meta property="og:updated_time" content="2017-06-30T01:15:20.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Network Protocol总结[1]--HTTP协议">
 <meta name="twitter:description" content="概念回顾之网络模型（Model）如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 TCP/IP协议簇（Internet Protocol Suite），右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。">
@@ -403,15 +403,15 @@
 <h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><p>包含OSI参考模型中的数据链路层和物理层，<strong>数据链路层(Data Link Layer)又分为逻辑链路控制子层(Logical Link Control –LLC)和媒体接入控制子层(Media Access Control–MAC).</strong></p>
 <p>LLC子层主要负责向其上层提供服务，是在HDLC的基础上发展起来的; MAC子层的主要功能包括数据帧的封装/卸装，帧的寻址和识别，帧的接收与发送，链路的管理，帧的差错控制等, 其非常重要的一项功能是 <strong>仲裁传输介质的使用权</strong>，即规定站点何时可以使用通信介质，局域网中通常使用的载波侦听多路访问（Carrier Sense Multiple Access /Collision Detection，CSMA/CD）.</p>
 <p>物理层定义与传输媒体的接口有关的一些特性,即机械特性、电气特性、功能特性、过程特性,并需要完成并行传输和串行传输之间的转换。数据链路层向该层用户提供透明的和可靠的数据传输服务。 透明性是指该层上传输的数据的内容、格式及编码没有限制,也没有必要解释信息结构的意义；可靠性是指在传输过程中将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路,其具体的方法有帧同步、差错控制、流量控制、链路管理。数据链路层中的主要协议有 <strong>点对点协议PPP,CSMA/CD协议,以太网802.3。</strong></p>
-<h3 id="网际层-IP层"><a href="#网际层-IP层" class="headerlink" title="网际层(IP层)"></a>网际层(IP层)</h3><p>网际层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网际层不提供服务质量的承诺,即所传输的分组可能出错、丢失、重复和失序,当然也不保证分组交付的时限。</p>
+<h2 id="网际层-IP层"><a href="#网际层-IP层" class="headerlink" title="网际层(IP层)"></a>网际层(IP层)</h2><p>网际层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网际层不提供服务质量的承诺,即所传输的分组可能出错、丢失、重复和失序,当然也不保证分组交付的时限。</p>
 <p>网际层中主要协议有IP协议,地址解析协议ARP和网际控制报文协议ICMP等。</p>
 <ul>
 <li>IP协议是网际层的核心,通过路由选择将下一跳IP封装后交给网络接口层。IP 数据报是无连接服务。</li>
 <li>ICMP是网际层的补充,可以回送报文。用来检测网络是否通畅(使用ping命令)。</li>
 <li>ARP是通过已知IP,寻找对于主机的MAC地址。</li>
 </ul>
-<h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><p>运输层为应用进程之间提供端到端(host- to-host)的逻辑通信,并具有复用和分用的功能,即发送方不同的应用进程都可以使用同一个运输层协议传送数据；接收方的运输层在剥去报文的首部后能够把这些数据正确交付到目的应用进程。运输层还将对报文进行差错控制,以提供可靠传输。运输层中主要协议有用户数据报协议UDP和传输控制协议TCP。   </p>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层为用户提供应用程序。<br>应用层中主要协议有域名系统DNS,文件传输协议FTP,远程终端协议TELNET,超文本传输协议HTTP,简单邮件传送协议SMTP,邮件读取协议POP3和IMAP,动态主机配置协议DHCP等。</p>
+<h2 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h2><p>运输层为应用进程之间提供端到端(host- to-host)的逻辑通信,并具有复用和分用的功能,即发送方不同的应用进程都可以使用同一个运输层协议传送数据；接收方的运输层在剥去报文的首部后能够把这些数据正确交付到目的应用进程。运输层还将对报文进行差错控制,以提供可靠传输。运输层中主要协议有用户数据报协议UDP和传输控制协议TCP。   </p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>应用层为用户提供应用程序。<br>应用层中主要协议有域名系统DNS,文件传输协议FTP,远程终端协议TELNET,超文本传输协议HTTP,简单邮件传送协议SMTP,邮件读取协议POP3和IMAP,动态主机配置协议DHCP等。</p>
 <ul>
 <li>DNS：提供域名解析服务,提供域名到IP地址之间的转换,使用端口53</li>
 <li>HTTP：用于实现万维网上的各种链接,即万维网客户程序与万维网服务器之间的连接,使用端口80</li>
@@ -734,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之网络模型（Model）"><span class="nav-number">1.</span> <span class="nav-text">概念回顾之网络模型（Model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络接口层"><span class="nav-number">1.0.1.</span> <span class="nav-text">网络接口层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网际层-IP层"><span class="nav-number">1.0.2.</span> <span class="nav-text">网际层(IP层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运输层"><span class="nav-number">1.0.3.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">1.0.4.</span> <span class="nav-text">应用层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之数据封装（Data-Encapsulation）"><span class="nav-number">2.</span> <span class="nav-text">概念回顾之数据封装（Data Encapsulation）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层协议之HTTP协议"><span class="nav-number">3.</span> <span class="nav-text">应用层协议之HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-请求方法-request-methods"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP 请求方法 (request methods)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP响应状态码-response-status-codes"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP响应状态码 (response status codes)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之网络模型（Model）"><span class="nav-number">1.</span> <span class="nav-text">概念回顾之网络模型（Model）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络接口层"><span class="nav-number">1.0.1.</span> <span class="nav-text">网络接口层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网际层-IP层"><span class="nav-number">1.1.</span> <span class="nav-text">网际层(IP层)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层"><span class="nav-number">1.2.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层"><span class="nav-number">1.3.</span> <span class="nav-text">应用层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之数据封装（Data-Encapsulation）"><span class="nav-number">2.</span> <span class="nav-text">概念回顾之数据封装（Data Encapsulation）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层协议之HTTP协议"><span class="nav-number">3.</span> <span class="nav-text">应用层协议之HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-请求方法-request-methods"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP 请求方法 (request methods)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP响应状态码-response-status-codes"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP响应状态码 (response status codes)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
