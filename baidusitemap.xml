@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://bodycoder101.github.io/2017/07/07/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-list%E3%80%81tuple%E3%80%81dic-set/</loc>
+    <lastmod>2017-07-07T15:26:50.566Z</lastmod>
+    <data>
+        <display>
+        <title>Python基础学习之[list、tuple、dic & set]</title>
+        <pubTime>2017-07-07T15:16:04.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Programming language</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://bodycoder101.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://bodycoder101.github.io/2017/06/29/Network-Protocol%E6%80%BB%E7%BB%93-1-HTTP%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2017-06-30T01:28:36.557Z</lastmod>
     <data>
@@ -33,11 +55,11 @@
         <title>求解子数组之和的最大值及相应的子数组</title>
         <pubTime>2017-04-27T14:42:30.000Z</pubTime>
         
+        <tag>Dynamic Programming</tag>
+         
         <tag>算法</tag>
          
         <tag>实习</tag>
-         
-        <tag>Dynamic Programming</tag>
          
          
            
