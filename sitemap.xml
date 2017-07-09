@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://bodycoder101.github.io/2017/07/07/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-list%E3%80%81tuple%E3%80%81dic-set/</loc>
+    <loc>http://bodycoder101.github.io/2017/07/08/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</loc>
     
-    <lastmod>2017-07-08T12:19:16.401Z</lastmod>
+    <lastmod>2017-07-09T12:32:45.633Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://bodycoder101.github.io/2017/07/08/Python-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</loc>
+    <loc>http://bodycoder101.github.io/2017/07/09/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</loc>
     
-    <lastmod>2017-07-08T12:19:07.505Z</lastmod>
+    <lastmod>2017-07-09T12:31:40.647Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bodycoder101.github.io/2017/07/07/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-list%E3%80%81tuple%E3%80%81dic-set/</loc>
+    
+    <lastmod>2017-07-08T12:19:16.401Z</lastmod>
     
   </url>
   
