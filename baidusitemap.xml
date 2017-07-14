@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://bodycoder101.github.io/2017/07/14/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-IO%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2017-07-14T06:40:13.074Z</lastmod>
+    <data>
+        <display>
+        <title>Python基础学习之[IO编程]</title>
+        <pubTime>2017-07-14T06:34:03.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Programming language</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://bodycoder101.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://bodycoder101.github.io/2017/07/11/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B9%8B-%E9%94%99%E8%AF%AF%E3%80%81%E8%B0%83%E8%AF%95%E5%92%8C%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2017-07-11T14:00:36.140Z</lastmod>
     <data>
@@ -267,9 +289,9 @@
         <title>新环境下Hexo博客部署及维护</title>
         <pubTime>2017-02-19T16:00:00.000Z</pubTime>
         
-        <tag>git</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>git</tag>
          
          
            

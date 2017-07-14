@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="高级特性在Python中，代码越少越好，越简单越好，对于高级语言来说，代码行数越少，开发效率执行效率越高。 切片（slice）对于list，可以使用 L[0:3] 表示 从索引0开始，直到索引3，不包含3，即L[0],L[1],L[3],如果第一个索引为0，可以忽略，即可以写成L[:3]. 倒数第一个的序号为-1.类似与matlab中的语法，可以直接使用范围的下标。L[0:10:2] //这个和m">
+<meta name="description" content="IO编程Input Stream: 数据从外面（磁盘、网络）流进内存Output Stream：数据从内存流出外面外设CPU与内存速度不匹配的问题：  同步IO：程序与数据写入按线性运行，一方必须等待另一方做完 异步IO：程序（CPU执行）与数据写入按并行运行。  两者的最大区别是是否 等待IO执行的结果,异步IO具有相当复杂的编程模型：回调模式、轮询模式等">
 <meta name="keywords" content="Python,Programming language">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python基础学习之[高级特性]">
-<meta property="og:url" content="http://bodycoder101.github.io/2017/07/08/Python基础学习之-高级特性/index.html">
+<meta property="og:title" content="Python基础学习之[IO编程]">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/07/14/Python基础学习之-IO编程/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="高级特性在Python中，代码越少越好，越简单越好，对于高级语言来说，代码行数越少，开发效率执行效率越高。 切片（slice）对于list，可以使用 L[0:3] 表示 从索引0开始，直到索引3，不包含3，即L[0],L[1],L[3],如果第一个索引为0，可以忽略，即可以写成L[:3]. 倒数第一个的序号为-1.类似与matlab中的语法，可以直接使用范围的下标。L[0:10:2] //这个和m">
-<meta property="og:updated_time" content="2017-07-09T12:32:45.633Z">
+<meta property="og:description" content="IO编程Input Stream: 数据从外面（磁盘、网络）流进内存Output Stream：数据从内存流出外面外设CPU与内存速度不匹配的问题：  同步IO：程序与数据写入按线性运行，一方必须等待另一方做完 异步IO：程序（CPU执行）与数据写入按并行运行。  两者的最大区别是是否 等待IO执行的结果,异步IO具有相当复杂的编程模型：回调模式、轮询模式等">
+<meta property="og:updated_time" content="2017-07-14T06:40:13.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python基础学习之[高级特性]">
-<meta name="twitter:description" content="高级特性在Python中，代码越少越好，越简单越好，对于高级语言来说，代码行数越少，开发效率执行效率越高。 切片（slice）对于list，可以使用 L[0:3] 表示 从索引0开始，直到索引3，不包含3，即L[0],L[1],L[3],如果第一个索引为0，可以忽略，即可以写成L[:3]. 倒数第一个的序号为-1.类似与matlab中的语法，可以直接使用范围的下标。L[0:10:2] //这个和m">
+<meta name="twitter:title" content="Python基础学习之[IO编程]">
+<meta name="twitter:description" content="IO编程Input Stream: 数据从外面（磁盘、网络）流进内存Output Stream：数据从内存流出外面外设CPU与内存速度不匹配的问题：  同步IO：程序与数据写入按线性运行，一方必须等待另一方做完 异步IO：程序（CPU执行）与数据写入按并行运行。  两者的最大区别是是否 等待IO执行的结果,异步IO具有相当复杂的编程模型：回调模式、轮询模式等">
 
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://bodycoder101.github.io/2017/07/08/Python基础学习之-高级特性/"/>
+  <link rel="canonical" href="http://bodycoder101.github.io/2017/07/14/Python基础学习之-IO编程/"/>
 
 
 
 
 
-  <title>Python基础学习之[高级特性] | 修行者</title>
+  <title>Python基础学习之[IO编程] | 修行者</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +306,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/07/08/Python基础学习之-高级特性/">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/07/14/Python基础学习之-IO编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bodycoder">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python基础学习之[高级特性]</h1>
+          <h1 class="post-title" itemprop="name headline">Python基础学习之[IO编程]</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T20:12:10+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T14:34:03+08:00">
+                2017-07-14
               </time>
             
 
@@ -394,24 +394,29 @@
       
 
       
-        <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><p>在Python中，代码越少越好，越简单越好，对于高级语言来说，代码行数越少，开发效率执行效率越高。</p>
-<h2 id="切片（slice）"><a href="#切片（slice）" class="headerlink" title="切片（slice）"></a>切片（slice）</h2><p>对于list，可以使用 L[0:3] 表示 从索引0开始，直到索引3，不包含3，即L[0],L[1],L[3],如果第一个索引为0，可以忽略，即可以写成L[:3]. <strong>倒数第一个的序号为-1</strong>.<br>类似与matlab中的语法，可以直接使用范围的下标。<br>L[0:10:2] //这个和matlab有区别，这个步长是2，范围是0到10（不包含10），中间的是尾部<br>tuple也是类似的情况，tuple可以是字符串，是不可变的，然后可以使用切片，截取字符串。<br><a id="more"></a></p>
-<h2 id="迭代（iteration）"><a href="#迭代（iteration）" class="headerlink" title="迭代（iteration）"></a>迭代（iteration）</h2><p>对于dic中的数据，可以使用下列方式进行迭代：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">d=&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>&#125;</div><div class="line">&gt;&gt;<span class="keyword">for</span> key <span class="keyword">in</span> d: <span class="comment">#只迭代key出来</span></div><div class="line">    print(key)</div><div class="line"></div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> d.values(): <span class="comment">#迭代values出来</span></div><div class="line">    print(value)</div><div class="line"></div><div class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> d.items(): <span class="comment">#迭代key和values出来</span></div><div class="line">    print(k,v)</div><div class="line"></div><div class="line"> <span class="keyword">for</span> i,value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>]): <span class="comment">#对list实现下标循环</span></div><div class="line">    print(i,value)</div></pre></td></tr></table></figure>
-<h2 id="列表生成式（List-Comprehensions）"><a href="#列表生成式（List-Comprehensions）" class="headerlink" title="列表生成式（List Comprehensions）"></a>列表生成式（List Comprehensions）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>x1, <span class="number">2</span>x2, <span class="number">3</span>x3, ..., <span class="number">10</span>x10]</div><div class="line">&gt;&gt;&gt;L=[]  <span class="comment">#方法一</span></div><div class="line">&gt;&gt;&gt;<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>):</div><div class="line">    L.append(x*x)</div><div class="line"></div><div class="line">&gt;&gt;&gt;[x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)] <span class="comment">#方法二，直接使用列表生成器</span></div><div class="line"></div><div class="line">&gt;&gt;&gt;[x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>) <span class="keyword">if</span> x%<span class="number">2</span>==<span class="number">0</span>] <span class="comment">#也可以在for后面添加各种判断条件</span></div></pre></td></tr></table></figure>
-<h2 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h2><p>python中一边循环一边计算的机制，称为生成器：generator。<br>在循环过程中不断推出后续的元素，可以不必创建完整的list，节省大量的空间。生成器中的元素应该使用for循环打印出来。<br>list中，可以将列表生成式中的 [] 改成（），相应的就创建了generator。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>g = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>g</div><div class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x1022ef630</span>&gt;</div><div class="line"></div><div class="line">如果有递推关系的函数，也可以使用生成器的概念</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(maxd)</span>:</span></div><div class="line">    n,a,b=<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></div><div class="line">    <span class="keyword">while</span> n&lt;maxd:</div><div class="line">        <span class="keyword">yield</span> b <span class="comment">#作用是替代 print b。</span></div><div class="line">        a,b=b,a+b</div><div class="line">        n=n+<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'done'</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f =fib(<span class="number">6</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f</div><div class="line">&lt;generator object fib at <span class="number">0x000000181D458AF0</span>&gt;</div><div class="line"></div><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> f: <span class="comment">#使用for循环打印出来</span></div><div class="line"><span class="meta">... </span>    print(n)</div><div class="line"></div><div class="line">想要获得<span class="keyword">return</span> <span class="string">'done'</span>的返回值，必须捕获StopIneration错误，返回值在StopIteration的value中</div><div class="line"></div><div class="line">g= fib(<span class="number">6</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        x=next(g)</div><div class="line">        print(x)</div><div class="line">    <span class="keyword">except</span> StopIteration <span class="keyword">as</span> e:</div><div class="line">        print(e.value)</div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure>
-<p>generator来说，遇到return语句或者执行到函数体最后一行语句，就是结束generator的指令，for循环随之结束。</p>
-<h2 id="迭代器（iterator"><a href="#迭代器（iterator" class="headerlink" title="迭代器（iterator)"></a>迭代器（iterator)</h2><p>可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。</p>
-<p>可以使用isinstance()判断一个对象是否是Iterator对象。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li><p>凡是可作用于for循环的对象都是Iterable类型；</p>
-</li>
-<li><p>凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；</p>
-</li>
+        <h1 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h1><p>Input Stream: 数据从外面（磁盘、网络）流进内存<br>Output Stream：数据从内存流出外面<br>外设CPU与内存速度不匹配的问题：</p>
+<ul>
+<li>同步IO：程序与数据写入按线性运行，一方必须等待另一方做完</li>
+<li>异步IO：程序（CPU执行）与数据写入按并行运行。</li>
 </ul>
-<p>集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014317568446245b3e1c8837414168bcd2d485e553779e000" target="_blank" rel="external">liaoxuefeng的博客</a></p>
+<p>两者的最大区别是是否 <strong>等待IO执行的结果</strong>,<br>异步IO具有相当复杂的编程模型：回调模式、轮询模式等<br><a id="more"></a></p>
+<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>Python 内置读写文件的函数，用法和C兼容。</p>
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><ul>
+<li>read(): 适用于文件小，文件一次性读取比较方便的情况</li>
+<li>read(size): 不确定文件大小，可适用循环调用read(size)</li>
+<li>readlines(): 一行行读，返回一个list，适用于配置文件的读取等</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    f = open(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles.txt'</span>,<span class="string">'r'</span>) <span class="comment">#打开一个文件对象使用Open()函数</span></div><div class="line">    print(f.read()) <span class="comment">#read()方法可以一次读取文件所有内容</span></div><div class="line"></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    <span class="keyword">if</span> f:</div><div class="line">        f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#等价于下列方法，with语句自动调用close()方法,此方法是等价的。</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    print(f.read())</div></pre></td></tr></table></figure>
+<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>调用<code>open()</code>函数时，传入标识符<code>w</code>或者<code>wb</code>表示写文本文件或二进制文件.适用write()函数将要写入的字符串写入文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'haha,so good, i love python ~'</span>)</div></pre></td></tr></table></figure>
+<h2 id="StringIO-和-BytesIO"><a href="#StringIO-和-BytesIO" class="headerlink" title="StringIO 和 BytesIO"></a>StringIO 和 BytesIO</h2><p>在内存中操作String和Bytes</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</div><div class="line">f=StringIO()</div><div class="line">f.write(<span class="string">'hello'</span>)</div><div class="line">f.write(<span class="string">' '</span>)</div><div class="line">f.write(<span class="string">'good boy!'</span>)</div><div class="line">print(f.getvalue())</div><div class="line"></div><div class="line"></div><div class="line">f2=StringIO(<span class="string">'Hello!\nbad！\n Guys!'</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    s=f2.readline()</div><div class="line">    <span class="keyword">if</span> s==<span class="string">''</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(s.strip())</div><div class="line"></div><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</div><div class="line">f=BytesIO()</div><div class="line">f.write(<span class="string">'中文啊'</span>.encode(<span class="string">'utf-8'</span>))</div><div class="line">print(f.getvalue())</div><div class="line"></div><div class="line">f2=BytesIO(<span class="string">b'\xe4\xb8\xad\xe6\x96\x87'</span>)</div><div class="line">f2.read()</div></pre></td></tr></table></figure>
+<h2 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="keyword">import</span> os</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.abspath(<span class="string">'.'</span>) <span class="comment">#获取当前位置的绝对路径</span></div><div class="line"><span class="string">'D:\\coder\\Python\\6.27'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.join(<span class="string">'D:\\coder\\Python\\6.27'</span>,<span class="string">'testdir'</span>)<span class="comment">#把新目录的完整路劲表示出来</span></div><div class="line"><span class="string">'D:\\coder\\Python\\6.27\\testdir'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">'D:\\coder\\Python\\6.27\\testdir'</span>) <span class="comment">#创建新目录</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.rmdir(<span class="string">'D:\\coder\\Python\\6.27\\testdir'</span>) <span class="comment">#删除该目录</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.split(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles.txt'</span>) <span class="comment">#拆分路径</span></div><div class="line">(<span class="string">'D:\\coder\\Python\\6.27'</span>, <span class="string">'IOtestfiles.txt'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.splitext(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles.txt'</span>) <span class="comment">#获得文件扩展名</span></div><div class="line">(<span class="string">'D:\\coder\\Python\\6.27\\IOtestfiles'</span>, <span class="string">'.txt'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.rename(<span class="string">'IOtestfiles.txt'</span>,<span class="string">'IOtestfiles.py'</span>) <span class="comment">#修改当前目录下文件的命名，重命名</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.remove(<span class="string">'IOtestfiles.py'</span>) <span class="comment">#删除文件</span></div></pre></td></tr></table></figure>
+<h2 id="序列化（pickling）"><a href="#序列化（pickling）" class="headerlink" title="序列化（pickling）"></a>序列化（pickling）</h2><p>把变量从内存中变成可存储或传输的过程称之为序列化，序列化之后内容可以写入磁盘，或者通过网络传输到另外的机器中。<br>反过来，把变量内容从序列化的对象读到内存里称为反序列化，即unpickling。<br>Python中提供了<code>pickle</code>模块实现序列化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pickle</div><div class="line">d=dict(name=<span class="string">'li'</span>,age=<span class="number">25</span>,score=<span class="number">100</span>)</div><div class="line"><span class="keyword">with</span> open(<span class="string">'dump.txt'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    pickle.dump(d,f) <span class="comment">#该函数将d序列化成bytes，然后这个bytes写入文件</span></div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'dump.txt'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</div><div class="line">    d=pickle.load(f) <span class="comment">#反序列化</span></div><div class="line">print(d)</div></pre></td></tr></table></figure>
+<h3 id="序列化成JSON"><a href="#序列化成JSON" class="headerlink" title="序列化成JSON"></a>序列化成JSON</h3><p>该序列化更通用，更符合web标准，一般使用该种方法，进行序列化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line">d=dict(name=<span class="string">'li'</span>,age=<span class="number">25</span>,score=<span class="number">100</span>)</div><div class="line"><span class="keyword">with</span> open(<span class="string">'dump.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    json.dump(d,f) <span class="comment">#该方法是返回的JSON字符串str，写入file-like-object文件中</span></div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'dump.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    d=json.load(f) <span class="comment">#反序列化，将文件中</span></div><div class="line">print(d)</div><div class="line"></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, score)</span>:</span></div><div class="line">       self.name=name</div><div class="line">       self.age=age</div><div class="line">       self.score=score</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">student2dict</span><span class="params">(std)</span>:</span> <span class="comment">#下面两个是独立于class的转换函数</span></div><div class="line">        <span class="keyword">return</span>&#123;</div><div class="line">        <span class="string">'name'</span>: std.name,</div><div class="line">        <span class="string">'age'</span>: std.age,</div><div class="line">        <span class="string">'score'</span>: std.score</div><div class="line">        &#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict2student</span><span class="params">(d)</span>:</span></div><div class="line">        <span class="keyword">return</span> Student(d[<span class="string">'name'</span>],d[<span class="string">'age'</span>],d[<span class="string">'score'</span>])</div><div class="line"></div><div class="line">s=Student(<span class="string">'li'</span>,<span class="number">20</span>,<span class="number">100</span>)</div><div class="line">print(json.dumps(s,default=student2dict))</div><div class="line">&#123;<span class="string">"name"</span>: <span class="string">"li"</span>, <span class="string">"score"</span>: <span class="number">100</span>, <span class="string">"age"</span>: <span class="number">20</span>&#125;</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(json.loads(json_str,object_hook=dict2student))</div><div class="line">&lt;__main__.Student object at <span class="number">0x000000371B3DB0B8</span>&gt;</div></pre></td></tr></table></figure>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917590955542f9ac5f5c1479faf787ff2b028ab47000" target="_blank" rel="external">liaoxuefeng的博客</a></p>
 
       
     </div>
@@ -456,7 +461,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://bodycoder101.github.io/2017/07/08/Python基础学习之-高级特性/" title="Python基础学习之[高级特性]">http://bodycoder101.github.io/2017/07/08/Python基础学习之-高级特性/</a>
+      <a href="http://bodycoder101.github.io/2017/07/14/Python基础学习之-IO编程/" title="Python基础学习之[IO编程]">http://bodycoder101.github.io/2017/07/14/Python基础学习之-IO编程/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -487,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/Python基础学习之-list、tuple、dic-set/" rel="next" title="Python基础学习之[list、tuple、dic & set]">
-                <i class="fa fa-chevron-left"></i> Python基础学习之[list、tuple、dic & set]
+              <a href="/2017/07/11/Python基础学习之-错误、调试和测试/" rel="next" title="Python基础学习之[错误、调试和测试]">
+                <i class="fa fa-chevron-left"></i> Python基础学习之[错误、调试和测试]
               </a>
             
           </div>
@@ -496,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/09/Python基础学习之-高阶函数/" rel="prev" title="Python基础学习之[高阶函数]">
-                Python基础学习之[高阶函数] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -709,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高级特性"><span class="nav-number">1.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#切片（slice）"><span class="nav-number">1.1.</span> <span class="nav-text">切片（slice）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代（iteration）"><span class="nav-number">1.2.</span> <span class="nav-text">迭代（iteration）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表生成式（List-Comprehensions）"><span class="nav-number">1.3.</span> <span class="nav-text">列表生成式（List Comprehensions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器（generator）"><span class="nav-number">1.4.</span> <span class="nav-text">生成器（generator）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器（iterator"><span class="nav-number">1.5.</span> <span class="nav-text">迭代器（iterator)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.6.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IO编程"><span class="nav-number">1.</span> <span class="nav-text">IO编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读写"><span class="nav-number">1.1.</span> <span class="nav-text">文件读写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">写文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO-和-BytesIO"><span class="nav-number">1.2.</span> <span class="nav-text">StringIO 和 BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作文件和目录"><span class="nav-number">1.3.</span> <span class="nav-text">操作文件和目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化（pickling）"><span class="nav-number">1.4.</span> <span class="nav-text">序列化（pickling）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化成JSON"><span class="nav-number">1.4.1.</span> <span class="nav-text">序列化成JSON</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
