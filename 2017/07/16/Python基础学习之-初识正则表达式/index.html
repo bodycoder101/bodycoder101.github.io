@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2017/07/16/Python基础学习之-初识正则表达式/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="正则表达式(Regrelar Expression)正则表达式是一种描述性的语言表达，本身是字符串；它是给字符串定义一个规则，凡是符合规则的字符串，认为它“匹配了”，否则就是匹配失败，被任务是不合法的，常见的有Email格式，密码格式的匹配等，">
-<meta property="og:updated_time" content="2017-07-16T07:57:11.244Z">
+<meta property="og:updated_time" content="2017-07-16T08:08:14.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础学习之[初识正则表达式]">
 <meta name="twitter:description" content="正则表达式(Regrelar Expression)正则表达式是一种描述性的语言表达，本身是字符串；它是给字符串定义一个规则，凡是符合规则的字符串，认为它“匹配了”，否则就是匹配失败，被任务是不合法的，常见的有Email格式，密码格式的匹配等，">
@@ -404,16 +404,11 @@
 <li>\s 表示可以匹配一个空格</li>
 <li>^ 表示行的开头，<code>^\d</code>表示必须以数字开头</li>
 <li>$ 表示行的结束，<code>\d$</code>表示必须以数字结束</li>
-<li><ul>
-<li>表示贪婪匹配，可以多个匹配<code>\s+</code>表示匹配多个连续的空格</li>
+<li>+ 表示贪婪匹配，可以多个匹配<code>\s+</code>表示匹配多个连续的空格</li>
+<li>* 表示连续匹配，或者叫通配符，例如：<code>0*</code>表示可以将000,00000等匹配出来</li>
 </ul>
-</li>
-<li><ul>
-<li>表示连续匹配，或者叫通配符，例如：<code>0*</code>表示可以将000,00000等匹配出来</li>
-</ul>
-</li>
-</ul>
-<p>需要注意的是，下划线<code>_</code>或者横杠<code>-</code> 需要用转义字符<code>\_ \-</code>。<br>Python中提供内建模块<code>re</code>,代表:<strong>regular expression</strong> 正则表达式。</p>
+<p>需要注意的是，下划线<code>_</code>或者横杠<code>-</code> 需要用转义字符<code>\_ \-</code>。</p>
+<p>Python中提供内建模块<code>re</code>,代表: <strong>regular expression</strong> 正则表达式。</p>
 <h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><p>在Python中要用到正则表达式时，建议要再匹配的字符串前加上<code>r</code>前缀，表示告诉编译器这个String(也就是写的正则表达式)是Raw String，在字符串中含有的特殊字符不需要转义，原样输出.例如：r<code>ABC\n001\-234</code></p>
 <ul>
 <li>match() 方法</li>

@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有3种：  多进程模式； 多线程模式 多进程+多线程模式Python既支持多进程，又支持多线程。">
+<meta name="description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有 3种：  多进程模式 多线程模式 多进程+多线程模式  Python既支持多进程，又支持多线程">
 <meta name="keywords" content="Python,Programming language">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python基础学习之[进程和线程]">
 <meta property="og:url" content="http://bodycoder101.github.io/2017/07/16/Python基础学习之-进程和线程/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有3种：  多进程模式； 多线程模式 多进程+多线程模式Python既支持多进程，又支持多线程。">
-<meta property="og:updated_time" content="2017-07-16T07:57:16.758Z">
+<meta property="og:description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有 3种：  多进程模式 多线程模式 多进程+多线程模式  Python既支持多进程，又支持多线程">
+<meta property="og:updated_time" content="2017-07-16T08:08:36.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础学习之[进程和线程]">
-<meta name="twitter:description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有3种：  多进程模式； 多线程模式 多进程+多线程模式Python既支持多进程，又支持多线程。">
+<meta name="twitter:description" content="进程和线程（Process and Thread）一个进程可以有多个线程，也可以有单个线程，但一个进程 至少有一个 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。多任务的实现方式一般有 3种：  多进程模式 多线程模式 多进程+多线程模式  Python既支持多进程，又支持多线程">
 
 
 
@@ -394,13 +394,13 @@
       
 
       
-        <h1 id="进程和线程（Process-and-Thread）"><a href="#进程和线程（Process-and-Thread）" class="headerlink" title="进程和线程（Process and Thread）"></a>进程和线程（Process and Thread）</h1><p>一个进程可以有多个线程，也可以有单个线程，但一个进程 <strong>至少有一个</strong> 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。<br>多任务的实现方式一般有3种：</p>
+        <h1 id="进程和线程（Process-and-Thread）"><a href="#进程和线程（Process-and-Thread）" class="headerlink" title="进程和线程（Process and Thread）"></a>进程和线程（Process and Thread）</h1><p>一个进程可以有多个线程，也可以有单个线程，但一个进程 <strong>至少有一个</strong> 线程，多进程和多线程的程序涉及到同步、数据共享的问题，编写起来要考虑的问题比较多。<br>多任务的实现方式一般有 <strong>3种</strong>：</p>
 <ul>
-<li>多进程模式；</li>
+<li>多进程模式</li>
 <li>多线程模式</li>
-<li>多进程+多线程模式<br><strong>Python既支持多进程，又支持多线程。</strong><a id="more"></a>
-</li>
+<li>多进程+多线程模式</li>
 </ul>
+<p><strong>Python既支持多进程，又支持多线程</strong><br><a id="more"></a></p>
 <h2 id="多进程（multiprocessing）"><a href="#多进程（multiprocessing）" class="headerlink" title="多进程（multiprocessing）"></a>多进程（multiprocessing）</h2><p>Python的<code>os</code>模块封装了常见的系统调用，比如<code>fork()</code>系统调用，该系统调用是创建一个与原来进程几乎完全相同的进程，一个进程调用 <code>fork()</code> 函数后，系统先给新的进程分配资源，例如存储数据和代码空间，然后把原来的进程的所有值都复制到新的进程中，只有少数值与原来的进程值不同，相当于克隆了一个自己。子进程永远返回0，而父进程返回子进程的ID，子进程调用<code>getppid()</code>拿到父进程的ID，而<code>getpid()</code>是得到本身的进程ID。 <strong> Windows 没有<code>fork</code>系统调用 。</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">print(<span class="string">'Process (%s) start...'</span> %os.getpid())</div><div class="line">pid = os.fork() <span class="comment">#如果是子进程，则返回0，父进程是返回子进程的ID</span></div><div class="line"><span class="keyword">if</span> pid ==<span class="number">0</span>:</div><div class="line">    print(<span class="string">'I am child Process (%s) and my parent is %s.'</span> %(os.getpid(),os.getppid()))</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'I (%s) just created a child process (%s).'</span> %(os.getpid(),pid))</div><div class="line"></div><div class="line">结果如下：</div><div class="line">[root@localhost Python]<span class="comment"># python processing.py</span></div><div class="line">Process (<span class="number">4563</span>) start...</div><div class="line">I am child Process (<span class="number">4564</span>) <span class="keyword">and</span> my parent <span class="keyword">is</span> <span class="number">4563.</span></div><div class="line">I (<span class="number">4563</span>) just created a child process (<span class="number">4564</span>).</div></pre></td></tr></table></figure>
 <p><code>multiprocessing</code>模块提供了<code>Process</code>类代表一个进程对象</p>
