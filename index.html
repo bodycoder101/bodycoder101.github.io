@@ -392,10 +392,45 @@
 
       
         
-          <h1 id="1-简单工厂模式"><a href="#1-简单工厂模式" class="headerlink" title="1.简单工厂模式"></a>1.简单工厂模式</h1><h1 id="2-策略模式"><a href="#2-策略模式" class="headerlink" title="2.策略模式"></a>2.策略模式</h1><h1 id="3-单一职责原则"><a href="#3-单一职责原则" class="headerlink" title="3.单一职责原则"></a>3.单一职责原则</h1><p><strong>前言</strong><br>如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他的职责的能力。而这种耦合会导致脆弱的设计，当发生变化时，设计会遭受到意想不到的破坏。<br><strong>如何判断一个类是否有多个职责？</strong></p>
-<ul>
-<li>想到多于一个动机去改变一个类，那么这个类就多于一个职责，就应该发现这些职责然后将这些职责相互分离</li>
-<li>易维护、易扩展、易复用、灵活多样
+          <h1 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h1><p>如何同时提高一个软件系统的<strong>可维护性和可复用性</strong>是面向对象设计需要解决的核心问题之一。<br>面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。</p>
+<table>
+<thead>
+<tr>
+<th>设计原则名称</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单一职责原则（Single Responsibility Principle,SRP）</td>
+<td>一个类只负责一个功能领域中的相应职责</td>
+</tr>
+<tr>
+<td>开闭原则（Open-Closed Principle,OCR）</td>
+<td>软件实体应对扩展开放，而对修改关闭</td>
+</tr>
+<tr>
+<td>里氏代换原则（Liskov Substitution Principle, LSP）</td>
+<td>所有引用基类对象的地方能够透明地使用其子类的对象</td>
+</tr>
+<tr>
+<td>依赖倒转原则（Dependence Inversion Principle，DIP）</td>
+<td>抽象不应该依赖于细节，细节应该依赖于抽象，也就是说，要针对接口编程，而不是针对实现编程</td>
+</tr>
+<tr>
+<td>接口隔离原则（Interface Segregation Principle, ISP）</td>
+<td>使用多个专门的接口，而不使用单一的总接口</td>
+</tr>
+<tr>
+<td>合成复用原则（Composite Reuse Principle, CRP）</td>
+<td>尽量使用对象的组合，而不是继承来达到复用的目的</td>
+</tr>
+<tr>
+<td>迪米特法则（Law of Demeter, LoD）</td>
+<td>一个软件实体应当尽可能少地与其他实体发生作用</td>
+</tr>
+</tbody>
+</table>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/21/《大话设计模式》读书整理/#more" rel="contents">
