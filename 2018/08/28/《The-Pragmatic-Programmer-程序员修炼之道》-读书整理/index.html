@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/08/28/《The-Pragmatic-Programmer-程序员修炼之道》-读书整理/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="注重实效的哲学 编程是一种技艺，一种需要用心学习的技艺谢谢你们让我们梦想！  注重实效的程序员的特征：  早期的采纳者/快速的改编者：技术和技巧上的直觉 好奇：喜欢提问 批判的思考者：首先抓住事实而不是照搬别人的说法 有现实感：设法理解你面临的每个问题的本质 多才多艺：尽力熟悉广泛的技术和环境">
-<meta property="og:updated_time" content="2018-08-28T15:27:17.978Z">
+<meta property="og:updated_time" content="2018-08-29T16:30:24.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《The Pragmatic Programmer --程序员修炼之道》--读书整理">
 <meta name="twitter:description" content="注重实效的哲学 编程是一种技艺，一种需要用心学习的技艺谢谢你们让我们梦想！  注重实效的程序员的特征：  早期的采纳者/快速的改编者：技术和技巧上的直觉 好奇：喜欢提问 批判的思考者：首先抓住事实而不是照搬别人的说法 有现实感：设法理解你面临的每个问题的本质 多才多艺：尽力熟悉广泛的技术和环境">
@@ -421,7 +421,8 @@
 <blockquote>
 <p>知识上的投资总能得到最好的回报。 —本杰明.富兰克林</p>
 </blockquote>
-<p>随着你的知识的价值降低，对你的公司或客户来说，你的价值也在降低。我们想要阻止这样的事情，决不让它发生。<br>知识资产（Knowledge Portfolios）的保值：</p>
+<p>随着你的知识的价值降低，对你的公司或客户来说，你的价值也在降低。我们想要阻止这样的事情，决不让它发生。</p>
+<p>知识资产（Knowledge Portfolios）的保值：</p>
 <ul>
 <li>定期投资：作为习惯</li>
 <li>多元化：你知道的不同的事情越多，你就越有价值。作为底线，你需要知道你目前所用的特定技术的各种特性。</li>
@@ -430,9 +431,8 @@
 <li>重新评估和平衡：IT行业是一个很动荡的行业，你需要重新评估和平衡你现在掌握的技术。</li>
 </ul>
 <blockquote>
-<p><strong>提示8：</strong><br>Invest Regularly in Your Knowledge Portfolio</p>
+<p><strong>提示8：</strong><br>Invest Regularly in Your Knowledge Portfolio 定期为你的知识资产投资</p>
 </blockquote>
-<p>定期为你的知识资产投资</p>
 <ul>
 <li>每年至少学习一种新语言。拓展思维，避免墨守成规。</li>
 <li>每季度阅读一本技术书籍。掌握你现在使用的技术，扩宽范围，阅读一些与你项目无关的书籍。</li>
@@ -445,7 +445,7 @@
 </blockquote>
 <p>不要低估商业主义的力量。web搜索引擎的页面前面的结果，并不意味着那就是最佳选择；内容供应商可以付钱排在前面。交流越有效，你就越有影响力。</p>
 <h1 id="注重实效的途径"><a href="#注重实效的途径" class="headerlink" title="注重实效的途径"></a>注重实效的途径</h1><blockquote>
-<p>提示11：DRY -Don’t Repeat Yourself</p>
+<p><strong>提示11：</strong><br>DRY -Don’t Repeat Yourself</p>
 </blockquote>
 <p>系统中的每一项知识都必须具有单一、无歧义、权威的表示。<br>重复是如何发生的：</p>
 <ul>
@@ -455,24 +455,78 @@
 <li>开发者之间的重复（interdeveloper duplication）：同一团队不同人重复了同样的信息</li>
 </ul>
 <blockquote>
-<p>提示12：Make it Easy to Reuse 让复用变得容易</p>
+<p><strong>提示12：</strong><br>Make it Easy to Reuse 让复用变得容易</p>
 </blockquote>
 <p>满足正交性，在计算机技术中，该术语用于表示某种不相互依赖性或解耦性。<br>比如：改动界面，而不影响数据库；而更换数据库，不用更改界面。<br>当任何系统的各个组件相互高度依赖时，就不再有局部修正（local fix）这样的事情。<br>面向对象程序设计中的 <strong>“高内聚、低耦合”</strong><br>使用若干技术维持正交性：</p>
 <ul>
-<li>让你的代码保持解耦 –》 面向对象中的迪米特法则</li>
-<li>避免使用全局数据 –》引用全局数据使得把自己与共享该数据的其他组件绑定在了一起</li>
-<li>避免编写相似的函数 –》开始和结束共享公共的代码，中间的算法缺不相同。重复的代码是结构问题的一种症状：使用设计模式中的策略模式。</li>
+<li>让你的代码保持解耦 –&gt; 面向对象中的迪米特法则</li>
+<li>避免使用全局数据 –&gt; 引用全局数据使得把自己与共享该数据的其他组件绑定在了一起</li>
+<li>避免编写相似的函数 –&gt; 开始和结束共享公共的代码，中间的算法缺不相同。重复的代码是结构问题的一种症状：使用设计模式中的策略模式。</li>
 </ul>
 <blockquote>
-<p>提示15：Use Tracer Bullets to Find the Target 使用曳光弹找到目标</p>
+<p><strong>提示15：</strong><br>Use Tracer Bullets to Find the Target 使用曳光弹找到目标</p>
 </blockquote>
-<p>曳光弹类比，曳光弹与真实的子弹在相同的环境、相同的约束下工作。它们快速飞向目标，枪手因此可以得到及时的反馈信息，从而快速调整。 –&gt;使用曳光型代码构建解决方案。<br>曳光代码的优点：</p>
+<p>曳光弹类比，曳光弹与真实的子弹在相同的环境、相同的约束下工作。它们快速飞向目标，枪手因此可以得到及时的反馈信息，从而快速调整。 –&gt; 使用曳光型代码构建解决方案。<br>曳光代码的优点：</p>
 <ul>
 <li>用户能够及早看到工作的东西。</li>
 <li>开发者构建了一个他们能在其中工作的结构。</li>
 <li>你有了一个集成平台。</li>
 <li>你有了可用于演示的东西。</li>
-<li>你将更能够感觉到工作进度。<br>曳光代码虽然简约，但却是完整的，并且构成了最终系统的骨架的一部分，并不是用过即扔的代码。可以把原型制作视为在第一发曳光弹之前进行的侦查和情报收集工作。</li>
+<li>你将更能够感觉到工作进度。</li>
+</ul>
+<p>曳光代码虽然简约，但却是完整的，并且构成了最终系统的骨架的一部分，并不是用过即扔的代码。可以把原型制作视为在第一发曳光弹之前进行的侦查和情报收集工作。</p>
+<h1 id="基本工具"><a href="#基本工具" class="headerlink" title="基本工具"></a>基本工具</h1><p>一个程序员是一位 <strong>工匠</strong>，也需要有工匠这种的心态，每一位工匠都需要一套品质良好的基本工具，而这些工具需要经过认真挑选，可以完成很少与其他工具重合的特定工作。</p>
+<h2 id="纯文本（Plain-Text）–-最强大的工具之一"><a href="#纯文本（Plain-Text）–-最强大的工具之一" class="headerlink" title="纯文本（Plain Text）– 最强大的工具之一"></a>纯文本（Plain Text）– 最强大的工具之一</h2><p>纯文本包含txt、xml、html等，一些是有结构的如xml，一些是没有结构的如txt</p>
+<blockquote>
+<p><strong>提示20：</strong><br>Keep Knowledge in Plain Text 用纯文本保存知识</p>
+</blockquote>
+<p>纯文本的好处：</p>
+<ul>
+<li>保证不过时：人能够阅读的数据形式，以及自描述的数据，将比所有其他的数据形式和创建它们的应用都活的更长久，数据格式让人们能够理解（human understandable）。</li>
+<li>杠杆作用：如果文件是纯文本格式，可以使用版本控制管理系统进行管理，可以自动保存所有改动的历史。从另一方面说纯文本保留着通往二进制的接口。</li>
+<li>更易于测试：如果测试文件是纯文本格式，那么增加、更新、或是修改测试数据就是一件很简单的事情。</li>
+</ul>
+<h2 id="使用脚本语言和编辑器"><a href="#使用脚本语言和编辑器" class="headerlink" title="使用脚本语言和编辑器"></a>使用脚本语言和编辑器</h2><blockquote>
+<p><strong>提示21：</strong><br>Use the Power of Command Shells 利用命令shell的力量</p>
+</blockquote>
+<p>在Linux下可以使用shell命令操作，查找各种文件，比单纯用GUI界面会方便许多，也更加高效</p>
+<blockquote>
+<p><strong>提示22：</strong><br>Use a Single Editor Well 用好一种编辑器</p>
+</blockquote>
+<p>选一种编辑器，彻底了解并熟练掌握它，并将其用于所有的编辑任务：代码、文档、备忘录、系统管理等。<br>编辑器将成为 <strong>双手的延伸~~</strong><code>键会滑过文本和思想时歌唱起来！</code><br><strong>我现在选择ATOM！编辑器就是信仰问题~</strong></p>
+<p><strong>好的编辑器需要有的特性（ATOM都包含）：</strong></p>
+<ul>
+<li>可配置：偏好配置，字体颜色，热键绑定等</li>
+<li>可扩展：集成各种插件，可以集成各种新的语言编译环境</li>
+<li>可编程：可对编辑器编程，让它执行复杂的、多步骤的任务。可以通过宏或内建的脚本编程语言进行编程控制该编辑器。</li>
+<li>语法高亮</li>
+<li>联想和自动缩进</li>
+<li>初始代码模板设置</li>
+<li>类IDE特性（编译、调试等等）</li>
+</ul>
+<p>复现问题一个行之有效的方法：<strong>橡皮鸭的方式</strong><br>也就是向别人解释你写的代码，她应该越过你的肩膀看着屏幕，不断点头（像澡盆里上下晃动的橡皮鸭一样），她们应该一个字也不需要说，你只是一步步解释代码要做些什么，常常就能让问题从屏幕上跳出来，宣布bug自己的存在。</p>
+<blockquote>
+<p><strong>提示27：</strong><br>Don’t Assume it – Prove It，不要假定，要证明。</p>
+</blockquote>
+<p>遇到问题，要想想自己的代码有无问题，而不是怀疑环境、系统自身的问题。</p>
+<blockquote>
+<p><strong>提示28：</strong><br>Learn a Text Mainpulation Language 学习一种文本操作语言</p>
+</blockquote>
+<p>比如常用的Python、Perl等语言，完全可以试试编写脚本优化自己的编程及提高处理效率。</p>
+<h2 id="构建自己的代码生成器"><a href="#构建自己的代码生成器" class="headerlink" title="构建自己的代码生成器"></a>构建自己的代码生成器</h2><p>当工匠面临一再地重复制作同一样东西的任务时，他们会取巧，需要建造夹具或模板，一旦他们做好了夹具，他们就可以反复制作工件。夹具带走了复杂性，降低了出错的机会。</p>
+<p>程序员往往也处在这样的位置上，也需要构建 <strong>代码生成器</strong>，一旦构建好，在整个项目生命周期都可以使用它。</p>
+<p>代码生成器主要有两种主要类型：</p>
+<ul>
+<li>被动代码生成器：生成的结果与生成器分离，生成结果独立。<ul>
+<li>本质上是参数化模板，根据一组输入生成给定的输出</li>
+<li>可以生成模板、源码控制提示、版权说明及标准注释块等</li>
+</ul>
+</li>
+<li>主动代码生成器：每次需要结果时使用，结果用过就扔。<ul>
+<li>将伪代码生成对应的可以运行的代码就需要使用主动代码生成器</li>
+<li>不同语言代码之间的转换也需要主动代码生成器</li>
+</ul>
+</li>
 </ul>
 
       
@@ -767,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的哲学"><span class="nav-number">1.</span> <span class="nav-text">注重实效的哲学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的途径"><span class="nav-number">2.</span> <span class="nav-text">注重实效的途径</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的哲学"><span class="nav-number">1.</span> <span class="nav-text">注重实效的哲学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的途径"><span class="nav-number">2.</span> <span class="nav-text">注重实效的途径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本工具"><span class="nav-number">3.</span> <span class="nav-text">基本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#纯文本（Plain-Text）–-最强大的工具之一"><span class="nav-number">3.1.</span> <span class="nav-text">纯文本（Plain Text）– 最强大的工具之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用脚本语言和编辑器"><span class="nav-number">3.2.</span> <span class="nav-text">使用脚本语言和编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自己的代码生成器"><span class="nav-number">3.3.</span> <span class="nav-text">构建自己的代码生成器</span></a></li></ol></li></ol></div>
             
 
           </div>
