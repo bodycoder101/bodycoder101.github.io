@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/08/28/《The-Pragmatic-Programmer-程序员修炼之道》-读书整理/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="注重实效的哲学 编程是一种技艺，一种需要用心学习的技艺谢谢你们让我们梦想！  注重实效的程序员的特征：  早期的采纳者/快速的改编者：技术和技巧上的直觉 好奇：喜欢提问 批判的思考者：首先抓住事实而不是照搬别人的说法 有现实感：设法理解你面临的每个问题的本质 多才多艺：尽力熟悉广泛的技术和环境">
-<meta property="og:updated_time" content="2018-08-29T16:30:24.742Z">
+<meta property="og:updated_time" content="2018-08-30T15:33:57.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《The Pragmatic Programmer --程序员修炼之道》--读书整理">
 <meta name="twitter:description" content="注重实效的哲学 编程是一种技艺，一种需要用心学习的技艺谢谢你们让我们梦想！  注重实效的程序员的特征：  早期的采纳者/快速的改编者：技术和技巧上的直觉 好奇：喜欢提问 批判的思考者：首先抓住事实而不是照搬别人的说法 有现实感：设法理解你面临的每个问题的本质 多才多艺：尽力熟悉广泛的技术和环境">
@@ -528,6 +528,42 @@
 </ul>
 </li>
 </ul>
+<h1 id="注重实效的偏执-Pragmatic-Paranoia"><a href="#注重实效的偏执-Pragmatic-Paranoia" class="headerlink" title="注重实效的偏执(Pragmatic Paranoia)"></a>注重实效的偏执(Pragmatic Paranoia)</h1><p>编码过程我们必须不断地与他人的代码进行接合，这个代码可能不符合我们的高标准的代码，因此我们常常 <strong>“防卫性编码”</strong><br>而注重实效的程序员会更进一步，他们往往自己也不信任，他们会针对 <strong>自己的错误</strong> 进行防卫性的编码。</p>
+<blockquote>
+<p>当每个人都确实要对你不利时，偏执就是一个好主意。 — Woody Allen</p>
+</blockquote>
+<h2 id="按合约设计-Design-by-Contract-DBC"><a href="#按合约设计-Design-by-Contract-DBC" class="headerlink" title="按合约设计(Design by Contract, DBC)"></a>按合约设计(Design by Contract, DBC)</h2><p>软件系统中使用按合约设计的一种方式，它关注的是用文档记录（并约定）软件模块的权利与责任，以确保程序的正确性。程序的正确性体现在完成了它声明要做的事情的程序，而DBC的核心所在就是用文档记载这样的声明，并进行校验。</p>
+<p>合约包含三个方面：</p>
+<ul>
+<li>前条件(precondition)：为了调用例程，必须为真的条件</li>
+<li>后条件(postcondition)：例程保证会做的事情，例程完成时世界的状态</li>
+<li>类不变项(class invariant)：类确保从调用者的视角来看，该条件总是为真</li>
+<li>循环不变项：循环的最终目标的陈述，每次迭代都保持为真，可用来确定边界</li>
+<li>语义不变项：表达不可违反的需求，一种“哲学合约”</li>
+</ul>
+<p>使用DBC的最大好处也许是他迫使需求与保证的问题走到前台来。在设计时简单的列举输入域的范围是什么、边界条件是什么、例程允诺交付什么等等。</p>
+<h2 id="断言式编程"><a href="#断言式编程" class="headerlink" title="断言式编程"></a>断言式编程</h2><p>需要抛弃 <strong>“这绝不会发生”</strong> 这种概念或者固执，但如果你的程序预期不应该或者不可能走到某一分支，那就应该使用断言式编程。</p>
+<blockquote>
+<p><strong>提示33：</strong><br>If It can’t Happen，Use Assertions to Ensure That It Won’t 如果它不可能发生，用断言确保它不会发生</p>
+</blockquote>
+<p>但传给断言的条件不应该有副作用，断言可能会在编译时被关闭，绝不要把必须执行的代码放在assert中。<br>不要用断言代替真正的错误处理，断言检查的是绝不应该发生的事情。</p>
+<h2 id="使用异常进行错误处理"><a href="#使用异常进行错误处理" class="headerlink" title="使用异常进行错误处理"></a>使用异常进行错误处理</h2><p>异常很少应作为程序的正常流程的一部分使用，异常应保留给意外事件。<br>异常表示即时的，非局部的控制转移 —这是一种级联的（cascading）goto</p>
+<blockquote>
+<p><strong>提示34：</strong><br>Use Exceptions for Exceptional Problems 将异常用于异常问题</p>
+</blockquote>
+<h2 id="如何配平资源"><a href="#如何配平资源" class="headerlink" title="如何配平资源"></a>如何配平资源</h2><p>只要在编程，我们都要管理资源：内存、事务、线程、文件、定时器 — 所有数量有限的事物。<br>大多数时候，资源使用遵循一种可预测的模式：<strong>你分配资源、使用它，然后解除其分配。</strong></p>
+<blockquote>
+<p><strong>提示35：</strong><br>Finish What You Start 要有始有终</p>
+</blockquote>
+<p>这意味着，分配某项资源的例程或者对象应该负责解除该资源的分配。<br>比如，打开文件和关闭文件应在同一个函数或者例程中实现，一个函数打开该文件并在退出时关闭它。</p>
+<p>嵌套分配资源：</p>
+<ul>
+<li>以与资源分配的次序 <strong>相反</strong>的次序解除资源的分配。这样如有一个资源含有对另一个资源的引用，就不会造成资源的遗弃和泄漏</li>
+<li>在代码的不同地方分配同一组资源，总是以相同的次序分配它们，这将降低死锁的可能性。<br>无法配平资源时（出现动态数据结构的程序中），有三种选择（三选一，一般由所选语言决定）：</li>
+<li>顶层结构还负责释放它的任何子结构。</li>
+<li>只是解除顶层结构的分配。它指向的（没有在别处引用的）任何结构都会被遗弃。</li>
+<li>如果顶层结构含有任何子结构，它就拒绝解除自身的分配。</li>
+</ul>
 
       
     </div>
@@ -821,7 +857,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的哲学"><span class="nav-number">1.</span> <span class="nav-text">注重实效的哲学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的途径"><span class="nav-number">2.</span> <span class="nav-text">注重实效的途径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本工具"><span class="nav-number">3.</span> <span class="nav-text">基本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#纯文本（Plain-Text）–-最强大的工具之一"><span class="nav-number">3.1.</span> <span class="nav-text">纯文本（Plain Text）– 最强大的工具之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用脚本语言和编辑器"><span class="nav-number">3.2.</span> <span class="nav-text">使用脚本语言和编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自己的代码生成器"><span class="nav-number">3.3.</span> <span class="nav-text">构建自己的代码生成器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的哲学"><span class="nav-number">1.</span> <span class="nav-text">注重实效的哲学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的途径"><span class="nav-number">2.</span> <span class="nav-text">注重实效的途径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本工具"><span class="nav-number">3.</span> <span class="nav-text">基本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#纯文本（Plain-Text）–-最强大的工具之一"><span class="nav-number">3.1.</span> <span class="nav-text">纯文本（Plain Text）– 最强大的工具之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用脚本语言和编辑器"><span class="nav-number">3.2.</span> <span class="nav-text">使用脚本语言和编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自己的代码生成器"><span class="nav-number">3.3.</span> <span class="nav-text">构建自己的代码生成器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注重实效的偏执-Pragmatic-Paranoia"><span class="nav-number">4.</span> <span class="nav-text">注重实效的偏执(Pragmatic Paranoia)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按合约设计-Design-by-Contract-DBC"><span class="nav-number">4.1.</span> <span class="nav-text">按合约设计(Design by Contract, DBC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断言式编程"><span class="nav-number">4.2.</span> <span class="nav-text">断言式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用异常进行错误处理"><span class="nav-number">4.3.</span> <span class="nav-text">使用异常进行错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何配平资源"><span class="nav-number">4.4.</span> <span class="nav-text">如何配平资源</span></a></li></ol></li></ol></div>
             
 
           </div>
