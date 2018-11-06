@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="leetcode中关于买卖股票最佳时机的题目有：   Best Time to Buy and Sell Stock    Best Time to Buy and Sell Stock 2    Best Time to Buy and Sell Stock 3    Best Time to Buy and Sell Stock 4    Best Time to Buy and Sell S">
+<meta name="description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
 <meta name="keywords" content="stock,maxProfit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode题解:【买卖股票最佳收益系列】">
 <meta property="og:url" content="http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="leetcode中关于买卖股票最佳时机的题目有：   Best Time to Buy and Sell Stock    Best Time to Buy and Sell Stock 2    Best Time to Buy and Sell Stock 3    Best Time to Buy and Sell Stock 4    Best Time to Buy and Sell S">
-<meta property="og:updated_time" content="2018-11-06T15:51:17.001Z">
+<meta property="og:description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
+<meta property="og:updated_time" content="2018-11-06T16:03:48.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode题解:【买卖股票最佳收益系列】">
-<meta name="twitter:description" content="leetcode中关于买卖股票最佳时机的题目有：   Best Time to Buy and Sell Stock    Best Time to Buy and Sell Stock 2    Best Time to Buy and Sell Stock 3    Best Time to Buy and Sell Stock 4    Best Time to Buy and Sell S">
+<meta name="twitter:description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
 
 
 
@@ -396,30 +396,12 @@
       
         <p>leetcode中关于买卖股票最佳时机的题目有：</p>
 <ul>
-<li><ol>
-<li>Best Time to Buy and Sell Stock</li>
-</ol>
-</li>
-<li><ol>
-<li>Best Time to Buy and Sell Stock 2</li>
-</ol>
-</li>
-<li><ol>
-<li>Best Time to Buy and Sell Stock 3</li>
-</ol>
-</li>
-<li><ol>
-<li>Best Time to Buy and Sell Stock 4</li>
-</ol>
-</li>
-<li><ol>
-<li>Best Time to Buy and Sell Stock with Colddown</li>
-</ol>
-</li>
-<li><ol>
-<li>Best Time to Buy and Sell Stock with Transaction Fee<a id="more"></a>
-</li>
-</ol>
+<li>121.Best Time to Buy and Sell Stock</li>
+<li>122.Best Time to Buy and Sell Stock 2</li>
+<li>123.Best Time to Buy and Sell Stock 3</li>
+<li>188.Best Time to Buy and Sell Stock 4</li>
+<li>309.Best Time to Buy and Sell Stock with Colddown</li>
+<li>714.Best Time to Buy and Sell Stock with Transaction Fee<a id="more"></a>
 </li>
 </ul>
 <h1 id="121-Best-Time-to-Buy-and-Sell-stock"><a href="#121-Best-Time-to-Buy-and-Sell-stock" class="headerlink" title="121.Best Time to Buy and Sell stock"></a>121.Best Time to Buy and Sell stock</h1><p><strong>使用动态规划：</strong> 只能买卖一次，求最大收益。<br>从前往后扫描，最大化第i天的收益即第i天的价格 - 第i天及之前的最低价格 <strong>（可以当天买当天卖）</strong>，因此可以使用一个数组minPrice记录第i天及之前的最低价格，maxProfit记录最大收益，即有状态转移方程：</p>
@@ -453,23 +435,32 @@
 </li>
 </ul>
 <h1 id="188-Best-Time-to-Buy-and-Sell-Stock-4"><a href="#188-Best-Time-to-Buy-and-Sell-Stock-4" class="headerlink" title="188. Best Time to Buy and Sell Stock 4"></a>188. Best Time to Buy and Sell Stock 4</h1><p><strong>使用动态规划法：</strong> 与<strong>题122</strong>不同的是，股票<strong>最多交易k次</strong>，求最大收益。</p>
-<p>使用 <strong>局部最优和全局最优解法，</strong>定义两个二维数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- local[i][j]: 表示当前到达第i天，最多可以进行j次交易，且最后一次交易(卖出)在当天卖出的局部最大利润</div><div class="line">- global[i][j]: 表示当前到达第i天，最多可以进行j次交易的全局最大利润</div><div class="line">- diff = prices[i] - prices[i-1]: 第i天与第i-1天的价格差</div><div class="line"></div><div class="line">两者的区别是local[i][j]表明 ** 第i天一定有交易（卖出）发生，** 可以是第i-1天买入，第i天卖出，也可以是第i天买入，并在当天（第i天）卖出。</div></pre></td></tr></table></figure></p>
+<p>使用 <strong>局部最优和全局最优解法，</strong>定义两个二维数组：</p>
+<ul>
+<li>local[i][j]: 表示当前到达第i天，最多可以进行j次交易，且最后一次交易(卖出)在当天卖出的局部最大利润</li>
+<li>global[i][j]: 表示当前到达第i天，最多可以进行j次交易的全局最大利润</li>
+<li>diff = prices[i] - prices[i-1]： 表示第i天与第i-1天的价格差<br>两者的区别是local[i][j]表明 <strong> 第i天一定有交易（卖出）发生，</strong> 可以是第i-1天买入，第i天卖出，也可以是第i天买入，并在当天（第i天）卖出。</li>
+</ul>
 <p>分析过程：</p>
 <ol>
-<li>局部最优 = max{情况1，情况2}</li>
-</ol>
+<li><p>局部最优 = max{情况1，情况2}</p>
 <ul>
 <li>情况1：第i-1天已经<strong>恰好</strong>交易j次<code>(local[i-1][j])</code>; 而第i天必须有交易（卖出）发生，那么如果第i-1天买入，第i天卖出，并”不会”增加交易次数【这里比较难理解，可以这样理解：第一天买入，第二天卖出，然后第二天又买入，第三天卖出的情形和第一天买入，第三天卖出的情形获利效果是一样的，因为没有交易费。】，因此<code>情况1 = local[i-1][j] + diff</code></li>
-<li>情况2：在第i-1天<strong>已经</strong>交易了j-1次<code>global[i-1][j-1]</code>; 为了满足 <strong>“第i天过后进行了j次交易，并且第i天必须有交易发生”</strong> 的条件；<br>我们可以选择两种方式：1)第i-1天买入，第i天卖出，收益为diff; 2)第i天买入，第i天卖出，收益为0。 因此<code>情形2 = global[i-1][j-1]+max{diff, 0}</code></li>
+<li>情况2：在第i-1天<strong>已经</strong>交易了j-1次<code>global[i-1][j-1]</code>; 为了满足 <strong>“第i天过后进行了j次交易，并且第i天必须有交易发生”</strong> 的条件；我们可以选择两种方式：1)第i-1天买入，第i天卖出，收益为diff; 2)第i天买入，第i天卖出，收益为0。 因此<code>情形2 = global[i-1][j-1]+max{diff, 0}</code></li>
 </ul>
-<ol>
-<li>全局最优 = max{情况1，情况2}； 全局最优<code>global[i][j]</code>表示的是第i天最多进行了j次交易的最大收益</li>
-</ol>
+</li>
+<li><p>全局最优 = max{情况1，情况2}； 全局最优<code>global[i][j]</code>表示的是第i天最多进行了j次交易的最大收益</p>
 <ul>
 <li>情况1：第i天过后恰好满足j次交易，也就是第i天一定有交易（卖出）发生，此时为局部最优，因此<code>情况1 = local[i][j]</code></li>
 <li>情况2：第i-1天过后已经满足了j次交易，第i天没有没有交易（卖出）发生，因此为前一个的全局最优，<code>情况2 = global[i-1][j]</code></li>
 </ul>
-<p>因此可以得到的状态转移方程为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- local[i][j] = max&#123;local[i-1][j] + diff, global[i-1][j-1]+max&#123;diff,0&#125;&#125;</div><div class="line">- global[i][j] = max&#123;local[i][j], global[i-1][j]&#125;</div></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>因此可以得到的状态转移方程为：</p>
+<ul>
+<li><code>local[i][j] = max{local[i-1][j] + diff, global[i-1][j-1]+max{diff,0}}</code></li>
+<li><code>global[i][j] = max{local[i][j], global[i-1][j]}</code></li>
+</ul>
 <p>注意：<strong>当k&gt;=days时，</strong> 该情况退化成题122的情形，可以交易多次的情况。<br>复杂度：</p>
 <ul>
 <li>时间：o(n*k)</li>
