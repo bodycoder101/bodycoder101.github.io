@@ -116,7 +116,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/11/28/从0开始学大数据-学习记录/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」">
-<meta property="og:updated_time" content="2018-11-29T09:23:05.319Z">
+<meta property="og:updated_time" content="2018-12-05T09:31:18.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--学习记录">
 <meta name="twitter:description" content="该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」">
@@ -464,6 +464,64 @@
 <li>第二种是用分布式系统（scaling out 水平伸缩）</li>
 </ul>
 <h1 id="大数据存储的王者：HDFS"><a href="#大数据存储的王者：HDFS" class="headerlink" title="大数据存储的王者：HDFS"></a>大数据存储的王者：HDFS</h1><p>类似于RAID的结构，是通过分布式系统的方式实现大规模的数据存储和计算<br>从顶层到底层为：<br>ZooKeeper （选举，争夺znode锁） –&gt; NameNode（主从） –&gt; DataNodes（不同机架）</p>
+<h1 id="MapReduce-既是编程模型又是计算框架"><a href="#MapReduce-既是编程模型又是计算框架" class="headerlink" title="MapReduce 既是编程模型又是计算框架"></a>MapReduce 既是编程模型又是计算框架</h1><blockquote>
+<p>开发人员必须基于 MapReduce 编程模型进行编程开发，然后将程序通过 MapReduce 计算框架分发到 Hadoop 集群中运行。</p>
+</blockquote>
+<p><strong>编程模型：</strong><br>一对 <key, value=""> –&gt; <strong>Map</strong> –&gt; 一对 <key, value=""> –&gt; 将相同的 Key 合并，形成 <key, value集合=""> –&gt; 输入到reduce –&gt; 输出零个或多个 <key, value="">对</key,></key,></key,></key,></p>
+<p>MapReduce 的 WordCount 的程序：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span></span></div><div class="line">       <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</div><div class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</div><div class="line">    <span class="comment">//将每个单词输出一个 &lt;word, 1&gt;的 &lt;key, value&gt; --&gt; &lt;word, &lt;1,1,1,1,...&gt;&gt;</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span></span></div><div class="line">                    ) <span class="keyword">throws</span> IOException, InterruptedException &#123;</div><div class="line">      StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</div><div class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</div><div class="line">        word.set(itr.nextToken());</div><div class="line">        context.write(word, one);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span></span></div><div class="line">       <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; &#123;</div><div class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</div><div class="line"></div><div class="line">    <span class="comment">//将集合中的1求和 --&gt; &lt;word, sum&gt;</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></div><div class="line">                       Context context</div><div class="line">                       ) <span class="keyword">throws</span> IOException, InterruptedException &#123;</div><div class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</div><div class="line">        sum += val.get();</div><div class="line">      &#125;</div><div class="line">      result.set(sum);</div><div class="line">      context.write(key, result);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一个 map 函数可以针对一部分数据进行计算，也就是说可以将一个大数据切分成很多块， MapReduce 计算框架为每个数据块分配一个 map 函数去计算，从而实现大数据的分布式计算。</p>
+<p>MapReduce 既可能指<strong>编程模型</strong>，也就是一个 MapReduce 程序，也可能是指<strong>计算框架</strong>，执行大数据的分布式计算。</p>
+<blockquote>
+<p>模型就是人们对一类事物的概括与抽象，可以帮助我们更好的理解事物的本质，更方便的解决问题。</p>
+</blockquote>
+<p>总结 MapReduce 的过程：</p>
+<ol>
+<li>在 Map 阶段为每一个数据块分配一个 Map 计算任务，然后将所有 Map 输出的 Key 进行合并</li>
+<li>相同的 Key 及其对应的 Value 发送给同一个 Reduce 任务去处理</li>
+</ol>
+<h1 id="MapReduce-计算框架的运作"><a href="#MapReduce-计算框架的运作" class="headerlink" title="MapReduce 计算框架的运作"></a>MapReduce 计算框架的运作</h1><p>这个过程有两个问题需要处理：</p>
+<ul>
+<li>如何为每个数据块分配一个 Map 计算任务</li>
+<li>处于不同服务器的 Map 输出 <key, value="">, 如何把相同的 Key 聚合在一起发送给 Reduce 任务进行处理</key,></li>
+</ul>
+<h2 id="MapReduce-作业启动和运行机制"><a href="#MapReduce-作业启动和运行机制" class="headerlink" title="MapReduce 作业启动和运行机制"></a>MapReduce 作业启动和运行机制</h2><p>运行过程涉及三类关键进程：</p>
+<ul>
+<li>大数据应用进程：包含 Map 和 Reduce 类、输入输出文件路径等</li>
+<li>JobTracker 进程：这类进程根据要处理的输入数据量，启动相应的 Map 和 Reduce 程序进程</li>
+<li>TaskTracker 进程：负责启动和管理 Map 进程以及 Reduce 进程</li>
+</ul>
+<p>注： JobTracker 进程和 TaskTracker 进程是主从关系，也就是相对应的主从服务器</p>
+<p>也就是 HDFS 中<strong>主服务器是 NameNode，从服务器是 DataNode</strong>，相应的一主多从的主要架构模式。主服务器只有一台，掌控全局，从服务器有多台，负责具体的事情。</p>
+<p>所有的这一切都由 MapReduce 计算框架完成，而使用者只需要编写一个 map 函数和一个 reduce 函数就可以，不需要关心着两个函数是如何分布启动到集群上的，也不用关心数据块又是如何分配给计算任务的。</p>
+<h2 id="MapReduce-数据合并与连接机制"><a href="#MapReduce-数据合并与连接机制" class="headerlink" title="MapReduce 数据合并与连接机制"></a>MapReduce 数据合并与连接机制</h2><p>在 map 输出与 reduce 输入之间，MapReduce 框架会进行数据的合并与连接操作，这个操作叫 <strong>shuffle</strong>，也就是相同的 <key, value=""> 需要 shuffle到具体的 Reduce 任务 ID上，这个过程需要 partitioner 来实现</key,></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPartiontion</span><span class="params">(K2 key, V2 value, <span class="keyword">int</span> numReduceTasks)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> (key.hashCode() &amp; Inter.MAX_VALUE) % numReduceTasks;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>shuffle: 分布式计算需要将不同服务器上的相关数据合并到一起进行下一步的计算，这就是shuffle, 目的就是让数据关联起来</p>
+</blockquote>
+<h1 id="Yarn-资源调度框架"><a href="#Yarn-资源调度框架" class="headerlink" title="Yarn 资源调度框架"></a>Yarn 资源调度框架</h1><p>Hadoop 由三部分组成：</p>
+<ul>
+<li>分布式文件系统 HDFS</li>
+<li>分布式计算框架 MapReduce</li>
+<li>分布式集群资源调度框架 Yarn（Yet Another Resource Negotiator）</li>
+</ul>
+<p>Yarn 包含两个部分也是两种主要进程：</p>
+<ul>
+<li>资源管理器（Resource Manager）<ul>
+<li>调度器：资源分配算法，如 Fair Scheduler、 Capacity Scheduler；资源分配单位是容器（container）</li>
+<li>应用程序管理器：负责应用程序的提交、监控应用程序运行状态等</li>
+</ul>
+</li>
+<li>节点管理器（Node Manager）</li>
+</ul>
+<p>Yarn 的工作流程：</p>
+<ol>
+<li>向 Yarn 提交应用程序</li>
+<li>ResourceManager 进程和 NodeManager 进程通信，为用户程序分配第一个容器（包含 MapReduce ApplicationMaster）</li>
+<li>MapReduce ApplicationMaster 启动，向 ResourceManager 进程注册并申请资源</li>
+<li>MapReduce ApplicationMaster 与 NodeManager 进程通信，分发 MapReduce 程序至 NodeManager 所在服务器</li>
+<li>MapReduce 任务在运行期间与 MapReduce ApplicationMaster 通信，提交运行状态，直到任务结束</li>
+<li>MapReduce ApplicationMaster 向 ResourceManager 进程注销并释放所有的容器资源</li>
+</ol>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://time.geekbang.org/column/133" target="_blank" rel="external">从0开始学大数据</a></li>
 </ul>
@@ -752,7 +810,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据发展史"><span class="nav-number">1.</span> <span class="nav-text">大数据发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据的应用"><span class="nav-number">1.1.</span> <span class="nav-text">大数据的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用的发展史"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用的发展史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用领域"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用领域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动计算与移动数据"><span class="nav-number">2.</span> <span class="nav-text">移动计算与移动数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从RAID看垂直伸缩到水平伸缩的演化"><span class="nav-number">3.</span> <span class="nav-text">从RAID看垂直伸缩到水平伸缩的演化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据存储的王者：HDFS"><span class="nav-number">4.</span> <span class="nav-text">大数据存储的王者：HDFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据发展史"><span class="nav-number">1.</span> <span class="nav-text">大数据发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据的应用"><span class="nav-number">1.1.</span> <span class="nav-text">大数据的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用的发展史"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用的发展史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用领域"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用领域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动计算与移动数据"><span class="nav-number">2.</span> <span class="nav-text">移动计算与移动数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从RAID看垂直伸缩到水平伸缩的演化"><span class="nav-number">3.</span> <span class="nav-text">从RAID看垂直伸缩到水平伸缩的演化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据存储的王者：HDFS"><span class="nav-number">4.</span> <span class="nav-text">大数据存储的王者：HDFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce-既是编程模型又是计算框架"><span class="nav-number">5.</span> <span class="nav-text">MapReduce 既是编程模型又是计算框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce-计算框架的运作"><span class="nav-number">6.</span> <span class="nav-text">MapReduce 计算框架的运作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-作业启动和运行机制"><span class="nav-number">6.1.</span> <span class="nav-text">MapReduce 作业启动和运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-数据合并与连接机制"><span class="nav-number">6.2.</span> <span class="nav-text">MapReduce 数据合并与连接机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yarn-资源调度框架"><span class="nav-number">7.</span> <span class="nav-text">Yarn 资源调度框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
