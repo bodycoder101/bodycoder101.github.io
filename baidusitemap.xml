@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://bodycoder101.github.io/2018/12/06/%E3%80%90%E4%BB%8E0%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%A4%A7%E6%95%B0%E6%8D%AE%E3%80%91-%E6%A8%A1%E5%9D%97%E4%BA%8C%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-12-06T13:08:07.054Z</lastmod>
+    <data>
+        <display>
+        <title>【从0开始学大数据】--模块二学习记录</title>
+        <pubTime>2018-12-06T07:06:51.000Z</pubTime>
+        
+        <tag>big data</tag>
+         
+        <tag>Hive</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习记录" url="http://bodycoder101.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://bodycoder101.github.io/2018/11/28/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%A4%A7%E6%95%B0%E6%8D%AE-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2018-12-06T07:04:29.229Z</lastmod>
     <data>
@@ -551,9 +573,9 @@
         <title>新环境下Hexo博客部署及维护</title>
         <pubTime>2017-02-19T16:00:00.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>git</tag>
+         
+        <tag>hexo</tag>
          
          
            
