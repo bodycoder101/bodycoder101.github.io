@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hive 可实现的计算有聚合（group by）、过滤（">
+<meta name="description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
 <meta name="keywords" content="big data,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【从0开始学大数据】--模块二学习记录">
 <meta property="og:url" content="http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hive 可实现的计算有聚合（group by）、过滤（">
-<meta property="og:updated_time" content="2018-12-06T13:08:07.054Z">
+<meta property="og:description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
+<meta property="og:updated_time" content="2018-12-08T09:15:21.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--模块二学习记录">
-<meta name="twitter:description" content="Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hive 可实现的计算有聚合（group by）、过滤（">
+<meta name="twitter:description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
 
 
 
@@ -394,7 +394,8 @@
       
 
       
-        <h1 id="Hive-如何让-MapReduce-实现-SQL-操作"><a href="#Hive-如何让-MapReduce-实现-SQL-操作" class="headerlink" title="Hive 如何让 MapReduce 实现 SQL 操作"></a>Hive 如何让 MapReduce 实现 SQL 操作</h1><p>Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。</p>
+        <p>模块二主要讲的是<strong>大数据生态体系主要产品原理与架构</strong></p>
+<h1 id="Hive-如何让-MapReduce-实现-SQL-操作"><a href="#Hive-如何让-MapReduce-实现-SQL-操作" class="headerlink" title="Hive 如何让 MapReduce 实现 SQL 操作"></a>Hive 如何让 MapReduce 实现 SQL 操作</h1><p>Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。</p>
 <p>Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hive 可实现的计算有聚合（group by）、过滤（where）、连接（join）等操作。</p>
 <p>大数据 SQL 引擎：</p>
 <ul>
@@ -447,6 +448,80 @@
 <li>使用 LSM 树（Log Structed Merge Tree）的数据结构进行数据存储</li>
 </ul>
 <p>LSM 树可以看作是一个 N 阶合并树。数据写操作都在内存中进行，因此可以极大程度地减少磁盘的访问次数，加快访问速度。</p>
+<h1 id="流式计算的代表：Storm、Flink、Spark-Streaming"><a href="#流式计算的代表：Storm、Flink、Spark-Streaming" class="headerlink" title="流式计算的代表：Storm、Flink、Spark Streaming"></a>流式计算的代表：Storm、Flink、Spark Streaming</h1><ul>
+<li>大规模批处理：计算前面的 MapReduce、Spark 等大数据处理框架主要是<strong>处理、计算存储介质上的大规模数据，也叫大规模批处理计算，一般是离线的</strong></li>
+<li>大规模流计算系统：还有一种大数据技术，针对实时产生的大规模数据进行即时计算处理，如摄像头采集的实时视频数据、淘宝实时产生的订单数据等。针对这类大数据的实时处理系统叫做<strong>大数据流计算系统</strong></li>
+</ul>
+<h2 id="Storm"><a href="#Storm" class="headerlink" title="Storm"></a>Storm</h2><p>早期对流数据的处理方式是通过串行的消息队列及处理逻辑实现，处理逻辑既消费前面消息队列的数据，也为下一个消息队列产生数据。<br>这种系统的一个很大的弊端是，无法复用，新的需求都需要重新开发类似的系统。 Storm 应运而生。</p>
+<p>应用 Storm 只需要定义好处理流程和每一个节点的处理逻辑，代码部署到流处理系统后，就能按照预定义的处理流程和处理逻辑执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">    id1((数据源 spout)) --&gt; id2((处理逻辑 bolt))</div><div class="line">    id2 --&gt; id3((处理逻辑 bolt))</div><div class="line">    id2 --&gt; id4((处理逻辑 bolt))</div></pre></td></tr></table></figure>
+<p>如上图中，开发者无需再关注数据的流转、消息的处理和消费，只要编程开发好数据的处理逻辑 bolt 和数据源的逻辑 spolt，以及他们之间的拓扑逻辑关系 toplogy，提交给 Storm 上运行就可以了。</p>
+<p>Storm 是主从架构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">    id1((nimbus)) --- id2(ZooKeeper)</div><div class="line">    id2 --- id3(supervisor)</div><div class="line">    id2 --- id4(supervisor)</div><div class="line">    id2 --- id5(supervisor)</div><div class="line">    id5 --- id6((worker))</div><div class="line">    id5 --- id7((workder))</div></pre></td></tr></table></figure></p>
+<p>其中：</p>
+<ul>
+<li>nimbus：是集群的 Master，负责集群管理、任务分配等</li>
+<li>supervisor：是 Slave，是真正完成计算的地方</li>
+<li>worker：每个 supervisor 启动多个 worker 进程，每个 worker 运行多个 task</li>
+</ul>
+<h2 id="Spark-Streaming"><a href="#Spark-Streaming" class="headerlink" title="Spark Streaming"></a>Spark Streaming</h2><p>Spark 具有<strong>分片</strong>和<strong>快速计算</strong>的特性；Spark Streaming 正是巧妙的利用了该特性，将实时传输进来的数据按照时间进行分段，把一段时间传输进来的数据合并在一起，当做一批数据，再去交给 Spark 去处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">    id1(start) == 流式输入的数据 ==&gt; id2(spark streaming)</div><div class="line">    id2 -. 被分段后的一批一批的数据 .-&gt; id3(spark engine)</div><div class="line">    id3 -. 按批处理计算的数据 .-&gt; id4(end)</div></pre></td></tr></table></figure>
+<p>总结：<br>Spark Streaming 是将实时数据流<strong>按时间分段</strong>后，当做<strong>小的批处理数据</strong>去计算。</p>
+<h2 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h2><p>Flink 既可以流处理又可以批处理计算。</p>
+<ul>
+<li><p>流计算：<br>当需要进行流计算时，Flink 会初始化一个流执行环境 StreamExecutionEnvironment，然后利用这个执行环境构建数据流 DataStream。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">StreamExecutionEnvironment see = StreamExecutionEnvironment.getExecutionEnvironment();</div><div class="line"></div><div class="line">DataStream&lt;WikipediaEditEvent&gt; edits = see.addSource(<span class="keyword">new</span> WikipediaEditsSource());</div></pre></td></tr></table></figure>
+</li>
+<li><p>批处理计算：<br>Flink 会初始化一个批处理执行环境 ExecutionEnvironment，然后利用这个环境构建数据集 DataSet</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();</div><div class="line"></div><div class="line">DataSet&lt;String&gt; text = env.readTextFile(<span class="string">"/path/to/file"</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>计算机软件发展史，是一部<strong>技术和业务不断分离</strong>的历史，人们不断将业务逻辑从技术实现上分离出来，各种技术和架构方案的出现，也基本都是为这一目标服务。</p>
+</blockquote>
+<h1 id="ZooKeeper-是如何保证数据一致性的"><a href="#ZooKeeper-是如何保证数据一致性的" class="headerlink" title="ZooKeeper 是如何保证数据一致性的"></a>ZooKeeper 是如何保证数据一致性的</h1><p>分布式系统的一致性：</p>
+<ul>
+<li>HDFS：为了保证集群的高可用，部署两台 NameNode 服务器，分别为主从服务器，但可能会出现「脑裂」问题，也就是集群对两台主从服务器可用性的判断性不一样</li>
+</ul>
+<p>为了解决多台服务器一致性的解决方案就是使用<strong>ZooKeeper</strong></p>
+<h2 id="Paxos-算法与-ZooKeeper-架构"><a href="#Paxos-算法与-ZooKeeper-架构" class="headerlink" title="Paxos 算法与 ZooKeeper 架构"></a>Paxos 算法与 ZooKeeper 架构</h2><p><strong>Paxos 算法</strong>用来解决分布式系统对数据一致性的要求，它是通过<strong>投票机制</strong>决定一个数据的更新与写入<br>基于 Paxos 算法，ZooKeeper 简化了实现机制，使用了 ZAB（ZooKeeper Atomic Broadcast）的算法协议，应用该算法，ZooKeeper 集群保证数据更新的一致性，并保证高可用。</p>
+<p>大数据系统通常都是主从架构，主服务器管理集群的状态和元信息（meta-info），运行期间只有主服务器工作（active master），必须有另外一个主服务器保持热备（standby master，主用主控，备用主控的区别）</p>
+<p>因此大数据系统依赖 ZooKeeper 提供的一致性数据服务，用于选举当前工作的主服务器。</p>
+<blockquote>
+<p>ZooKeeper 通过 Paxos 选举算法实现数据强一致性，并为各种大数据系统提供主服务器选举服务。</p>
+</blockquote>
+<p>CAP 原则：在一个分布式系统中，Consistency（一致性）、Availability（可用性）、Partition tolerance（分区容错性）三者不可兼得</p>
+<p>总结：<br><strong>大数据技术产品</strong></p>
+<ul>
+<li>大数据计算<ul>
+<li>大数据批计算<ul>
+<li>MapReduce、Spark</li>
+</ul>
+</li>
+<li>大数据流计算<ul>
+<li>Spark Streaming</li>
+<li>Flink</li>
+<li>Storm</li>
+</ul>
+</li>
+<li>大数据仓库<ul>
+<li>Hive</li>
+<li>Spark SQL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>大数据资源管理<ul>
+<li>Yarn</li>
+</ul>
+</li>
+<li>大数据存储<ul>
+<li>HDFS（大数据分布式文件系统）、HBase（一种 NoSQL 数据库）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>我只愿蓬勃生活在此时此刻，无所谓去哪，无所谓见谁。那些我将要去的地方，都是我从未谋面的故乡。以前是以前，现在是现在。我不能选择怎么生，怎么死；但我能决定怎么爱，怎么活。 – 王小波《黄金时代》</p>
+</blockquote>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://time.geekbang.org/column/133" target="_blank" rel="external">从0开始学大数据</a></li>
 </ul>
@@ -743,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-如何让-MapReduce-实现-SQL-操作"><span class="nav-number">1.</span> <span class="nav-text">Hive 如何让 MapReduce 实现 SQL 操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的出现"><span class="nav-number">2.</span> <span class="nav-text">Spark 的出现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-为何更加高效"><span class="nav-number">3.</span> <span class="nav-text">Spark 为何更加高效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-的作业管理"><span class="nav-number">3.1.</span> <span class="nav-text">Spark 的作业管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Big-Table-的开源实现：HBase"><span class="nav-number">4.</span> <span class="nav-text">Big Table 的开源实现：HBase</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-如何让-MapReduce-实现-SQL-操作"><span class="nav-number">1.</span> <span class="nav-text">Hive 如何让 MapReduce 实现 SQL 操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的出现"><span class="nav-number">2.</span> <span class="nav-text">Spark 的出现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-为何更加高效"><span class="nav-number">3.</span> <span class="nav-text">Spark 为何更加高效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-的作业管理"><span class="nav-number">3.1.</span> <span class="nav-text">Spark 的作业管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Big-Table-的开源实现：HBase"><span class="nav-number">4.</span> <span class="nav-text">Big Table 的开源实现：HBase</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式计算的代表：Storm、Flink、Spark-Streaming"><span class="nav-number">5.</span> <span class="nav-text">流式计算的代表：Storm、Flink、Spark Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Storm"><span class="nav-number">5.1.</span> <span class="nav-text">Storm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-Streaming"><span class="nav-number">5.2.</span> <span class="nav-text">Spark Streaming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flink"><span class="nav-number">5.3.</span> <span class="nav-text">Flink</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper-是如何保证数据一致性的"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper 是如何保证数据一致性的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paxos-算法与-ZooKeeper-架构"><span class="nav-number">6.1.</span> <span class="nav-text">Paxos 算法与 ZooKeeper 架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
