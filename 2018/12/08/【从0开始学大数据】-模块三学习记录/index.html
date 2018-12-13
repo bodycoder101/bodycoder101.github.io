@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/12/08/【从0开始学大数据】-模块三学习记录/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="该篇是记录模块三大数据开发实践相关 如何开发一个大数据 SQL 引擎 学习一样技术，如果只是作为学习者，被动接受总是困难的，但如果从开发者的视角看，很多东西就豁然开朗了，明白了原理，有时甚至不需要学习，顺着原理就可以推导出各种实现细节">
-<meta property="og:updated_time" content="2018-12-08T13:28:41.243Z">
+<meta property="og:updated_time" content="2018-12-13T07:27:48.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--模块三学习记录">
 <meta name="twitter:description" content="该篇是记录模块三大数据开发实践相关 如何开发一个大数据 SQL 引擎 学习一样技术，如果只是作为学习者，被动接受总是困难的，但如果从开发者的视角看，很多东西就豁然开朗了，明白了原理，有时甚至不需要学习，顺着原理就可以推导出各种实现细节">
@@ -413,6 +413,38 @@
 <li>将生成的 MapReduce 执行计划和 Hive 执行函数代码提交到 Hadoop 上执行</li>
 </ul>
 <p>因此只需要 <strong>SQL –&gt; Hive AST</strong> (将 SQL 转换为 Hive 语义分析器能够处理的 Hive AST 抽象语法树)</p>
+<h1 id="Spark-的性能优化案例分析"><a href="#Spark-的性能优化案例分析" class="headerlink" title="Spark 的性能优化案例分析"></a>Spark 的性能优化案例分析</h1><p>Apache 开源社区是一个<strong>以基金会方式</strong>运行的<strong>非盈利开源软件组织</strong>，旗下有超过一百个各类开源软件，如：Apache、Tomcat、Kafka、Hadoop、Spark等知名的开源软件。</p>
+<p>软件性能优化 <strong>论断：</strong></p>
+<ul>
+<li>你不能优化一个没有经过性能测试的软件</li>
+<li>你不能优化一个你不了解其架构设计的软件</li>
+</ul>
+<p>软件的主要性能指标包括：</p>
+<ul>
+<li>响应时间</li>
+<li>并发数</li>
+<li>吞吐量</li>
+<li>性能技术器：System Load，线程数，进程数，CPU，内存，磁盘，网络使用效率</li>
+</ul>
+<p>性能优化的一般过程是：<br>性能测试 –&gt; 针对软件架构设计进行分析，寻找导致新能问题的原因 –&gt; 修改相关代码和架构，进行性能优化 –&gt; 性能测试，对比并寻找下一个性能瓶颈</p>
+<p>大数据软件性能优化的角度：</p>
+<ol>
+<li>SQL 语句优化</li>
+<li>数据倾斜处理：去除没有意义的数据</li>
+<li>MapReduce、Spark 代码优化</li>
+<li>配置参数优化</li>
+<li>大数据开源软件代码优化</li>
+</ol>
+<p>Spark 性能优化着手的地方：</p>
+<ol>
+<li>Spark 任务文件初始化调优</li>
+<li>Spark 任务调度优化</li>
+<li>Spark 应用配置优化</li>
+<li>操作系统配置优化：需要详细了解一些Linux底层相关的知识</li>
+<li>硬件优化，比如网络通信，那可以更换网卡硬件</li>
+</ol>
+<p>总结：大数据软件性能优化会涉及<strong>硬件、操作系统、大数据产品及其配置、应用程序开发和部署</strong>几个方面</p>
+<p>阿姆达尔定律（Amdahl’s law）：是一个计算机科学界的经验法则，它代表了处理器并行运算之后效率提升的能力</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://time.geekbang.org/column/133" target="_blank" rel="external">从0开始学大数据</a></li>
 </ul>
@@ -709,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何开发一个大数据-SQL-引擎"><span class="nav-number">1.</span> <span class="nav-text">如何开发一个大数据 SQL 引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何开发一个大数据-SQL-引擎"><span class="nav-number">1.</span> <span class="nav-text">如何开发一个大数据 SQL 引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的性能优化案例分析"><span class="nav-number">2.</span> <span class="nav-text">Spark 的性能优化案例分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
