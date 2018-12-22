@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/12/08/【从0开始学大数据】-模块三学习记录/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="该篇是记录模块三大数据开发实践相关 如何开发一个大数据 SQL 引擎 学习一样技术，如果只是作为学习者，被动接受总是困难的，但如果从开发者的视角看，很多东西就豁然开朗了，明白了原理，有时甚至不需要学习，顺着原理就可以推导出各种实现细节">
-<meta property="og:updated_time" content="2018-12-20T08:20:24.992Z">
+<meta property="og:updated_time" content="2018-12-22T11:33:49.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--模块三学习记录">
 <meta name="twitter:description" content="该篇是记录模块三大数据开发实践相关 如何开发一个大数据 SQL 引擎 学习一样技术，如果只是作为学习者，被动接受总是困难的，但如果从开发者的视角看，很多东西就豁然开朗了，明白了原理，有时甚至不需要学习，顺着原理就可以推导出各种实现细节">
@@ -476,7 +476,17 @@
 </ul>
 <p>集群伸缩设计:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">新增 Node X.</div><div class="line">旧路由算法：Route1(key1) = &#123;pn1, pn2&#125;</div><div class="line">新路由算法：Route2(key1) = &#123;pn1, pnx&#125;</div></pre></td></tr></table></figure></p>
 <p>也就是将 pn2 这个 group 的所有服务器设置为临时失效，并停止读写，然后数据整体迁移到 pnx</p>
-<h1 id="大数据基准测试工具-HiBench"><a href="#大数据基准测试工具-HiBench" class="headerlink" title="大数据基准测试工具 HiBench"></a>大数据基准测试工具 HiBench</h1><p>大数据基准测试的主要用途是对各种大数据产品进行测试，检验大数据产品在不同硬件平台、不同数据量、不同计算任务下的性能表现，可以类比手机硬件的测试工具安兔兔，“跑个分试试”。</p>
+<h1 id="大数据基准测试工具-HiBench"><a href="#大数据基准测试工具-HiBench" class="headerlink" title="大数据基准测试工具 HiBench"></a>大数据基准测试工具 HiBench</h1><p>大数据基准测试的主要用途是对各种大数据产品进行测试，检验大数 据产品在不同硬件平台、不同数据量、不同计算任务下的性能表现，可以类比手机硬件的测试工具安兔兔，“跑个分试试”。</p>
+<h1 id="从大数据性能测试工具-Dew-看如何快速开发大数据系统"><a href="#从大数据性能测试工具-Dew-看如何快速开发大数据系统" class="headerlink" title="从大数据性能测试工具 Dew 看如何快速开发大数据系统"></a>从大数据性能测试工具 Dew 看如何快速开发大数据系统</h1><p>Dew 自身也是一个分布式的大数据系统，它是实时采集服务器上的性能数据和作业日志，然后解析这些作业日志，最后在作业运行时间和性能指标在同一个坐标系绘制出来。</p>
+<p>Akka 编程框架：支持并发编程、异步编程、分布式编程的编程框架，提供 Java 和 Scala 两种编程语言接口</p>
+<p>Akka 使用 Actor 编程模型：</p>
+<ul>
+<li>与面向对象编程模型平行的一种编程模型</li>
+<li>面向对象认为一切都是对象，对象之间通过消息传递，也就是通过<strong>方法调用</strong>，而这个消息通常是<strong>同步</strong>的，也就是必须等函数返回</li>
+<li>Actor 认为一切都是 Actor，Actor 之间通过<strong>真正意义的消息</strong>传递实现复杂的功能，这个消息同时也是<strong>异步</strong>的</li>
+<li>Actor 中的 receive 方法，也就是消息处理方法</li>
+<li>通过异步消息完成业务处理的编程方式叫做 <strong>响应式编程</strong></li>
+</ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://time.geekbang.org/column/133" target="_blank" rel="external">从0开始学大数据</a></li>
 </ul>
@@ -773,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何开发一个大数据-SQL-引擎"><span class="nav-number">1.</span> <span class="nav-text">如何开发一个大数据 SQL 引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的性能优化案例分析"><span class="nav-number">2.</span> <span class="nav-text">Spark 的性能优化案例分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阿里巴巴-Doris-海量数据处理系统设计"><span class="nav-number">3.</span> <span class="nav-text">阿里巴巴 Doris 海量数据处理系统设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构与创新"><span class="nav-number">3.1.</span> <span class="nav-text">架构与创新</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基准测试工具-HiBench"><span class="nav-number">4.</span> <span class="nav-text">大数据基准测试工具 HiBench</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何开发一个大数据-SQL-引擎"><span class="nav-number">1.</span> <span class="nav-text">如何开发一个大数据 SQL 引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的性能优化案例分析"><span class="nav-number">2.</span> <span class="nav-text">Spark 的性能优化案例分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阿里巴巴-Doris-海量数据处理系统设计"><span class="nav-number">3.</span> <span class="nav-text">阿里巴巴 Doris 海量数据处理系统设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构与创新"><span class="nav-number">3.1.</span> <span class="nav-text">架构与创新</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基准测试工具-HiBench"><span class="nav-number">4.</span> <span class="nav-text">大数据基准测试工具 HiBench</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从大数据性能测试工具-Dew-看如何快速开发大数据系统"><span class="nav-number">5.</span> <span class="nav-text">从大数据性能测试工具 Dew 看如何快速开发大数据系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
