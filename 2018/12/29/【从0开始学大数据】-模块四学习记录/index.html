@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/12/29/【从0开始学大数据】-模块四学习记录/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="该篇是记录模块三大数据平台与系统集成相关">
-<meta property="og:updated_time" content="2018-12-31T08:50:20.376Z">
+<meta property="og:updated_time" content="2019-01-01T09:45:46.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--模块四学习记录">
 <meta name="twitter:description" content="该篇是记录模块三大数据平台与系统集成相关">
@@ -469,8 +469,51 @@
 <li>输出的数据：数据结构性更好、用更少的数据包含更多的数据</li>
 </ul>
 <blockquote>
-<p>人作为一个系统，从青壮到垂老，熵也不停增加。要想减缓熵增的速度，必须从外部吸收能量。<br>物质上: 合理饮食、锻炼身体；精神上，不断学习，参与有价值的工作。那些热爱生活、好好学习、积极工作的人是不是看起来更年轻，而整日浑浑噩噩的人则老的更快。 </p>
+<p>人作为一个系统，从青壮到垂老，熵也不停增加。要想减缓熵增的速度，必须从外部吸收能量。<br>物质上: 合理饮食、锻炼身体；精神上，不断学习，参与有价值的工作。那些热爱生活、好好学习、积极工作的人是不是看起来更年轻，而整日浑浑噩噩的人则老的更快。</p>
 </blockquote>
+<h1 id="大厂大数据平台架构"><a href="#大厂大数据平台架构" class="headerlink" title="大厂大数据平台架构"></a>大厂大数据平台架构</h1><p>业界常规的大数据平台架构方案，大部分还是基于大数据平台 <strong>Lamda</strong> 架构进行设计的。</p>
+<h2 id="淘宝大数据平台"><a href="#淘宝大数据平台" class="headerlink" title="淘宝大数据平台"></a>淘宝大数据平台</h2><p>基本分为<strong>三个部分</strong></p>
+<ul>
+<li>数据源与数据同步<ul>
+<li>Oracle、MySQL、日志系统及爬虫数据等</li>
+<li>Gataway Servers<ul>
+<li>DataExchange、DBSync 及 TimeTunnel 等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>云梯（ Hadoop 大数据集群）</li>
+<li>大数据应用（使用大数据集群的计算结果）<br>此外淘宝的大数据平台的最左侧是<strong>天网调度系统</strong>，也是核心所在</li>
+</ul>
+<h2 id="美团大数据平台"><a href="#美团大数据平台" class="headerlink" title="美团大数据平台"></a>美团大数据平台</h2><ul>
+<li>数据源<ul>
+<li>MySQL 数据库及日志</li>
+<li>Canal 获取 MySQL 的 binlog，日志通过 Flume 汇集</li>
+<li>都使用 kafka 处理</li>
+</ul>
+</li>
+<li>大数据集群（使用kafka 的数据）<ul>
+<li>流式计算：Storm</li>
+<li>批处理计算：Hive</li>
+</ul>
+</li>
+<li>将处理结果输出到查询系统 和 BI 平台</li>
+</ul>
+<h2 id="滴滴大数据平台"><a href="#滴滴大数据平台" class="headerlink" title="滴滴大数据平台"></a>滴滴大数据平台</h2><p>分为实时计算平台（流式计算平台）和离线计算平台（批处理计算平台）</p>
+<ul>
+<li>实时计算平台<ul>
+<li>数据 ETL（Extract - Transform - Load ）:使用 Spark Streaming 或 Flink 将数据萃取、转换和记录到 HDFS</li>
+<li>Druid：计算实时监控指标，将结果输出到报警系统和实时图表系统 DashBoard</li>
+</ul>
+</li>
+<li>离线计算平台<ul>
+<li>基于 Hadoop2（HDFS、Yarn、MapReduce）和 Spark 及 Hive 构建</li>
+<li>调度系统：大数据作业的优先级和执行顺序</li>
+<li>开发系统：可视化的 SQL 编辑器</li>
+</ul>
+</li>
+<li>实时计算机离线计算的结果都被保存在 HBase 中</li>
+</ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://time.geekbang.org/column/article/74879" target="_blank" rel="external">从0开始学大数据</a></p>
 
       
@@ -765,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台组成部分"><span class="nav-number">1.</span> <span class="nav-text">大数据平台组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据采集"><span class="nav-number">1.1.</span> <span class="nav-text">数据采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.2.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据输出与展示"><span class="nav-number">1.3.</span> <span class="nav-text">数据输出与展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台架构-Lambda-架构"><span class="nav-number">2.</span> <span class="nav-text">大数据平台架构 Lambda 架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据的来源"><span class="nav-number">3.</span> <span class="nav-text">大数据的来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从数据库导入"><span class="nav-number">3.1.</span> <span class="nav-text">从数据库导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从日志文件导入"><span class="nav-number">3.2.</span> <span class="nav-text">从日志文件导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端埋点采集"><span class="nav-number">3.3.</span> <span class="nav-text">前端埋点采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫系统"><span class="nav-number">3.4.</span> <span class="nav-text">爬虫系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台组成部分"><span class="nav-number">1.</span> <span class="nav-text">大数据平台组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据采集"><span class="nav-number">1.1.</span> <span class="nav-text">数据采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.2.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据输出与展示"><span class="nav-number">1.3.</span> <span class="nav-text">数据输出与展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台架构-Lambda-架构"><span class="nav-number">2.</span> <span class="nav-text">大数据平台架构 Lambda 架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据的来源"><span class="nav-number">3.</span> <span class="nav-text">大数据的来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从数据库导入"><span class="nav-number">3.1.</span> <span class="nav-text">从数据库导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从日志文件导入"><span class="nav-number">3.2.</span> <span class="nav-text">从日志文件导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端埋点采集"><span class="nav-number">3.3.</span> <span class="nav-text">前端埋点采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫系统"><span class="nav-number">3.4.</span> <span class="nav-text">爬虫系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大厂大数据平台架构"><span class="nav-number">4.</span> <span class="nav-text">大厂大数据平台架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝大数据平台"><span class="nav-number">4.1.</span> <span class="nav-text">淘宝大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美团大数据平台"><span class="nav-number">4.2.</span> <span class="nav-text">美团大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滴滴大数据平台"><span class="nav-number">4.3.</span> <span class="nav-text">滴滴大数据平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -788,7 +831,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
