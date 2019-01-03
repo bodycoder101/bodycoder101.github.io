@@ -117,7 +117,7 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2018/12/29/【从0开始学大数据】-模块四学习记录/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="该篇是记录模块三大数据平台与系统集成相关">
-<meta property="og:updated_time" content="2019-01-01T09:45:46.749Z">
+<meta property="og:updated_time" content="2019-01-03T07:43:47.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从0开始学大数据】--模块四学习记录">
 <meta name="twitter:description" content="该篇是记录模块三大数据平台与系统集成相关">
@@ -514,6 +514,55 @@
 </li>
 <li>实时计算机离线计算的结果都被保存在 HBase 中</li>
 </ul>
+<h1 id="商业大数据平台"><a href="#商业大数据平台" class="headerlink" title="商业大数据平台"></a>商业大数据平台</h1><p>典型的有 Cloudera 开发的商业大数据服务产品 <strong>CDH：Cloudera Distribution including Apache Hadoop</strong><br>CDH 分为 4 层：**系统集成，大数据存储，统一服务，过程、分析与计算。</p>
+<ul>
+<li>系统集成<ul>
+<li>数据库服务用 Sqoop</li>
+<li>日志导入导出用 Flume</li>
+<li>其他实时数据导入导出用 Kafka</li>
+</ul>
+</li>
+<li>大数据存储<ul>
+<li>文件系统用 HDFS</li>
+<li>结构化数据用 Kudu</li>
+<li>NoSQL 存储用 HBase</li>
+</ul>
+</li>
+<li>统一服务<ul>
+<li>资源管理用 Yarn</li>
+<li>安全管理用 Sentry 与 RecordService</li>
+</ul>
+</li>
+<li>过程、分析与计算<ul>
+<li>批处理计算：MapReduce、Spark、Hive、Pig</li>
+<li>流计算：Spark Streaming</li>
+<li>快速 SQL 分析用 Impala</li>
+</ul>
+</li>
+</ul>
+<p>面向企业提供解决方案 –&gt; 大数据云计算服务商</p>
+<h2 id="云计算大数据服务"><a href="#云计算大数据服务" class="headerlink" title="云计算大数据服务"></a>云计算大数据服务</h2><p>云计算商业模式：<br>将大数据平台的各项基本功能以云计算服务的方式向用户提供，包含数据导入导出、数据存储与计算、数据流计算、数据展示提供相应的云计算服务</p>
+<p>云计算厂商将大数据服务当做：</p>
+<ul>
+<li>IaaS：Infrastructure as a service，基础设施即服务</li>
+<li>PaaS：Platform as a service，平台即服务</li>
+<li>SaaS：Software as a Service，软件即服务</li>
+</ul>
+<h2 id="大数据开放平台"><a href="#大数据开放平台" class="headerlink" title="大数据开放平台"></a>大数据开放平台</h2><p>此类平台本身具有大量的数据，比如：</p>
+<ul>
+<li>中国气象局拥有海量的历史天气数据</li>
+<li>中国人民银行有大量的客户征信数据</li>
+<li>阿里巴巴有海量的电子商务数据</li>
+</ul>
+<p>风控大数据开放平台：结合用户数据及自身数据进行大数据计算，进行风险分析，提供风险指数</p>
+<ul>
+<li>风控模型</li>
+</ul>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>大数据已经进入了成熟期，技术及应用的垂直领域被逐渐细分，包含两个方面：</p>
+<ul>
+<li>大数据技术生态已初步完善</li>
+<li>大数据商业生态逐渐成型</li>
+</ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://time.geekbang.org/column/article/74879" target="_blank" rel="external">从0开始学大数据</a></p>
 
       
@@ -808,7 +857,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台组成部分"><span class="nav-number">1.</span> <span class="nav-text">大数据平台组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据采集"><span class="nav-number">1.1.</span> <span class="nav-text">数据采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.2.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据输出与展示"><span class="nav-number">1.3.</span> <span class="nav-text">数据输出与展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台架构-Lambda-架构"><span class="nav-number">2.</span> <span class="nav-text">大数据平台架构 Lambda 架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据的来源"><span class="nav-number">3.</span> <span class="nav-text">大数据的来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从数据库导入"><span class="nav-number">3.1.</span> <span class="nav-text">从数据库导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从日志文件导入"><span class="nav-number">3.2.</span> <span class="nav-text">从日志文件导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端埋点采集"><span class="nav-number">3.3.</span> <span class="nav-text">前端埋点采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫系统"><span class="nav-number">3.4.</span> <span class="nav-text">爬虫系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大厂大数据平台架构"><span class="nav-number">4.</span> <span class="nav-text">大厂大数据平台架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝大数据平台"><span class="nav-number">4.1.</span> <span class="nav-text">淘宝大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美团大数据平台"><span class="nav-number">4.2.</span> <span class="nav-text">美团大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滴滴大数据平台"><span class="nav-number">4.3.</span> <span class="nav-text">滴滴大数据平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台组成部分"><span class="nav-number">1.</span> <span class="nav-text">大数据平台组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据采集"><span class="nav-number">1.1.</span> <span class="nav-text">数据采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.2.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据输出与展示"><span class="nav-number">1.3.</span> <span class="nav-text">数据输出与展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据平台架构-Lambda-架构"><span class="nav-number">2.</span> <span class="nav-text">大数据平台架构 Lambda 架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据的来源"><span class="nav-number">3.</span> <span class="nav-text">大数据的来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从数据库导入"><span class="nav-number">3.1.</span> <span class="nav-text">从数据库导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从日志文件导入"><span class="nav-number">3.2.</span> <span class="nav-text">从日志文件导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端埋点采集"><span class="nav-number">3.3.</span> <span class="nav-text">前端埋点采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫系统"><span class="nav-number">3.4.</span> <span class="nav-text">爬虫系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大厂大数据平台架构"><span class="nav-number">4.</span> <span class="nav-text">大厂大数据平台架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝大数据平台"><span class="nav-number">4.1.</span> <span class="nav-text">淘宝大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美团大数据平台"><span class="nav-number">4.2.</span> <span class="nav-text">美团大数据平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滴滴大数据平台"><span class="nav-number">4.3.</span> <span class="nav-text">滴滴大数据平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#商业大数据平台"><span class="nav-number">5.</span> <span class="nav-text">商业大数据平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#云计算大数据服务"><span class="nav-number">5.1.</span> <span class="nav-text">云计算大数据服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据开放平台"><span class="nav-number">5.2.</span> <span class="nav-text">大数据开放平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-1"><span class="nav-number">5.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
