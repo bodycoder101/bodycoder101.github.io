@@ -117,39 +117,10 @@
 <meta property="og:url" content="http://bodycoder101.github.io/2019/01/13/《统计学习方法》-学习笔记/index.html">
 <meta property="og:site_name" content="修行者">
 <meta property="og:description" content="统计学习方法的学习记录">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?sign(x)%20=
-%20%20%20%20\begin{cases}
-%20%20%20%20+1,%20&%20\text{x%20>=%200}%20\\
-%20%20%20%20-1,%20&%20\text{x<0}
-%20%20%20%20\end{cases}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C_\alpha(T)%20=%20\sum_{t=1}^{|T|}{N_t%20\cdot%20H_t(T)}%20+%20\alpha%20\cdot%20|T|%20\tag{1}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?F(x)=P(X%20\leq%20x)%20=%20\frac{1}{1+e^{-(x-\mu)/%20\gamma}}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?f(x)%20=%20F'(x)%20=%20\frac{e^{-(x-%20\mu)%20/%20\gamma}}{\gamma%20(1+e^{-(x-%20\mu)%20/%20\gamma})^2}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?P(Y=1%20\mid%20x)%20=%20\frac{exp(w%20\cdot%20x%20+%20b)}{1+%20exp(w%20\cdot%20x%20+b)}%20\tag{1}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?P(Y=0%20\mid%20x)%20=%20\frac{1}{1+exp(w%20\cdot%20x%20+%20b)}%20\tag{2}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?x">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?odds%20=%20\frac{p}{1-p}%20\quad%20\text{其中<img src=">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?logit(p)%20=%20\log%20\frac{p}{1-p}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?w">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?\prod_{i=1}^{N}{[\pi(x_i)]^{y_i}[1-\pi(x_i)]^{1-y_i}}%20\tag{3}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?w">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?H(P)%20=%20-\sum_{x,y}{\tilde{P}(x)%20P(y%20\mid%20x%20)%20\log{P(y%20\mid%20x)}}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?\begin{aligned}
-min_{p%20\in%20C}%20%20\quad
-&%20-H(P)%20=%20\sum_{x,y}{\tilde{P}(x)%20P(y%20\mid%20x%20)%20\log{P(y%20\mid%20x)}}%20\\
-s.t.%20\quad
-&%20E_p(f_i)%20-%20E_{\tilde{p}}(f_i)%20=%200,%20\quad%20i=1,2,\cdots,n%20\\
-&%20\sum_{y}P(y%20\mid%20x)%20=1
-\end{aligned}">
-<meta property="og:updated_time" content="2019-01-13T13:04:42.256Z">
+<meta property="og:updated_time" content="2019-01-13T13:19:25.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《统计学习方法》--学习笔记">
 <meta name="twitter:description" content="统计学习方法的学习记录">
-<meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?sign(x)%20=
-%20%20%20%20\begin{cases}
-%20%20%20%20+1,%20&%20\text{x%20>=%200}%20\\
-%20%20%20%20-1,%20&%20\text{x<0}
-%20%20%20%20\end{cases}">
 
 
 
@@ -426,14 +397,12 @@ s.t.%20\quad
         <p>统计学习方法的学习记录</p>
 <a id="more"></a>
 <h1 id="一-感知机-（perception）"><a href="#一-感知机-（perception）" class="headerlink" title="一. 感知机 （perception）"></a>一. 感知机 （perception）</h1><p>latex 数学表达式命令相关</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?sign(x)%20=
-%20%20%20%20&#x5C;begin{cases}
-%20%20%20%20+1,%20&amp;%20&#x5C;text{x%20&gt;=%200}%20&#x5C;&#x5C;
-%20%20%20%20-1,%20&amp;%20&#x5C;text{x&lt;0}
-%20%20%20%20&#x5C;end{cases}"></p>
-
-
-<h1 id="二-朴素贝叶斯法（naive-Bayes）"><a href="#二-朴素贝叶斯法（naive-Bayes）" class="headerlink" title="二. 朴素贝叶斯法（naive Bayes）"></a>二. 朴素贝叶斯法（naive Bayes）</h1><h1 id="三-决策树（decision-tree）"><a href="#三-决策树（decision-tree）" class="headerlink" title="三. 决策树（decision tree）"></a>三. 决策树（decision tree）</h1><p>分类决策树模型：</p>
+<script type="math/tex; mode=display">
+    sign(x) =
+    \begin{cases}
+    +1, & \text{x >= 0} \\
+    -1, & \text{x<0}
+    \end{cases}</script><h1 id="二-朴素贝叶斯法（naive-Bayes）"><a href="#二-朴素贝叶斯法（naive-Bayes）" class="headerlink" title="二. 朴素贝叶斯法（naive Bayes）"></a>二. 朴素贝叶斯法（naive Bayes）</h1><h1 id="三-决策树（decision-tree）"><a href="#三-决策树（decision-tree）" class="headerlink" title="三. 决策树（decision tree）"></a>三. 决策树（decision tree）</h1><p>分类决策树模型：</p>
 <ul>
 <li>结点（node）<ul>
 <li>内部结点（internal node）：一个特征或属性</li>
@@ -458,24 +427,14 @@ s.t.%20\quad
 <li>运用决策树生成算法产生的树往往容易出现<strong>过拟合</strong>的现象，也就是构建的决策树过于复杂</li>
 <li>简化的过程称为 <strong>剪枝（pruning）</strong></li>
 <li><p>极小化决策树整体的损失函数（loss function）来实现</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?C_&#x5C;alpha(T)%20=%20&#x5C;sum_{t=1}^{|T|}{N_t%20&#x5C;cdot%20H_t(T)}%20+%20&#x5C;alpha%20&#x5C;cdot%20|T|%20&#x5C;tag{1}"></p>
-
-
+<script type="math/tex; mode=display">C_\alpha(T) = \sum_{t=1}^{|T|}{N_t \cdot H_t(T)} + \alpha \cdot |T| \tag{1}</script><script type="math/tex; mode=display">H_t(T) = - \sum_{k}{\frac{N_{tk}}{N_t} \log{\frac{N_{tk}}{N_t}}} \tag{2}</script><script type="math/tex; mode=display">C(T) = \sum_{t=1}^{|T|} {N_t H_t(T)} = - \sum_{t=1}^{|T|} {\sum_{k=1}^{K} { {N_{tk} \log{\frac{N_{tk} } {N_t} } } } } \tag{3}</script><p>将 (3) &amp; (2) 式回代入 (1) 式，则最终将 (1) 式化简为：$C_\alpha(T) = C(T) + \alpha \cdot |T|$<br>其中 $C(T)$ 表示的是模型对训练数据的预测误差，也就是模型与训练数据的拟合程度</p>
+</li>
+<li><p>计算修剪前与修剪后，进行损失函数的比较 $C(T_{before}) \&amp; C(T_{after})$，如果修剪后的损失更小，则进行修剪</p>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?H_t(T)%20=%20-%20&amp;#x5C;sum_{k}{&amp;#x5C;frac{N_{tk}}{N_t}%20&amp;#x5C;log{&amp;#x5C;frac{N_{tk}}{N_t}}}%20&amp;#x5C;tag{2}&quot;/&gt;&lt;/p&gt;
-
-
-&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?C(T)%20=%20&amp;#x5C;sum_{t=1}^{|T|}%20{N_t%20H_t(T)}%20=%20-%20&amp;#x5C;sum_{t=1}^{|T|}%20{&amp;#x5C;sum_{k=1}^{K}%20{{N_{tk}%20&#x5C;log{&#x5C;frac{N_{tk}}{N_t}}}}}%20&amp;#x5C;tag{3}&quot;/&gt;&lt;/p&gt;
-
-
-将 (3) &amp; (2) 式回代入 (1) 式，则最终将 (1) 式化简为：&lt;img src=&quot;https://latex.codecogs.com/gif.latex?C_&amp;#x5C;alpha(T)%20=%20C(T)%20+%20&amp;#x5C;alpha%20&amp;#x5C;cdot%20|T|&quot;/&gt;
-其中 &lt;img src=&quot;https://latex.codecogs.com/gif.latex?C(T)&quot;/&gt; 表示的是模型对训练数据的预测误差，也就是模型与训练数据的拟合程度
-
-- 计算修剪前与修剪后，进行损失函数的比较 &lt;img src=&quot;https://latex.codecogs.com/gif.latex?C(T_{before})%20&amp;#x5C;&amp;amp;%20C(T_{after})&quot;/&gt;，如果修剪后的损失更小，则进行修剪
-</code></pre><h2 id="1-CART-算法"><a href="#1-CART-算法" class="headerlink" title="1. CART 算法"></a>1. CART 算法</h2><p>分类与回归树（classification and regression tree, CART）是一种决策树学习方法，包含了上述三个阶段</p>
+<h2 id="1-CART-算法"><a href="#1-CART-算法" class="headerlink" title="1. CART 算法"></a>1. CART 算法</h2><p>分类与回归树（classification and regression tree, CART）是一种决策树学习方法，包含了上述三个阶段</p>
 <ul>
 <li>特征选择：基尼指数（Gini Index）最小化的原则，进行特征选择</li>
 <li>树的生成：使用最小二乘法，生成最小二乘回归树（least squares regression tree）,是一种二叉决策树</li>
@@ -483,47 +442,26 @@ s.t.%20\quad
 </ul>
 <h1 id="四-逻辑斯蒂回归与最大熵模型（logistic-regression-and-maximum-entropy-model）"><a href="#四-逻辑斯蒂回归与最大熵模型（logistic-regression-and-maximum-entropy-model）" class="headerlink" title="四. 逻辑斯蒂回归与最大熵模型（logistic regression and maximum entropy model）"></a>四. 逻辑斯蒂回归与最大熵模型（logistic regression and maximum entropy model）</h1><p>logistic regression 与 maximum entropy model 都属于<strong>对数线性</strong>模型</p>
 <h2 id="1-logistic-regression"><a href="#1-logistic-regression" class="headerlink" title="1. logistic regression"></a>1. logistic regression</h2><p>分布函数：</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?F(x)=P(X%20&#x5C;leq%20x)%20=%20&#x5C;frac{1}{1+e^{-(x-&#x5C;mu)&#x2F;%20&#x5C;gamma}}"></p>
-
-
-<p>密度函数：</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?f(x)%20=%20F&#x27;(x)%20=%20&#x5C;frac{e^{-(x-%20&#x5C;mu)%20&#x2F;%20&#x5C;gamma}}{&#x5C;gamma%20(1+e^{-(x-%20&#x5C;mu)%20&#x2F;%20&#x5C;gamma})^2}"></p>
-
-
-<p>二项逻辑斯提回归：</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?P(Y=1%20&#x5C;mid%20x)%20=%20&#x5C;frac{exp(w%20&#x5C;cdot%20x%20+%20b)}{1+%20exp(w%20&#x5C;cdot%20x%20+b)}%20&#x5C;tag{1}"></p>
-
-
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?P(Y=0%20&#x5C;mid%20x)%20=%20&#x5C;frac{1}{1+exp(w%20&#x5C;cdot%20x%20+%20b)}%20&#x5C;tag{2}"></p>
-
-
-<p>比较 (1) (2)式子的概率值的大小，将 <img src="https://latex.codecogs.com/gif.latex?x"> 分类到概率值较大的那一类。</p>
+<script type="math/tex; mode=display">F(x)=P(X \leq x) = \frac{1}{1+e^{-(x-\mu)/ \gamma}}</script><p>密度函数：</p>
+<script type="math/tex; mode=display">f(x) = F'(x) = \frac{e^{-(x- \mu) / \gamma}}{\gamma (1+e^{-(x- \mu) / \gamma})^2}</script><p>二项逻辑斯提回归：</p>
+<script type="math/tex; mode=display">P(Y=1 \mid x) = \frac{exp(w \cdot x + b)}{1+ exp(w \cdot x +b)} \tag{1}</script><script type="math/tex; mode=display">P(Y=0 \mid x) = \frac{1}{1+exp(w \cdot x + b)} \tag{2}</script><p>比较 (1) (2)式子的概率值的大小，将 $x$ 分类到概率值较大的那一类。</p>
 <p><strong>几率（odds）是指该事件发生的概率与该事件不发生概率的比值：</strong></p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?odds%20=%20&#x5C;frac{p}{1-p}%20&#x5C;quad%20&#x5C;text{其中<img src=" https:="" latex.codecogs.com="" gif.latex?p"="">为事件发生的概率}"/></p>
-
-
-<p><strong>对数几率（log odds）或者 logit 函数：</strong></p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?logit(p)%20=%20&#x5C;log%20&#x5C;frac{p}{1-p}"></p>
-
-
-<p>再利用极大似然法估计参数模型 <img src="https://latex.codecogs.com/gif.latex?w"> ，似然函数为:</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?&#x5C;prod_{i=1}^{N}{[&#x5C;pi(x_i)]^{y_i}[1-&#x5C;pi(x_i)]^{1-y_i}}%20&#x5C;tag{3}"></p>
-
-
-<p>最后求对数似然函数，最终得到参数 <img src="https://latex.codecogs.com/gif.latex?w"> 的估计。</p>
+<script type="math/tex; mode=display">odds = \frac{p}{1-p} \quad \text{其中$p$为事件发生的概率}</script><p><strong>对数几率（log odds）或者 logit 函数：</strong></p>
+<script type="math/tex; mode=display">logit(p) = \log \frac{p}{1-p}</script><p>再利用极大似然法估计参数模型 $w$ ，似然函数为:</p>
+<script type="math/tex; mode=display">
+    \prod_{i=1}^{N}{[\pi(x_i)]^{y_i}[1-\pi(x_i)]^{1-y_i}} \tag{3}</script><p>最后求对数似然函数，最终得到参数 $w$ 的估计。</p>
 <h2 id="2-maximum-entropy"><a href="#2-maximum-entropy" class="headerlink" title="2. maximum entropy"></a>2. maximum entropy</h2><p>最大熵模型（条件熵）：</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?H(P)%20=%20-&#x5C;sum_{x,y}{&#x5C;tilde{P}(x)%20P(y%20&#x5C;mid%20x%20)%20&#x5C;log{P(y%20&#x5C;mid%20x)}}"></p>
-
-<p>其中对数为自然对数。</p>
+<script type="math/tex; mode=display">
+H(P) = -\sum_{x,y}{\tilde{P}(x) P(y \mid x ) \log{P(y \mid x)}}</script><p>其中对数为自然对数。</p>
 <p>最大熵模型的学习过程（最优化问题，转换为求最小值的问题）：</p>
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?&#x5C;begin{aligned}
-min_{p%20&#x5C;in%20C}%20%20&#x5C;quad
-&amp;%20-H(P)%20=%20&#x5C;sum_{x,y}{&#x5C;tilde{P}(x)%20P(y%20&#x5C;mid%20x%20)%20&#x5C;log{P(y%20&#x5C;mid%20x)}}%20&#x5C;&#x5C;
-s.t.%20&#x5C;quad
-&amp;%20E_p(f_i)%20-%20E_{&#x5C;tilde{p}}(f_i)%20=%200,%20&#x5C;quad%20i=1,2,&#x5C;cdots,n%20&#x5C;&#x5C;
-&amp;%20&#x5C;sum_{y}P(y%20&#x5C;mid%20x)%20=1
-&#x5C;end{aligned}"></p>
-
+<script type="math/tex; mode=display">
+\begin{aligned}
+min_{p \in C}  \quad
+& -H(P) = \sum_{x,y}{\tilde{P}(x) P(y \mid x ) \log{P(y \mid x)}} \\
+s.t. \quad
+& E_p(f_i) - E_{\tilde{p}}(f_i) = 0, \quad i=1,2,\cdots,n \\
+& \sum_{y}P(y \mid x) =1
+\end{aligned}</script>
       
     </div>
 

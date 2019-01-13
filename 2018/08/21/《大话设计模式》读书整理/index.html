@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。    设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开闭">
+<meta name="description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。     设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开">
 <meta name="keywords" content="大话设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《大话设计模式》读书整理">
 <meta property="og:url" content="http://bodycoder101.github.io/2018/08/21/《大话设计模式》读书整理/index.html">
 <meta property="og:site_name" content="修行者">
-<meta property="og:description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。    设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开闭">
+<meta property="og:description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。     设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开">
 <meta property="og:updated_time" content="2019-01-13T12:48:55.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《大话设计模式》读书整理">
-<meta name="twitter:description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。    设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开闭">
+<meta name="twitter:description" content="面向对象设计原则如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。     设计原则名称 定义     单一职责原则（Single Responsibility Principle,SRP） 一个类只负责一个功能领域中的相应职责   开">
 
 
 
@@ -395,6 +395,7 @@
 
       
         <h1 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h1><p>如何同时提高一个软件系统的<strong>可维护性和可复用性</strong>是面向对象设计需要解决的核心问题之一。<br>面向对象设计原则为支持可维护性及复用而诞生，常见的7种面向对象设计原则如下表所示，所有的设计模式都遵循一个或多个面向对象的设计原则。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -433,6 +434,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <a id="more"></a>
 <h1 id="1-简单工厂模式-Simple-Factory"><a href="#1-简单工厂模式-Simple-Factory" class="headerlink" title="1.简单工厂模式(Simple Factory)"></a>1.简单工厂模式(Simple Factory)</h1><p>面向对象的分析设计的编程思想，通过封装、继承、多态将程序的耦合度降低，使用设计模式使得程序更加的灵活，容易修改，并且易于复用。</p>
 <blockquote>
@@ -468,7 +470,7 @@
 </ul>
 <p><strong>里式代换原则：</strong> 子类型必须能够替换掉他们的父类型，即在一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别，也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化。</p>
 <h1 id="6-装饰模式（Decorator）"><a href="#6-装饰模式（Decorator）" class="headerlink" title="6.装饰模式（Decorator）"></a>6.装饰模式（Decorator）</h1><p>动态地给一个对象添加一些额外的职责，就增加功能来讲，装饰模式比生成子类更为灵活（人穿衣服的顺序，服饰之于人是装饰）</p>
-<p>Component –&gt;concreteComponent, Decorator(抽象装饰器) –&gt;在抽象装饰器有SetComponent（装饰接口）接口包装 component，因此就串起来了。</p>
+<p>Component —&gt;concreteComponent, Decorator(抽象装饰器) —&gt;在抽象装饰器有SetComponent（装饰接口）接口包装 component，因此就串起来了。</p>
 <p><strong>装饰模式的优点：</strong> 把类中的装饰功能从类中搬移去除，这样就可以简化原有的类，有效的把类的核心职责和装饰功能区分开，而且可以去除相关类中重复的装饰逻辑。</p>
 <h1 id="7-代理模式（Proxy）"><a href="#7-代理模式（Proxy）" class="headerlink" title="7.代理模式（Proxy）"></a>7.代理模式（Proxy）</h1><p>为其他对象提供一种代理以控制对这个对象的访问<br>Subject –-&gt;RealSubject, Proxy; 也就是说两者都继承自Subject,拥有相同的接口，但具体实现中的接口是Proxy中的接口封装RealSubject中的接口，以实现代理的方式。<br>代理模式的应用：</p>
 <ul>
@@ -487,7 +489,7 @@
 <p>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定结构。</p>
 <p>模板方法模式是通过把不变行为搬移到父类中，去除子类中的重复代码，来体现它的优势，模板方法模式提供了一个很好的代码复用平台。</p>
 <p><strong>注意：</strong> 当不变的和可变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现，我们通过模板方法模式把这些行为搬移到单一的地方，这样就帮助子类摆脱重复不变的行为的纠缠。</p>
-<h1 id="11-迪米特法则-–-最少知识原则"><a href="#11-迪米特法则-–-最少知识原则" class="headerlink" title="11.迪米特法则 – 最少知识原则"></a>11.迪米特法则 – 最少知识原则</h1><p><strong>来源：</strong><br>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。<br>在类的结构设计上，每一个类都应当尽量降低成员的访问权限，强调了类之间的松耦合，类之间的耦合越弱，越有利于复用，一个处于弱耦合的类被修改，不会对有关系的类造成波及。<strong>—信息的隐藏促进了软件的复用。</strong></p>
+<h1 id="11-迪米特法则-–-最少知识原则"><a href="#11-迪米特法则-–-最少知识原则" class="headerlink" title="11.迪米特法则 – 最少知识原则"></a>11.迪米特法则 – 最少知识原则</h1><p><strong>来源：</strong><br>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。<br>在类的结构设计上，每一个类都应当尽量降低成员的访问权限，强调了类之间的松耦合，类之间的耦合越弱，越有利于复用，一个处于弱耦合的类被修改，不会对有关系的类造成波及。<strong>—-信息的隐藏促进了软件的复用。</strong></p>
 <h1 id="12-外观模式（门面模式-Facade）"><a href="#12-外观模式（门面模式-Facade）" class="headerlink" title="12.外观模式（门面模式 Facade）"></a>12.外观模式（门面模式 Facade）</h1><p>是为了减少各个程序模块之间的 <strong>耦合性</strong></p>
 <p><strong>定义：</strong><br>为子系统的中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
 <p><strong>白话解释:</strong><br>也就是将几个子系统（类）放在一个统一的外观（Facade）中，包裹一层；然后供客户端或新系统统一调用。</p>
@@ -508,7 +510,7 @@
 <p><strong>优点：</strong></p>
 <ul>
 <li>易于交换产品系列，在一个应用中只需要在初始化的时候出现一次，这就使得改变一个应用的具体工厂变的非常容易，它只需要改变具体工厂即可使用不同的产品配置；</li>
-<li>它让具体的创建实例过程与客户端分离，客户端是通过他们的抽象接口操纵实例，产品的具体类名也被具体的工厂的实现分离，不会出现在客户代码中。<br>使用<em>反射技术</em>去除简单工厂中的 switch — case的判断逻辑 | –》 反射+抽象工厂模式</li>
+<li>它让具体的创建实例过程与客户端分离，客户端是通过他们的抽象接口操纵实例，产品的具体类名也被具体的工厂的实现分离，不会出现在客户代码中。<br>使用<em>反射技术</em>去除简单工厂中的 switch —- case的判断逻辑 | —》 反射+抽象工厂模式</li>
 </ul>
 <p><strong>总结：</strong><br>所有在用简单工厂的地方，都可以考虑用反射技术去除switch 或者 if的判断逻辑，解除分支判断带来的耦合。</p>
 <h1 id="16-状态模式（State）"><a href="#16-状态模式（State）" class="headerlink" title="16.状态模式（State）"></a>16.状态模式（State）</h1><p><strong>Tips：</strong><br>方法过长（Long Method）是<em>坏味道</em>，意味着这个方法承担的责任过大，这个在设计模式上是很糟糕的行为，类需要遵循单一职责原则，面向对象设计其实就是希望做到代码的责任分解。</p>
@@ -520,7 +522,7 @@
 <li>类适配模式：需要支持类的多重继承（只有C++支持多重继承）</li>
 <li>对象适配模式<br>在使用一个已经存在的类，但如果它的接口，也就是它的方法和你的要求不相同时，应该考虑 Adapter，客户代码只需要调用这个统一的接口（Adapter）。<br>也就是在这种情况：<em>两个类所做的事情相同或相似，但是具有不同的接口时要使用它。</em><br><strong>注：</strong> 只有碰到无法改变原有设计和代码的情况时，才考虑适配。在有小的接口不统一的问题发生时，及时重构。</li>
 </ul>
-<h1 id="18-备忘录模式（Memento）"><a href="#18-备忘录模式（Memento）" class="headerlink" title="18.备忘录模式（Memento）"></a>18.备忘录模式（Memento）</h1><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。三个角色：发起人（Originator） –》 备忘录（Memento）类 –》 管理者（Caretaker）类</p>
+<h1 id="18-备忘录模式（Memento）"><a href="#18-备忘录模式（Memento）" class="headerlink" title="18.备忘录模式（Memento）"></a>18.备忘录模式（Memento）</h1><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。三个角色：发起人（Originator） —》 备忘录（Memento）类 –》 管理者（Caretaker）类</p>
 <p><strong>适用场景：</strong> Memento模式比较适用于功能比较复杂的，但需要维护或记录属性历史的类，或者需要保存的属性只是众多属性中的一小部分时，Originator 可以根据保存的 Memento信息还原到前一状态。</p>
 <h1 id="19-组合模式（Composite）"><a href="#19-组合模式（Composite）" class="headerlink" title="19.组合模式（Composite）"></a>19.组合模式（Composite）</h1><p>将对象组合成树形结构以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
 <p><strong>适用的场景：</strong> 需求中是体现部分与整体层次的结构时，并且希望用户可以忽略组合对象与单个对象的不同，统一地使用组合结构中的所有对象时，考虑使用组合模式。<br>组合模式让客户可以一致地使用组合结构和单个对象。</p>
@@ -574,7 +576,7 @@
 </ul>
 <p><strong>中介者模式缺点：</strong></p>
 <ul>
-<li>交互复杂性 –》 中介者复杂性<br>中介者模式一般应用于一组对象以定义良好但是复杂的方式进行通信的场合，以及想定制一个分布在多个类中的行为，而又不想生成太多子类的场合。</li>
+<li>交互复杂性 —》 中介者复杂性<br>中介者模式一般应用于一组对象以定义良好但是复杂的方式进行通信的场合，以及想定制一个分布在多个类中的行为，而又不想生成太多子类的场合。</li>
 </ul>
 <h1 id="26-享元模式（Flyweight）"><a href="#26-享元模式（Flyweight）" class="headerlink" title="26.享元模式（Flyweight）"></a>26.享元模式（Flyweight）</h1><p>运用共享技术有效的支持大量细粒度（Flyweight轻量级）的对象。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Flyweight</span> <span class="comment">//享元类抽象接口</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Operation</span> (<span class="params"><span class="keyword">int</span> extrinsicstate</span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> <span class="title">ConcreteFlyweight</span> : <span class="title">Flyweight</span> <span class="comment">//实现flyweight接口，增加存储空间</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Operation</span> (<span class="params"><span class="keyword">int</span> extrinsicstate</span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"具体Flyweight："</span> +extrinsicstate);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> <span class="title">UnsharedConcreteFlyweight</span> : <span class="title">Flyweight</span> <span class="comment">//不需要共享的flyweight子类</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Operation</span> (<span class="params"><span class="keyword">int</span> extrinsicstate</span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"不共享的具体Flyweight："</span> +extrinsicstate);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Class FlyweightFactory <span class="comment">//享元工厂，用来创建并管理flyweight对象</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> Hashtable flyweights = <span class="keyword">new</span> Hashtable();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FlyweightFactory</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        flyweights.Add(<span class="string">"X"</span>,<span class="keyword">new</span> ConcreteFlyweight());</div><div class="line">        flyweights.Add(<span class="string">"Y"</span>,<span class="keyword">new</span> ConcreteFlyweight());</div><div class="line">        flyweights.Add(<span class="string">"Z"</span>,<span class="keyword">new</span> ConcreteFlyweight());</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Flyweight <span class="title">GetFlyweight</span>(<span class="params"><span class="keyword">string</span> key</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> ((Flyweight)flyweights[key]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>享元模式可以避免大量非常 <strong>相似类</strong> 的开销。该模式运用共享技术有效地支持大量细粒度的对象。</p>

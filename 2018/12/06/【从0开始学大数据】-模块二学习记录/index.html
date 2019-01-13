@@ -423,7 +423,7 @@
 <p>不要直接提出你的问题和方案，直向曲中求，对于复杂的问题，越是直截了当越是得不到答案。</p>
 </blockquote>
 <h1 id="Spark-为何更加高效"><a href="#Spark-为何更加高效" class="headerlink" title="Spark 为何更加高效"></a>Spark 为何更加高效</h1><blockquote>
-<p>移动计算比移动数据更划算，也就是把计算程序发送到分片数据中，而不是把数据发送到程序中 – 大数据计算的基本原则</p>
+<p>移动计算比移动数据更划算，也就是把计算程序发送到分片数据中，而不是把数据发送到程序中 — 大数据计算的基本原则</p>
 </blockquote>
 <p>Spark 的计算框架更加富有弹性和灵活性体现在：<br>它可以根据应用的复杂程度，分割成更多的计算阶段（stage），这些计算阶段组成一个有向无环图 DAG，Spark 任务调度器可以根据 DAG 的依赖关系执行计算阶段。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rddB = rddA.groupBy(key)</div><div class="line">rddD = rddC.map(func)</div><div class="line">rddF = rddD.union(rddE)</div><div class="line">rddG = rddB.join(rddF)</div></pre></td></tr></table></figure>
@@ -520,7 +520,7 @@
 </li>
 </ul>
 <blockquote>
-<p>我只愿蓬勃生活在此时此刻，无所谓去哪，无所谓见谁。那些我将要去的地方，都是我从未谋面的故乡。以前是以前，现在是现在。我不能选择怎么生，怎么死；但我能决定怎么爱，怎么活。 – 王小波《黄金时代》</p>
+<p>我只愿蓬勃生活在此时此刻，无所谓去哪，无所谓见谁。那些我将要去的地方，都是我从未谋面的故乡。以前是以前，现在是现在。我不能选择怎么生，怎么死；但我能决定怎么爱，怎么活。 — 王小波《黄金时代》</p>
 </blockquote>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://time.geekbang.org/column/133" target="_blank" rel="external">从0开始学大数据</a></li>

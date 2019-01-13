@@ -400,7 +400,7 @@
       
         <h1 id="概念回顾之网络模型（Model）"><a href="#概念回顾之网络模型（Model）" class="headerlink" title="概念回顾之网络模型（Model）"></a>概念回顾之网络模型（Model）</h1><p>如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 <strong>TCP/IP协议簇（Internet Protocol Suite）</strong>，右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。<br><a id="more"></a></p>
 <p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/TCP_IP%E6%A8%A1%E5%9E%8B.jpg" alt=""></p>
-<h2 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h2><p>包含OSI参考模型中的数据链路层和物理层，<strong>数据链路层(Data Link Layer)又分为逻辑链路控制子层(Logical Link Control –LLC)和媒体接入控制子层(Media Access Control–MAC).</strong></p>
+<h2 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h2><p>包含OSI参考模型中的数据链路层和物理层，<strong>数据链路层(Data Link Layer)又分为逻辑链路控制子层(Logical Link Control —LLC)和媒体接入控制子层(Media Access Control—MAC).</strong></p>
 <p>LLC子层主要负责向其上层提供服务，是在HDLC的基础上发展起来的; MAC子层的主要功能包括数据帧的封装/卸装，帧的寻址和识别，帧的接收与发送，链路的管理，帧的差错控制等, 其非常重要的一项功能是 <strong>仲裁传输介质的使用权</strong>，即规定站点何时可以使用通信介质，局域网中通常使用的载波侦听多路访问（Carrier Sense Multiple Access /Collision Detection，CSMA/CD）.</p>
 <p>物理层定义与传输媒体的接口有关的一些特性,即机械特性、电气特性、功能特性、过程特性,并需要完成并行传输和串行传输之间的转换。数据链路层向该层用户提供透明的和可靠的数据传输服务。 透明性是指该层上传输的数据的内容、格式及编码没有限制,也没有必要解释信息结构的意义；可靠性是指在传输过程中将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路,其具体的方法有帧同步、差错控制、流量控制、链路管理。数据链路层中的主要协议有 <strong>点对点协议PPP,CSMA/CD协议,以太网802.3。</strong></p>
 <h2 id="网际层-IP层"><a href="#网际层-IP层" class="headerlink" title="网际层(IP层)"></a>网际层(IP层)</h2><p>网际层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网际层不提供服务质量的承诺,即所传输的分组可能出错、丢失、重复和失序,当然也不保证分组交付的时限。</p>
