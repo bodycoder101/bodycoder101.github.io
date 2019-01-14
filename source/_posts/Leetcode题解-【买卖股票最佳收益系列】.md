@@ -38,7 +38,7 @@ public:
         if(prices.size()<2){
             return 0;
         }
-        vector<int> minPrice(prices.size());
+        vector<int> minPrice(prices.size(),0);
         minPrice[0] = prices[0];
         int maxProfit = 0;
         for(int i =1;i<prices.size();++i){
@@ -107,22 +107,21 @@ private:
         if(prices.size()<2){
             return 0;
         }
-        int* minPrice = new int[prices.size()];
+        vector<int> minPrice(prices.size(),0);
         minPrice[0] = prices[0];
         int maxProfit = 0;
         for(int i =1;i<prices.size();++i){
             minPrice[i] = min(minPrice[i-1],prices[i]);
             maxProfit = max(maxProfit,prices[i]-minPrice[i]);
         }
-        delete[] minPrice;
         return maxProfit;
     }
 };
 ```
 方法二：对方法一进行改良，使用两个数组将第一部分和第二部分的收益保存到数组，然后依次遍历求结果
 复杂度：
-- 时间o(n);
-- 空间o(n);
+- 时间o(n)
+- 空间o(n)
 
 
 ```cpp
