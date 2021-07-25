@@ -1,0 +1,1075 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="big data,Hive,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
+<meta name="keywords" content="big data,Hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【从0开始学大数据】--模块二学习记录">
+<meta property="og:url" content="http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【从0开始学大数据】--模块二学习记录">
+<meta name="twitter:description" content="模块二主要讲的是大数据生态体系主要产品原理与架构 Hive 如何让 MapReduce 实现 SQL 操作Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。 Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hiv">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/">
+
+
+
+
+
+  <title>【从0开始学大数据】--模块二学习记录 | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【从0开始学大数据】--模块二学习记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T15:06:51+08:00">
+                2018-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>模块二主要讲的是<strong>大数据生态体系主要产品原理与架构</strong></p>
+<h1 id="Hive-如何让-MapReduce-实现-SQL-操作"><a href="#Hive-如何让-MapReduce-实现-SQL-操作" class="headerlink" title="Hive 如何让 MapReduce 实现 SQL 操作"></a>Hive 如何让 MapReduce 实现 SQL 操作</h1><p>Hive 就是一种工具，自动将 SQL 生成 MapReduce 代码，分析师只需要输入 SQL，然后提交给 Hadoop 执行就可以。</p>
+<p>Hive 的执行计划是根据 SQL 语句生成这些函数的 DAG （有向无环图），然后封装进 MapReduce 的 map 和 reduce 函数中，Hive 可实现的计算有聚合（group by）、过滤（where）、连接（join）等操作。</p>
+<p>大数据 SQL 引擎：</p>
+<ul>
+<li>Impala：运行在 HDFS 上的MPP架构的 SQL 引擎</li>
+<li>Spark SQL</li>
+</ul>
+<a id="more"></a>
+<h1 id="Spark-的出现"><a href="#Spark-的出现" class="headerlink" title="Spark 的出现"></a>Spark 的出现</h1><blockquote>
+<p>我们常常意识不到问题的存在，直到有人解决了这些问题</p>
+</blockquote>
+<ul>
+<li>MapReduce：比较注重 map 和 reduce 的输入和输出，可以认为是<strong>面向过程</strong>的大数据开发</li>
+<li>Spark：主要由 RDD 对象，并对这个对象得到一系列的新 RDD 对象，可以理解为是<strong>面向对象</strong>的大数据计算</li>
+</ul>
+<p>RDD（Resilient Distributed Datasets）：弹性数据集</p>
+<ul>
+<li>转换函数（transformation function）: 函数返回值是 RDD<ul>
+<li>map、filter、union、reduceByKey、join、groupByKey等</li>
+</ul>
+</li>
+<li>执行函数（action function）：函数不返回 RDD</li>
+</ul>
+<p>如何做到既不自以为是，又能逐渐摆脱平庸，进而慢慢向大师靠近？</p>
+<blockquote>
+<p>不要直接提出你的问题和方案，直向曲中求，对于复杂的问题，越是直截了当越是得不到答案。</p>
+</blockquote>
+<h1 id="Spark-为何更加高效"><a href="#Spark-为何更加高效" class="headerlink" title="Spark 为何更加高效"></a>Spark 为何更加高效</h1><blockquote>
+<p>移动计算比移动数据更划算，也就是把计算程序发送到分片数据中，而不是把数据发送到程序中 — 大数据计算的基本原则</p>
+</blockquote>
+<p>Spark 的计算框架更加富有弹性和灵活性体现在：<br>它可以根据应用的复杂程度，分割成更多的计算阶段（stage），这些计算阶段组成一个有向无环图 DAG，Spark 任务调度器可以根据 DAG 的依赖关系执行计算阶段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rddB = rddA.groupBy(key)</span><br><span class="line">rddD = rddC.map(func)</span><br><span class="line">rddF = rddD.union(rddE)</span><br><span class="line">rddG = rddB.join(rddF)</span><br></pre></td></tr></table></figure>
+<p>也就是说 Spark 作业调度执行的核心是 DAG，有了 DAG，整个应用就被切分成哪些阶段，每个阶段的依赖关系也就清楚了。每个阶段都会生成相应的任务集合 （TaskSet），每个任务都分配一个任务进程去处理，Spark 就实现了大数据的分布式计算。</p>
+<p>阶段划分是根据是否需要进行 shuffle，也就是在图中是否有交叉。</p>
+<h2 id="Spark-的作业管理"><a href="#Spark-的作业管理" class="headerlink" title="Spark 的作业管理"></a>Spark 的作业管理</h2><p>Spark 有三个主要特征：</p>
+<ul>
+<li>RDD 的编程模型更简单</li>
+<li>DAG 切分的多阶段计算过程更快速</li>
+<li>使用内存存储中间计算结果更高效</li>
+</ul>
+<p>这三个特性使得 Spark 相对 Hadoop MapReduce 可以有更快的执行速度，以及更简单的编程实现。</p>
+<h1 id="Big-Table-的开源实现：HBase"><a href="#Big-Table-的开源实现：HBase" class="headerlink" title="Big Table 的开源实现：HBase"></a>Big Table 的开源实现：HBase</h1><p>NoSQL， 主要指非关系的、分布式的、支持海量数据存储的数据库设计模式。其中的代表方案是 HBase。</p>
+<p>HBase 的可伸缩架构依赖于：</p>
+<ul>
+<li>可分裂的 HRegion：负责数据存储的主要进程</li>
+<li>可伸缩的分布式文件系统 HDFS</li>
+</ul>
+<p>HBase 的高性能存储：</p>
+<ul>
+<li>支持列族存储（Column family），创建表时无需指定字段，实现了数据表结构可以在运行期间自定义</li>
+<li>使用 LSM 树（Log Structed Merge Tree）的数据结构进行数据存储</li>
+</ul>
+<p>LSM 树可以看作是一个 N 阶合并树。数据写操作都在内存中进行，因此可以极大程度地减少磁盘的访问次数，加快访问速度。</p>
+<h1 id="流式计算的代表：Storm、Flink、Spark-Streaming"><a href="#流式计算的代表：Storm、Flink、Spark-Streaming" class="headerlink" title="流式计算的代表：Storm、Flink、Spark Streaming"></a>流式计算的代表：Storm、Flink、Spark Streaming</h1><ul>
+<li>大规模批处理：计算前面的 MapReduce、Spark 等大数据处理框架主要是<strong>处理、计算存储介质上的大规模数据，也叫大规模批处理计算，一般是离线的</strong></li>
+<li>大规模流计算系统：还有一种大数据技术，针对实时产生的大规模数据进行即时计算处理，如摄像头采集的实时视频数据、淘宝实时产生的订单数据等。针对这类大数据的实时处理系统叫做<strong>大数据流计算系统</strong></li>
+</ul>
+<h2 id="Storm"><a href="#Storm" class="headerlink" title="Storm"></a>Storm</h2><p>早期对流数据的处理方式是通过串行的消息队列及处理逻辑实现，处理逻辑既消费前面消息队列的数据，也为下一个消息队列产生数据。<br>这种系统的一个很大的弊端是，无法复用，新的需求都需要重新开发类似的系统。 Storm 应运而生。</p>
+<p>应用 Storm 只需要定义好处理流程和每一个节点的处理逻辑，代码部署到流处理系统后，就能按照预定义的处理流程和处理逻辑执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    id1((数据源 spout)) --&gt; id2((处理逻辑 bolt))</span><br><span class="line">    id2 --&gt; id3((处理逻辑 bolt))</span><br><span class="line">    id2 --&gt; id4((处理逻辑 bolt))</span><br></pre></td></tr></table></figure>
+<p>如上图中，开发者无需再关注数据的流转、消息的处理和消费，只要编程开发好数据的处理逻辑 bolt 和数据源的逻辑 spolt，以及他们之间的拓扑逻辑关系 toplogy，提交给 Storm 上运行就可以了。</p>
+<p>Storm 是主从架构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    id1((nimbus)) --- id2(ZooKeeper)</span><br><span class="line">    id2 --- id3(supervisor)</span><br><span class="line">    id2 --- id4(supervisor)</span><br><span class="line">    id2 --- id5(supervisor)</span><br><span class="line">    id5 --- id6((worker))</span><br><span class="line">    id5 --- id7((workder))</span><br></pre></td></tr></table></figure></p>
+<p>其中：</p>
+<ul>
+<li>nimbus：是集群的 Master，负责集群管理、任务分配等</li>
+<li>supervisor：是 Slave，是真正完成计算的地方</li>
+<li>worker：每个 supervisor 启动多个 worker 进程，每个 worker 运行多个 task</li>
+</ul>
+<h2 id="Spark-Streaming"><a href="#Spark-Streaming" class="headerlink" title="Spark Streaming"></a>Spark Streaming</h2><p>Spark 具有<strong>分片</strong>和<strong>快速计算</strong>的特性；Spark Streaming 正是巧妙的利用了该特性，将实时传输进来的数据按照时间进行分段，把一段时间传输进来的数据合并在一起，当做一批数据，再去交给 Spark 去处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    id1(start) == 流式输入的数据 ==&gt; id2(spark streaming)</span><br><span class="line">    id2 -. 被分段后的一批一批的数据 .-&gt; id3(spark engine)</span><br><span class="line">    id3 -. 按批处理计算的数据 .-&gt; id4(end)</span><br></pre></td></tr></table></figure>
+<p>总结：<br>Spark Streaming 是将实时数据流<strong>按时间分段</strong>后，当做<strong>小的批处理数据</strong>去计算。</p>
+<h2 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h2><p>Flink 既可以流处理又可以批处理计算。</p>
+<ul>
+<li><p>流计算：<br>当需要进行流计算时，Flink 会初始化一个流执行环境 StreamExecutionEnvironment，然后利用这个执行环境构建数据流 DataStream。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StreamExecutionEnvironment see = StreamExecutionEnvironment.getExecutionEnvironment();</span><br><span class="line"></span><br><span class="line">DataStream&lt;WikipediaEditEvent&gt; edits = see.addSource(<span class="keyword">new</span> WikipediaEditsSource());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>批处理计算：<br>Flink 会初始化一个批处理执行环境 ExecutionEnvironment，然后利用这个环境构建数据集 DataSet</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();</span><br><span class="line"></span><br><span class="line">DataSet&lt;String&gt; text = env.readTextFile(<span class="string">"/path/to/file"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>计算机软件发展史，是一部<strong>技术和业务不断分离</strong>的历史，人们不断将业务逻辑从技术实现上分离出来，各种技术和架构方案的出现，也基本都是为这一目标服务。</p>
+</blockquote>
+<h1 id="ZooKeeper-是如何保证数据一致性的"><a href="#ZooKeeper-是如何保证数据一致性的" class="headerlink" title="ZooKeeper 是如何保证数据一致性的"></a>ZooKeeper 是如何保证数据一致性的</h1><p>分布式系统的一致性：</p>
+<ul>
+<li>HDFS：为了保证集群的高可用，部署两台 NameNode 服务器，分别为主从服务器，但可能会出现「脑裂」问题，也就是集群对两台主从服务器可用性的判断性不一样</li>
+</ul>
+<p>为了解决多台服务器一致性的解决方案就是使用<strong>ZooKeeper</strong></p>
+<h2 id="Paxos-算法与-ZooKeeper-架构"><a href="#Paxos-算法与-ZooKeeper-架构" class="headerlink" title="Paxos 算法与 ZooKeeper 架构"></a>Paxos 算法与 ZooKeeper 架构</h2><p><strong>Paxos 算法</strong>用来解决分布式系统对数据一致性的要求，它是通过<strong>投票机制</strong>决定一个数据的更新与写入<br>基于 Paxos 算法，ZooKeeper 简化了实现机制，使用了 ZAB（ZooKeeper Atomic Broadcast）的算法协议，应用该算法，ZooKeeper 集群保证数据更新的一致性，并保证高可用。</p>
+<p>大数据系统通常都是主从架构，主服务器管理集群的状态和元信息（meta-info），运行期间只有主服务器工作（active master），必须有另外一个主服务器保持热备（standby master，主用主控，备用主控的区别）</p>
+<p>因此大数据系统依赖 ZooKeeper 提供的一致性数据服务，用于选举当前工作的主服务器。</p>
+<blockquote>
+<p>ZooKeeper 通过 Paxos 选举算法实现数据强一致性，并为各种大数据系统提供主服务器选举服务。</p>
+</blockquote>
+<p>CAP 原则：在一个分布式系统中，Consistency（一致性）、Availability（可用性）、Partition tolerance（分区容错性）三者不可兼得</p>
+<p>总结：<br><strong>大数据技术产品</strong></p>
+<ul>
+<li>大数据计算<ul>
+<li>大数据批计算<ul>
+<li>MapReduce、Spark</li>
+</ul>
+</li>
+<li>大数据流计算<ul>
+<li>Spark Streaming</li>
+<li>Flink</li>
+<li>Storm</li>
+</ul>
+</li>
+<li>大数据仓库<ul>
+<li>Hive</li>
+<li>Spark SQL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>大数据资源管理<ul>
+<li>Yarn</li>
+</ul>
+</li>
+<li>大数据存储<ul>
+<li>HDFS（大数据分布式文件系统）、HBase（一种 NoSQL 数据库）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>我只愿蓬勃生活在此时此刻，无所谓去哪，无所谓见谁。那些我将要去的地方，都是我从未谋面的故乡。以前是以前，现在是现在。我不能选择怎么生，怎么死；但我能决定怎么爱，怎么活。 — 王小波《黄金时代》</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://time.geekbang.org/column/133" target="_blank" rel="noopener">从0开始学大数据</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/" title="【从0开始学大数据】--模块二学习记录">http://bodycoder101.github.io/2018/12/06/【从0开始学大数据】-模块二学习记录/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/big-data/" rel="tag"><i class="fa fa-tag"></i> big data</a>
+          
+            <a href="/tags/Hive/" rel="tag"><i class="fa fa-tag"></i> Hive</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/【从0开始学大数据】-模块一学习记录/" rel="next" title="【从0开始学大数据】--模块一学习记录">
+                <i class="fa fa-chevron-left"></i> 【从0开始学大数据】--模块一学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/08/【从0开始学大数据】-模块三学习记录/" rel="prev" title="【从0开始学大数据】--模块三学习记录">
+                【从0开始学大数据】--模块三学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-如何让-MapReduce-实现-SQL-操作"><span class="nav-number">1.</span> <span class="nav-text">Hive 如何让 MapReduce 实现 SQL 操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-的出现"><span class="nav-number">2.</span> <span class="nav-text">Spark 的出现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-为何更加高效"><span class="nav-number">3.</span> <span class="nav-text">Spark 为何更加高效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-的作业管理"><span class="nav-number">3.1.</span> <span class="nav-text">Spark 的作业管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Big-Table-的开源实现：HBase"><span class="nav-number">4.</span> <span class="nav-text">Big Table 的开源实现：HBase</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式计算的代表：Storm、Flink、Spark-Streaming"><span class="nav-number">5.</span> <span class="nav-text">流式计算的代表：Storm、Flink、Spark Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Storm"><span class="nav-number">5.1.</span> <span class="nav-text">Storm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-Streaming"><span class="nav-number">5.2.</span> <span class="nav-text">Spark Streaming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flink"><span class="nav-number">5.3.</span> <span class="nav-text">Flink</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper-是如何保证数据一致性的"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper 是如何保证数据一致性的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paxos-算法与-ZooKeeper-架构"><span class="nav-number">6.1.</span> <span class="nav-text">Paxos 算法与 ZooKeeper 架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

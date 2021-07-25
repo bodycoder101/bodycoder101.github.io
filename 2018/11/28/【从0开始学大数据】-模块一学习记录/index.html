@@ -1,0 +1,1111 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="big data,Hadoop,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」 模块一主要讲的是 Hadoop 大数据原理与架构">
+<meta name="keywords" content="big data,Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【从0开始学大数据】--模块一学习记录">
+<meta property="og:url" content="http://bodycoder101.github.io/2018/11/28/【从0开始学大数据】-模块一学习记录/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」 模块一主要讲的是 Hadoop 大数据原理与架构">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【从0开始学大数据】--模块一学习记录">
+<meta name="twitter:description" content="该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」 模块一主要讲的是 Hadoop 大数据原理与架构">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2018/11/28/【从0开始学大数据】-模块一学习记录/">
+
+
+
+
+
+  <title>【从0开始学大数据】--模块一学习记录 | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2018/11/28/【从0开始学大数据】-模块一学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【从0开始学大数据】--模块一学习记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T20:43:38+08:00">
+                2018-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>该篇学习记录主要是记录和总结极客时间专栏 「从0开始学大数据」</p>
+<p>模块一主要讲的是<strong> Hadoop 大数据原理与架构</strong></p>
+<a id="more"></a>
+<h1 id="大数据发展史"><a href="#大数据发展史" class="headerlink" title="大数据发展史"></a>大数据发展史</h1><blockquote>
+<p>学习某种技术，最好的方式一定不是一头扎到具体细节中，而是从时空的角度先了解它的来龙去脉，以及它为什么会演变成现在的样子。</p>
+</blockquote>
+<p>也就是要从宏观的角度，先了解，然后再细节学习，学习的东西太多了。</p>
+<p>大数据技术的 「三驾马车」：</p>
+<ul>
+<li>分布式<strong>文件系统</strong> GFS （谷歌文件系统）</li>
+<li>大数据分布式<strong>计算框架</strong> MapReduce</li>
+<li>NoSQL <strong>数据库系统</strong> Big Table</li>
+</ul>
+<p>搜索引擎主要做两件事情：</p>
+<ul>
+<li>网页抓取</li>
+<li>索引构建<br>这两个过程中，有大量的数据需要存储和计算，实际上大数据技术的三驾马车正是解决这个问题的。</li>
+</ul>
+<blockquote>
+<p>多思考我们开发的需求的价值点在哪里，而不是整天埋头在需求说明文档里，做一个没有思考的代码机器人</p>
+</blockquote>
+<p>Hadoop发展史：</p>
+<ol>
+<li>Lucene 开源项目创始人 Doung Cutting 开发开源搜索引擎 Nutch</li>
+<li>通过 Google的论文的启发初步实现 GFS 和 MapReduce 的功能</li>
+<li>将大数据相关的功能分离出来，启动 Hadoop 这个项目</li>
+<li>2008年 Hadoop正式成为 Apache 的顶级项目</li>
+<li>MapReduce 进行大数据编程太麻烦，使用脚本语言 Pig 优化，然后编译生成 MapReduce 程序</li>
+<li>Facebook发布 Hive，它支持使用 SQL 语法来进行大数据计算</li>
+</ol>
+<h2 id="大数据的应用"><a href="#大数据的应用" class="headerlink" title="大数据的应用"></a>大数据的应用</h2><h3 id="应用的发展史"><a href="#应用的发展史" class="headerlink" title="应用的发展史"></a>应用的发展史</h3><ul>
+<li>大数据应用的搜索引擎时代<ul>
+<li>Google 开发的 GFS （Google 文件系统），将数千台服务器上的数万块磁盘统一管理起来，然后当作一个文件系统，统一存储所有这些文件</li>
+</ul>
+</li>
+<li>大数据应用的数据仓库时代<ul>
+<li>Facebook 推出的 Hive，可以在Hadoop上进行 SQL 操作，可以用更低廉的价格获得比以往多得多的数据存储与计算能力</li>
+</ul>
+</li>
+<li>大数据应用的数据挖掘时代<ul>
+<li>应用在商品之间的关联性分析，提高销售额；数据挖掘还体现在可以描绘用户画像</li>
+<li>「六度分割理论」 最多可以通过六个人你就能认识任何一个陌生人</li>
+</ul>
+</li>
+<li>大数据应用的机器学习时代<ul>
+<li>把历史数据都收集起来，统计其规律，进而预测正在发生的事情</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用领域"><a href="#应用领域" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
+<li>医疗健康领域的应用<ul>
+<li>医学影像智能识别：辅助判断</li>
+<li>病例大数据智能诊疗：专家写的病例的分享</li>
+</ul>
+</li>
+<li>在教育领域的应用<ul>
+<li>AI 外语老师：聊天机器人</li>
+<li>智能解题：相似性匹配，找到匹配的答案</li>
+</ul>
+</li>
+<li>在社交领域的应用<ul>
+<li>舆情监控与分析，引导智能广告的投放</li>
+</ul>
+</li>
+<li>在金融领域的应用<ul>
+<li>大数据风控，在金融借贷中，识别出高风险用户</li>
+<li>金融领域的量化交易</li>
+</ul>
+</li>
+<li>在新零售领域的应用<ul>
+<li>无人超市的应用，提升购物体验</li>
+</ul>
+</li>
+<li>在交通领域的应用<ul>
+<li>无人驾驶</li>
+</ul>
+</li>
+</ul>
+<p>总的来说，利用大数据和机器学习，发掘数据中的规律，进而对当前的事情做出预测和判断，使机器表现出智能的特性，正变得越来越普及。</p>
+<h1 id="移动计算与移动数据"><a href="#移动计算与移动数据" class="headerlink" title="移动计算与移动数据"></a>移动计算与移动数据</h1><ul>
+<li>传统的软件计算处理模型，是 “输入 -&gt; 计算 -&gt; 输出” 模型，也就是数据输入给程序</li>
+<li>现在的数据是PB级别的数据，数据庞大，将程序分发到数据所在的地方进行计算，也就是所谓的移动计算比移动数据划算</li>
+</ul>
+<h1 id="从RAID看垂直伸缩到水平伸缩的演化"><a href="#从RAID看垂直伸缩到水平伸缩的演化" class="headerlink" title="从RAID看垂直伸缩到水平伸缩的演化"></a>从RAID看垂直伸缩到水平伸缩的演化</h1><p>大规模数据存储需要解决的核心问题：</p>
+<ul>
+<li>数据存储容量的问题</li>
+<li>数据读写速度的问题</li>
+<li>数据可靠性问题</li>
+</ul>
+<p>实现更强的计算能力和更大规模的数据存储有两种思路：</p>
+<ul>
+<li>第一种是升级计算机（scaling up 垂直伸缩）</li>
+<li>第二种是用分布式系统（scaling out 水平伸缩）</li>
+</ul>
+<h1 id="大数据存储的王者：HDFS"><a href="#大数据存储的王者：HDFS" class="headerlink" title="大数据存储的王者：HDFS"></a>大数据存储的王者：HDFS</h1><p>类似于RAID的结构，是通过分布式系统的方式实现大规模的数据存储和计算<br>从顶层到底层为：<br>ZooKeeper （选举，争夺znode锁） —&gt; NameNode（主从） —&gt; DataNodes（不同机架）</p>
+<h1 id="MapReduce-既是编程模型又是计算框架"><a href="#MapReduce-既是编程模型又是计算框架" class="headerlink" title="MapReduce 既是编程模型又是计算框架"></a>MapReduce 既是编程模型又是计算框架</h1><blockquote>
+<p>开发人员必须基于 MapReduce 编程模型进行编程开发，然后将程序通过 MapReduce 计算框架分发到 Hadoop 集群中运行。</p>
+</blockquote>
+<p><strong>编程模型：</strong><br>一对 <key, value> —&gt; <strong>Map</strong> —&gt; 一对 <key, value> —&gt; 将相同的 Key 合并，形成 <key, value集合> —&gt; 输入到reduce —&gt; 输出零个或多个 <key, value>对</key,></key,></key,></key,></p>
+<p>MapReduce 的 WordCount 的程序：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span></span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line">    <span class="comment">//将每个单词输出一个 &lt;word, 1&gt;的 &lt;key, value&gt; --&gt; &lt;word, &lt;1,1,1,1,...&gt;&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span></span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将集合中的1求和 --&gt; &lt;word, sum&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></span><br><span class="line"><span class="function"><span class="params">                       Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个 map 函数可以针对一部分数据进行计算，也就是说可以将一个大数据切分成很多块， MapReduce 计算框架为每个数据块分配一个 map 函数去计算，从而实现大数据的分布式计算。</p>
+<p>MapReduce 既可能指<strong>编程模型</strong>，也就是一个 MapReduce 程序，也可能是指<strong>计算框架</strong>，执行大数据的分布式计算。</p>
+<blockquote>
+<p>模型就是人们对一类事物的概括与抽象，可以帮助我们更好的理解事物的本质，更方便的解决问题。</p>
+</blockquote>
+<p>总结 MapReduce 的过程：</p>
+<ol>
+<li>在 Map 阶段为每一个数据块分配一个 Map 计算任务，然后将所有 Map 输出的 Key 进行合并</li>
+<li>相同的 Key 及其对应的 Value 发送给同一个 Reduce 任务去处理</li>
+</ol>
+<h1 id="MapReduce-计算框架的运作"><a href="#MapReduce-计算框架的运作" class="headerlink" title="MapReduce 计算框架的运作"></a>MapReduce 计算框架的运作</h1><p>这个过程有两个问题需要处理：</p>
+<ul>
+<li>如何为每个数据块分配一个 Map 计算任务</li>
+<li>处于不同服务器的 Map 输出 <key, value>, 如何把相同的 Key 聚合在一起发送给 Reduce 任务进行处理</key,></li>
+</ul>
+<h2 id="MapReduce-作业启动和运行机制"><a href="#MapReduce-作业启动和运行机制" class="headerlink" title="MapReduce 作业启动和运行机制"></a>MapReduce 作业启动和运行机制</h2><p>运行过程涉及三类关键进程：</p>
+<ul>
+<li>大数据应用进程：包含 Map 和 Reduce 类、输入输出文件路径等</li>
+<li>JobTracker 进程：这类进程根据要处理的输入数据量，启动相应的 Map 和 Reduce 程序进程</li>
+<li>TaskTracker 进程：负责启动和管理 Map 进程以及 Reduce 进程</li>
+</ul>
+<p>注： JobTracker 进程和 TaskTracker 进程是主从关系，也就是相对应的主从服务器</p>
+<p>也就是 HDFS 中<strong>主服务器是 NameNode，从服务器是 DataNode</strong>，相应的一主多从的主要架构模式。主服务器只有一台，掌控全局，从服务器有多台，负责具体的事情。</p>
+<p>所有的这一切都由 MapReduce 计算框架完成，而使用者只需要编写一个 map 函数和一个 reduce 函数就可以，不需要关心着两个函数是如何分布启动到集群上的，也不用关心数据块又是如何分配给计算任务的。</p>
+<h2 id="MapReduce-数据合并与连接机制"><a href="#MapReduce-数据合并与连接机制" class="headerlink" title="MapReduce 数据合并与连接机制"></a>MapReduce 数据合并与连接机制</h2><p>在 map 输出与 reduce 输入之间，MapReduce 框架会进行数据的合并与连接操作，这个操作叫 <strong>shuffle</strong>，也就是相同的 <key, value> 需要 shuffle到具体的 Reduce 任务 ID上，这个过程需要 partitioner 来实现</key,></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPartiontion</span><span class="params">(K2 key, V2 value, <span class="keyword">int</span> numReduceTasks)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (key.hashCode() &amp; Inter.MAX_VALUE) % numReduceTasks;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>shuffle: 分布式计算需要将不同服务器上的相关数据合并到一起进行下一步的计算，这就是shuffle, 目的就是让数据关联起来</p>
+</blockquote>
+<h1 id="Yarn-资源调度框架"><a href="#Yarn-资源调度框架" class="headerlink" title="Yarn 资源调度框架"></a>Yarn 资源调度框架</h1><p>Hadoop 由三部分组成：</p>
+<ul>
+<li>分布式文件系统 HDFS</li>
+<li>分布式计算框架 MapReduce</li>
+<li>分布式集群资源调度框架 Yarn（Yet Another Resource Negotiator）</li>
+</ul>
+<p>Yarn 包含两个部分也是两种主要进程：</p>
+<ul>
+<li>资源管理器（Resource Manager）<ul>
+<li>调度器：资源分配算法，如 Fair Scheduler、 Capacity Scheduler；资源分配单位是容器（container）</li>
+<li>应用程序管理器：负责应用程序的提交、监控应用程序运行状态等</li>
+</ul>
+</li>
+<li>节点管理器（Node Manager）</li>
+</ul>
+<p>Yarn 的工作流程：</p>
+<ol>
+<li>向 Yarn 提交应用程序</li>
+<li>ResourceManager 进程和 NodeManager 进程通信，为用户程序分配第一个容器（包含 MapReduce ApplicationMaster）</li>
+<li>MapReduce ApplicationMaster 启动，向 ResourceManager 进程注册并申请资源</li>
+<li>MapReduce ApplicationMaster 与 NodeManager 进程通信，分发 MapReduce 程序至 NodeManager 所在服务器</li>
+<li>MapReduce 任务在运行期间与 MapReduce ApplicationMaster 通信，提交运行状态，直到任务结束</li>
+<li>MapReduce ApplicationMaster 向 ResourceManager 进程注销并释放所有的容器资源</li>
+</ol>
+<h1 id="我们能从-Hadoop-中学到什么"><a href="#我们能从-Hadoop-中学到什么" class="headerlink" title="我们能从 Hadoop 中学到什么"></a>我们能从 Hadoop 中学到什么</h1><blockquote>
+<p>方向对了， 路就不怕远 —阿里<br>不要用你战术上的勤奋，掩盖你战略上的懒惰 —雷军<br>选择比努力重要 —Somebody</p>
+</blockquote>
+<p>大数据领域的架构模式，也就是集中管理，分布存储与计算；不要纠结仅仅学习一些新的技术和知识点上了，构建起知识和思维体系，不管任何新技术的出现，都能够快速容纳到你的知识和思维体系里面。—-更新和建立你的知识体系</p>
+<p>作者的学习新知识点的心得体会，使用「5—20—2 法则」：</p>
+<ul>
+<li>用 5 分钟了解这个新知识点的特点、应用场景、要解决的问题</li>
+<li>用 20 分钟了解它的主要涉及原理、核心思想和思路</li>
+<li>用 2 小时看关键的设计细节，尝试使用或者做一个 demo</li>
+</ul>
+<p>如果在相应的时间不能了解到基本的信息或者比较模糊，那这个技术就可以放一放。一种真正有价值的好技术，这次放弃了，它过一阵子还会换一种方式继续出现在你的面前，然后再使用5-20-2法则，或许就会理解了。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://time.geekbang.org/column/133" target="_blank" rel="noopener">从0开始学大数据</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2018/11/28/【从0开始学大数据】-模块一学习记录/" title="【从0开始学大数据】--模块一学习记录">http://bodycoder101.github.io/2018/11/28/【从0开始学大数据】-模块一学习记录/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/big-data/" rel="tag"><i class="fa fa-tag"></i> big data</a>
+          
+            <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/" rel="next" title="Leetcode题解:【买卖股票最佳收益系列】">
+                <i class="fa fa-chevron-left"></i> Leetcode题解:【买卖股票最佳收益系列】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/06/【从0开始学大数据】-模块二学习记录/" rel="prev" title="【从0开始学大数据】--模块二学习记录">
+                【从0开始学大数据】--模块二学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据发展史"><span class="nav-number">1.</span> <span class="nav-text">大数据发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据的应用"><span class="nav-number">1.1.</span> <span class="nav-text">大数据的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用的发展史"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用的发展史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用领域"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用领域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动计算与移动数据"><span class="nav-number">2.</span> <span class="nav-text">移动计算与移动数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从RAID看垂直伸缩到水平伸缩的演化"><span class="nav-number">3.</span> <span class="nav-text">从RAID看垂直伸缩到水平伸缩的演化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据存储的王者：HDFS"><span class="nav-number">4.</span> <span class="nav-text">大数据存储的王者：HDFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce-既是编程模型又是计算框架"><span class="nav-number">5.</span> <span class="nav-text">MapReduce 既是编程模型又是计算框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce-计算框架的运作"><span class="nav-number">6.</span> <span class="nav-text">MapReduce 计算框架的运作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-作业启动和运行机制"><span class="nav-number">6.1.</span> <span class="nav-text">MapReduce 作业启动和运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-数据合并与连接机制"><span class="nav-number">6.2.</span> <span class="nav-text">MapReduce 数据合并与连接机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yarn-资源调度框架"><span class="nav-number">7.</span> <span class="nav-text">Yarn 资源调度框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我们能从-Hadoop-中学到什么"><span class="nav-number">8.</span> <span class="nav-text">我们能从 Hadoop 中学到什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

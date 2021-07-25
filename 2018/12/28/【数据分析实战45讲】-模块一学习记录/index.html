@@ -1,0 +1,1023 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="数据分析,数据挖掘,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="该篇学习记录主要是记录和总结极客时间专栏 「数据分析实战45讲」如何培养 数据思维？">
+<meta name="keywords" content="数据分析,数据挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据分析实战45讲】--模块一学习记录">
+<meta property="og:url" content="http://bodycoder101.github.io/2018/12/28/【数据分析实战45讲】-模块一学习记录/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="该篇学习记录主要是记录和总结极客时间专栏 「数据分析实战45讲」如何培养 数据思维？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【数据分析实战45讲】--模块一学习记录">
+<meta name="twitter:description" content="该篇学习记录主要是记录和总结极客时间专栏 「数据分析实战45讲」如何培养 数据思维？">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2018/12/28/【数据分析实战45讲】-模块一学习记录/">
+
+
+
+
+
+  <title>【数据分析实战45讲】--模块一学习记录 | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2018/12/28/【数据分析实战45讲】-模块一学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【数据分析实战45讲】--模块一学习记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T15:07:23+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>该篇学习记录主要是记录和总结极客时间专栏 「数据分析实战45讲」<br>如何培养 <strong>数据思维</strong>？</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>陈旸总结的高效学习方法，称为<strong>MAS</strong>方法：</p>
+<ul>
+<li>Multi-Dimension：想要掌握一个事物，就要从多个角度去认识它</li>
+<li>Ask：不懂就问，技术不需要这么羞涩，需要突破</li>
+<li>Sharing：最好的学习方式就是分享，将学习的技术通过自己的语言表述出来，这也是对知识的进一步梳理，比如写博客与人讨论也是一种高效的学习方式</li>
+</ul>
+<p>如何与数据建立多维度的连接？</p>
+<ul>
+<li>第一类是基础概念，学习的基础</li>
+<li>第二类是工具，锻炼动手实操的能力</li>
+<li>第三类是题库，进行查漏补缺</li>
+</ul>
+<p>从这三类实现 <strong>思维</strong> 到 <strong>工具</strong> 再到 <strong>实践</strong> 的一个突破过程</p>
+<h1 id="数据分析需要掌握的概念"><a href="#数据分析需要掌握的概念" class="headerlink" title="数据分析需要掌握的概念"></a>数据分析需要掌握的概念</h1><h2 id="什么是BI、DW、DM？"><a href="#什么是BI、DW、DM？" class="headerlink" title="什么是BI、DW、DM？"></a>什么是BI、DW、DM？</h2><ul>
+<li>商业智能（Business Intelligence，BI）：基于数据仓库，经过了数据挖掘后，得到了商业价值的过程</li>
+<li>数据仓库（Data Warehouse，DW）：数据仓库将多个数据源进行汇总、整理，数据仓库量比较庞大，相比数据库是升级的概念</li>
+<li>数据挖掘（Data Mining，DM）：包括分类、聚类、预测、关联分析等任务，从数据仓库中得到有用的信息，绘制成商业报告</li>
+</ul>
+<h2 id="元数据-VS-数据元"><a href="#元数据-VS-数据元" class="headerlink" title="元数据 VS 数据元"></a>元数据 VS 数据元</h2><ul>
+<li>元数据（MetaData）: 描述其他数据的数据，也称为“中介数据”<ul>
+<li>比如说图书的信息，包含书名、作者等</li>
+</ul>
+</li>
+<li>数据元（Data Element）：最小的数据单元<ul>
+<li>在图书这个元数据中，书名、作者、出版社都是数据元</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据挖掘的流程"><a href="#数据挖掘的流程" class="headerlink" title="数据挖掘的流程"></a>数据挖掘的流程</h2><p>英文解释为 Knowledge Discovery in Database，KDD，数据库中的知识发现<br>包含<strong>分类、聚类、预测和关联分析</strong></p>
+<ul>
+<li>分类：通过训练得到一个分类模型，然后用这个模型对其他的数据进行分类</li>
+<li>聚类：聚类就是将数据自动聚类成几个类别，聚在一起的相似度大</li>
+<li>预测：通过当前和历史数据来预测未来趋势</li>
+<li>关联分析：发现数据中的关联规则，典型应用在购物篮分析</li>
+</ul>
+<p>KDD 过程：<br>输入数据 -&gt; 数据预处理 -&gt; 数据挖掘 -&gt; 后处理 -&gt; 信息</p>
+<p>数据预处理通常包括：</p>
+<ul>
+<li>数据清洗：去除重复数据，去噪声</li>
+<li>数据集成：将多个数据源数据统一存放在数据存储中</li>
+<li>数据变换：将数据转换成合适的数据挖掘形式，比如相同的计量单位</li>
+</ul>
+<p>数据后处理：将模型预测的结果进一步处理导出</p>
+<blockquote>
+<p>上帝不会告诉我们规律，而是展示给我们数据</p>
+</blockquote>
+<h1 id="用户画像"><a href="#用户画像" class="headerlink" title="用户画像"></a>用户画像</h1><p>互联网下半场<strong>精细化运营</strong>将是长久的主题<br><strong>用户</strong>是根本，也是数据分析的出发点</p>
+<h2 id="用户画像的准则"><a href="#用户画像的准则" class="headerlink" title="用户画像的准则"></a>用户画像的准则</h2><ol>
+<li>统一化：统一标识用户ID，如使用手机号、微信号、微博等</li>
+<li>标签化：给用户打标签，对用户行为进行理解</li>
+<li>业务化：由用户标签，指导用户关联</li>
+</ol>
+<p>用户唯一标识：用于用户行为的<strong>串联</strong></p>
+<p>对用户标签化，可以进行<strong>用户消费行为分析</strong>：</p>
+<ul>
+<li>用户标签：基础信息如性别、年龄、地域等</li>
+<li>消费标签：消费习惯、购买意向、是否对促销敏感等</li>
+<li>行为标签：时间段、频次、访问路径等</li>
+<li>内容分析：页面停留时长、内容浏览，分析用户感兴趣的内容<br>因此用户画像是现实世界中的<strong>用户的数学建模</strong></li>
+</ul>
+<p>当得到了精准的用户画像，那么就可以为企业更精准的解决问题，业务推荐等</p>
+<h2 id="用户生命周期"><a href="#用户生命周期" class="headerlink" title="用户生命周期"></a>用户生命周期</h2><ol>
+<li>获客：拉新，精准营销获取客户，找到优势的宣传渠道</li>
+<li>粘客：场景运营，个性化推荐，提高用户使用频率，比如说可以通过红包、优惠等方式激励优惠敏感人群</li>
+<li>留客：流失率的预测，降低流失率，顾客流失率降低 5%，公司利润提升 25% ~ 85%</li>
+</ol>
+<h2 id="用户画像建模过程"><a href="#用户画像建模过程" class="headerlink" title="用户画像建模过程"></a>用户画像建模过程</h2><p>按照数据流处理阶段划分用户画像建模的过程，分为三个层，每一层次，都需要打上不同的标签。</p>
+<ul>
+<li>数据层：用户消费行为的标签。打上<strong>事实标签</strong>，作为数据客观的记录</li>
+<li>算法层：透过行为算出的用户建模。打上<strong>模型标签</strong>，作为用户画像的分类</li>
+<li>业务层：指的是获客、粘客、留客的手段。打上<strong>预测标签</strong>，作为业务关联的结果</li>
+</ul>
+<h2 id="标签化的作用"><a href="#标签化的作用" class="headerlink" title="标签化的作用"></a>标签化的作用</h2><p>数据挖掘的最终目的不是处理 EB 级别的大数据，而是<strong>理解、使用这些数据挖掘的结果</strong>。<br>对数据的标签化能让我们快速理解一个用户、一个商品，乃至一个视频内容的特征，从而方便我们去理解和使用数据。</p>
+<p>而数据标签化实际上是<strong>考验我们的抽象能力</strong>：如何将繁杂的事物简单化？</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://time.geekbang.org/column/article/73248" target="_blank" rel="noopener">数据分析实战45讲</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2018/12/28/【数据分析实战45讲】-模块一学习记录/" title="【数据分析实战45讲】--模块一学习记录">http://bodycoder101.github.io/2018/12/28/【数据分析实战45讲】-模块一学习记录/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"><i class="fa fa-tag"></i> 数据分析</a>
+          
+            <a href="/tags/数据挖掘/" rel="tag"><i class="fa fa-tag"></i> 数据挖掘</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/08/【从0开始学大数据】-模块三学习记录/" rel="next" title="【从0开始学大数据】--模块三学习记录">
+                <i class="fa fa-chevron-left"></i> 【从0开始学大数据】--模块三学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/29/【从0开始学大数据】-模块四学习记录/" rel="prev" title="【从0开始学大数据】--模块四学习记录">
+                【从0开始学大数据】--模块四学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析需要掌握的概念"><span class="nav-number">2.</span> <span class="nav-text">数据分析需要掌握的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是BI、DW、DM？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是BI、DW、DM？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元数据-VS-数据元"><span class="nav-number">2.2.</span> <span class="nav-text">元数据 VS 数据元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据挖掘的流程"><span class="nav-number">2.3.</span> <span class="nav-text">数据挖掘的流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户画像"><span class="nav-number">3.</span> <span class="nav-text">用户画像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户画像的准则"><span class="nav-number">3.1.</span> <span class="nav-text">用户画像的准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户生命周期"><span class="nav-number">3.2.</span> <span class="nav-text">用户生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户画像建模过程"><span class="nav-number">3.3.</span> <span class="nav-text">用户画像建模过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签化的作用"><span class="nav-number">3.4.</span> <span class="nav-text">标签化的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

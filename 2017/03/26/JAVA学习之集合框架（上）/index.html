@@ -1,0 +1,977 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习之集合框架（上）">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%AE%80%E7%89%88.png">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java学习之集合框架（上）">
+<meta name="twitter:description" content="相关概念框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有共同属性的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/">
+
+
+
+
+
+  <title>Java学习之集合框架（上） | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java学习之集合框架（上）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-26T14:39:43+08:00">
+                2017-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-SE/" itemprop="url" rel="index">
+                    <span itemprop="name">Java SE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>框架（framework）是一个类的集合，奠定了创建高级功能的基础；Java中的集合类是一种工具类，相当于一个容器，可以存储任意数量的具有<strong>共同属性</strong>的对象；Java集合类库构成了集合类的框架，集合框架为集合的实现者定义了大量的接口和抽象类，基于此增加了代码的重用性。</p>
+<a id="more"></a>
+<h1 id="集合的作用"><a href="#集合的作用" class="headerlink" title="集合的作用"></a>集合的作用</h1><ul>
+<li>在类的内部对数据进行组织；</li>
+<li>简单而快速地搜索大数量的条目数据；</li>
+<li>提供统一的接口，将不同对象封装在一起，便于操作和管理；</li>
+<li>有的集合接口（List），提供了一系列有序的元素，并且可以在序列中间快速插入或者删除元素；</li>
+<li>有的集合接口（Map），提供映射关系，可以通过任意类型的关键字（Key）快速的找到对应的唯一对象（Value）。</li>
+</ul>
+<h1 id="集合和数组的选择"><a href="#集合和数组的选择" class="headerlink" title="集合和数组的选择"></a>集合和数组的选择</h1><p><strong>为什么选择集合而不是数组？</strong></p>
+<ol>
+<li>数组长度固定，并且同一个数组只能存放类型一样的数据（基本类型/引用类型）；</li>
+<li>集合可以存储和操作数目不固定的一组数据；</li>
+<li>若程序时不知道究竟需要多少对象，需要在空间不足时自动扩增容量，则需要使用容器类库，数组不适用；</li>
+<li>查找元素时，数组需要一个个遍历查找，而集合（HashMap）可以通过任意关键字（Key）查找所映射的具体对象（Value），可以提高效率。</li>
+</ol>
+<h1 id="集合框架体系结构"><a href="#集合框架体系结构" class="headerlink" title="集合框架体系结构"></a>集合框架体系结构</h1><p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png" alt><br>我们关注常用的几个接口：<br><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%AE%80%E7%89%88.png" alt></p>
+<ul>
+<li>从上面的集合框架图可以看到，第一层是父接口，包含两种类型集合（Collection）和图（Map）；</li>
+<li>第二层是子接口，主要有List、Queue、Set接口，第三层是子接口对应的具体实现类；</li>
+<li>List（序列）集合中的元素是有序的且可以重复的，Set集合（数学中的集合概念）是无序的且不可重复的。</li>
+</ul>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><p><strong>课程类（Course.java）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Course</span><span class="params">(String id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>学生类（Student.java)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Set&lt;Course&gt; courses;<span class="comment">//使用泛型规定courses的类型</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.courses = <span class="keyword">new</span> HashSet&lt;Course&gt;();<span class="comment">//用set的实现类HashSet进行初始化</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>ArrayList增删改查（ListTest.java）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.collection;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*List中的元素是有序并且可以重复的*/</span></span><br><span class="line">    <span class="keyword">public</span> List CoursesToSelect;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意List是个接口，不能直接将其实例化</span></span><br><span class="line">        <span class="keyword">this</span>.CoursesToSelect = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestAdd</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*---普通add测试---*/</span></span><br><span class="line">        Course cr1 = <span class="keyword">new</span> Course(<span class="string">"1"</span>,<span class="string">"数据结构"</span>);</span><br><span class="line">        CoursesToSelect.add(cr1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*---指定位置add测试，下挤---*/</span></span><br><span class="line">        Course cr2 = <span class="keyword">new</span> Course(<span class="string">"2"</span>,<span class="string">"常用算法"</span>);</span><br><span class="line">        CoursesToSelect.add(<span class="number">0</span>, cr2);<span class="comment">//添加到第一个位置，会将原有的挤下去。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*---越界add测试---*/</span></span><br><span class="line">        <span class="comment">//Course cr3 = new Course("3","JAVA");</span></span><br><span class="line">        <span class="comment">//CoursesToSelect.add(3, cr3);</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 注意！！</span></span><br><span class="line"><span class="comment">         * 0，1，2均不报错</span></span><br><span class="line"><span class="comment">         * 3报错：java.lang.IndexOutOfBoundsException  下标越界</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*---普通组合add添加---*/</span></span><br><span class="line">        Course[] courseList = &#123;<span class="keyword">new</span> Course(<span class="string">"3"</span>,<span class="string">"Javaweb"</span>),<span class="keyword">new</span> Course(<span class="string">"4"</span>,<span class="string">"数据库"</span>)&#125;;</span><br><span class="line">        CoursesToSelect.addAll(Arrays.asList(courseList));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*---指定位置组合add添加---*/</span></span><br><span class="line">        Course[] courseList2 = &#123;<span class="keyword">new</span> Course(<span class="string">"5"</span>,<span class="string">"高等数学"</span>),<span class="keyword">new</span> Course(<span class="string">"6"</span>,<span class="string">"计算机网络"</span>)&#125;;</span><br><span class="line">        CoursesToSelect.addAll(<span class="number">2</span>,Arrays.asList(courseList2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testQueryAll</span><span class="params">()</span></span>&#123;  <span class="comment">//查看全部元素</span></span><br><span class="line">        System.out.println(<span class="string">"普通遍历List"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;CoursesToSelect.size();i++)&#123;</span><br><span class="line">            <span class="comment">/*对象存入集合都变成Object类型，取出时需要类型转换*/</span></span><br><span class="line">            Course tempCourse = (Course) CoursesToSelect.get(i);</span><br><span class="line">            System.out.println(<span class="string">"课程"</span>+(i+<span class="number">1</span>)+<span class="string">":"</span>+tempCourse.name+<span class="string">" 课程id:"</span>+tempCourse.id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIterator</span><span class="params">()</span></span>&#123;  <span class="comment">//通过迭代器遍历List</span></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"通过迭代器遍历List"</span>);</span><br><span class="line">        <span class="comment">//迭代器是用来遍历集合中的元素的，本身不具备任何存储元素的功能；依赖于某个集合存在，本身不能独立存在</span></span><br><span class="line">        <span class="comment">//迭代器本身是个接口，通过集合的iterator()方法，取得迭代器的实例</span></span><br><span class="line">        Iterator it = CoursesToSelect.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            Course cr = (Course) it.next();</span><br><span class="line">            System.out.println(<span class="string">"课程:"</span>+cr.name+<span class="string">" 课程id:"</span>+cr.id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testForEach</span><span class="params">()</span></span>&#123;  <span class="comment">//通过foreach遍历List</span></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"通过foreach遍历List"</span>);</span><br><span class="line">        <span class="keyword">for</span>(Object obj:CoursesToSelect)&#123;</span><br><span class="line">            Course cr = (Course)obj;</span><br><span class="line">            System.out.println(<span class="string">"课程:"</span>+cr.name+<span class="string">" 课程id:"</span>+cr.id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testModify</span><span class="params">()</span></span>&#123;  <span class="comment">//修改</span></span><br><span class="line">        CoursesToSelect.set(<span class="number">0</span>, <span class="keyword">new</span> Course(<span class="string">"100"</span>,<span class="string">"Spring"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRemove</span><span class="params">()</span></span>&#123;  <span class="comment">//删除，记住每删除一次，元素都会上移</span></span><br><span class="line"></span><br><span class="line">        CoursesToSelect.remove(<span class="number">1</span>);<span class="comment">//删除的第一种方式</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*在上面删除位置1的元素后，后面的元素会整体上移，位置1又有了新元素，所以下面的语句是删除现在位置2的新元素*/</span></span><br><span class="line">        Course cr = (Course) CoursesToSelect.get(<span class="number">2</span>);   <span class="comment">//删除的第二种方式</span></span><br><span class="line">        CoursesToSelect.remove(cr);</span><br><span class="line"></span><br><span class="line">        Course[] courseList =</span><br><span class="line">                &#123;(Course) CoursesToSelect.get(<span class="number">1</span>),</span><br><span class="line">                (Course) CoursesToSelect.get(<span class="number">2</span>),</span><br><span class="line">                (Course) CoursesToSelect.get(<span class="number">3</span>)&#125;;</span><br><span class="line">        CoursesToSelect.removeAll(Arrays.asList(courseList));   <span class="comment">//删除的第三种方式，removeAll</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        ListTest lt = <span class="keyword">new</span> ListTest();</span><br><span class="line">        lt.TestAdd();</span><br><span class="line">        lt.testQueryAll();</span><br><span class="line">        lt.testIterator();</span><br><span class="line">        lt.testModify();  <span class="comment">//修改课程</span></span><br><span class="line">        lt.testRemove();  <span class="comment">//删除课程</span></span><br><span class="line">        lt.testForEach();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Set集合的基本用法(SetTest.java)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SetTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Course&gt; CoursesToSelect;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SetTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.CoursesToSelect = <span class="keyword">new</span> ArrayList&lt;Course&gt;();<span class="comment">//待选课程是使用数组序列存放</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestAdd</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Course cr1 = <span class="keyword">new</span> Course(<span class="string">"1"</span>,<span class="string">"数据结构"</span>);</span><br><span class="line">        CoursesToSelect.add(cr1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Course cr2 = <span class="keyword">new</span> Course(<span class="string">"2"</span>,<span class="string">"常用算法"</span>);</span><br><span class="line">        CoursesToSelect.add(<span class="number">0</span>, cr2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Course[] courseList = &#123;<span class="keyword">new</span> Course(<span class="string">"3"</span>,<span class="string">"Javaweb"</span>),<span class="keyword">new</span> Course(<span class="string">"4"</span>,<span class="string">"数据库"</span>)&#125;;</span><br><span class="line">        CoursesToSelect.addAll(Arrays.asList(courseList));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Course[] courseList2 = &#123;<span class="keyword">new</span> Course(<span class="string">"5"</span>,<span class="string">"高等数学"</span>),<span class="keyword">new</span> Course(<span class="string">"6"</span>,<span class="string">"计算机网络"</span>)&#125;;</span><br><span class="line">        CoursesToSelect.addAll(<span class="number">2</span>,Arrays.asList(courseList2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testForEach</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        <span class="keyword">for</span>(Course course:CoursesToSelect)&#123;</span><br><span class="line">            System.out.println(<span class="string">"课程:"</span>+course.name+<span class="string">" 课程id:"</span>+course.id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SetTest st = <span class="keyword">new</span> SetTest();</span><br><span class="line">        st.TestAdd();</span><br><span class="line">        st.testForEach();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个学生对象</span></span><br><span class="line">        Student stu1= <span class="keyword">new</span> Student(<span class="string">"1"</span>,<span class="string">"小明"</span>);</span><br><span class="line">        System.out.println(<span class="string">"欢迎"</span>+stu1.name+<span class="string">"选课！"</span>);</span><br><span class="line"></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"请输入课程ID"</span>);</span><br><span class="line">            String courseId = sc.next();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(Course course:st.CoursesToSelect)&#123;</span><br><span class="line">                <span class="keyword">if</span>(course.id.equals(courseId))&#123;  <span class="comment">//字符串是对象,其equals()方法比较的是实际内容！</span></span><br><span class="line">                    stu1.courses.add(course); <span class="comment">//将待选课程（使用ArrayList存储）中的对象course初始化学生类中的course域（使用HashSet存储）</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        st.testForEachForSet(stu1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testForEachForSet</span><span class="params">(Student stu)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印输出学生所选的课程</span></span><br><span class="line">        <span class="comment">//遍历Set中的元素只能用foreach或是iterator，不能想List那样用get(index)，因为Set是无序的。</span></span><br><span class="line">        <span class="comment">//Set中的元素是不可重复的，重复的添加Set只会保存一个该对象（的引用）</span></span><br><span class="line">        <span class="comment">//Set是可以添加空对象的，null</span></span><br><span class="line">        <span class="comment">//Set没有提供像List那样的set()方法，因为Set集合是无序的</span></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"共选择了"</span>+stu.courses.size()+<span class="string">"门课程"</span>);</span><br><span class="line">        <span class="keyword">for</span>(Course course:stu.courses)&#123;</span><br><span class="line">            System.out.println(stu.name+<span class="string">"选择了"</span>+course.name+<span class="string">" 课程id:"</span>+course.id);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//没有介绍的关于Set的remove(),size()等方法，大致跟List一样</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-EOF</p>
+<h1 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h1><p><a href="http://blog.csdn.net/qq_33290787/article/details/51781036" target="_blank" rel="noopener">Java集合框架</a><br><a href="http://www.open-open.com/lib/view/open1474167415464.html" target="_blank" rel="noopener">Java - 集合框架完全解析</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/" title="Java学习之集合框架（上）">http://bodycoder101.github.io/2017/03/26/JAVA学习之集合框架（上）/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/新环境下Hexo博客部署及维护/" rel="next" title="新环境下Hexo博客部署及维护">
+                <i class="fa fa-chevron-left"></i> 新环境下Hexo博客部署及维护
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/07/腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点/" rel="prev" title="腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点">
+                腾讯实习生笔试编程题--满二叉排序树，给定三个结点，求公共父结点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关概念"><span class="nav-number">1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的作用"><span class="nav-number">2.</span> <span class="nav-text">集合的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合和数组的选择"><span class="nav-number">3.</span> <span class="nav-text">集合和数组的选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合框架体系结构"><span class="nav-number">4.</span> <span class="nav-text">集合框架体系结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">5.</span> <span class="nav-text">代码演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博文"><span class="nav-number">6.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,991 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="HTTP,Network Protocol,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="概念回顾之网络模型（Model）如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 TCP/IP协议簇（Internet Protocol Suite），右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。">
+<meta name="keywords" content="HTTP,Network Protocol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network Protocol总结[1]--HTTP协议">
+<meta property="og:url" content="http://bodycoder101.github.io/2017/06/29/Network-Protocol总结-1-HTTP协议/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="概念回顾之网络模型（Model）如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 TCP/IP协议簇（Internet Protocol Suite），右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/TCP_IP%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/data%20encapsulation.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/HTTP_Steps.png">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Network Protocol总结[1]--HTTP协议">
+<meta name="twitter:description" content="概念回顾之网络模型（Model）如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 TCP/IP协议簇（Internet Protocol Suite），右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/TCP_IP%E6%A8%A1%E5%9E%8B.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2017/06/29/Network-Protocol总结-1-HTTP协议/">
+
+
+
+
+
+  <title>Network Protocol总结[1]--HTTP协议 | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2017/06/29/Network-Protocol总结-1-HTTP协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Network Protocol总结[1]--HTTP协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-29T21:32:50+08:00">
+                2017-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Network/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Network</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概念回顾之网络模型（Model）"><a href="#概念回顾之网络模型（Model）" class="headerlink" title="概念回顾之网络模型（Model）"></a>概念回顾之网络模型（Model）</h1><p>如下图，左边是OSI参考模型对应的七层结构，中间是TCP/IP参考模型的五层结构，实际中应用广泛的是TCP/IP参考模型，讨论的范围限定于TCP/IP模型。网络中各层次的协议组成了 <strong>TCP/IP协议簇（Internet Protocol Suite）</strong>，右边是各个层次的典型的协议，接下来的几个总结讲挑选各个层次典型的一些协议。<br><a id="more"></a></p>
+<p><img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/TCP_IP%E6%A8%A1%E5%9E%8B.jpg" alt></p>
+<h2 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h2><p>包含OSI参考模型中的数据链路层和物理层，<strong>数据链路层(Data Link Layer)又分为逻辑链路控制子层(Logical Link Control —LLC)和媒体接入控制子层(Media Access Control—MAC).</strong></p>
+<p>LLC子层主要负责向其上层提供服务，是在HDLC的基础上发展起来的; MAC子层的主要功能包括数据帧的封装/卸装，帧的寻址和识别，帧的接收与发送，链路的管理，帧的差错控制等, 其非常重要的一项功能是 <strong>仲裁传输介质的使用权</strong>，即规定站点何时可以使用通信介质，局域网中通常使用的载波侦听多路访问（Carrier Sense Multiple Access /Collision Detection，CSMA/CD）.</p>
+<p>物理层定义与传输媒体的接口有关的一些特性,即机械特性、电气特性、功能特性、过程特性,并需要完成并行传输和串行传输之间的转换。数据链路层向该层用户提供透明的和可靠的数据传输服务。 透明性是指该层上传输的数据的内容、格式及编码没有限制,也没有必要解释信息结构的意义；可靠性是指在传输过程中将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路,其具体的方法有帧同步、差错控制、流量控制、链路管理。数据链路层中的主要协议有 <strong>点对点协议PPP,CSMA/CD协议,以太网802.3。</strong></p>
+<h2 id="网际层-IP层"><a href="#网际层-IP层" class="headerlink" title="网际层(IP层)"></a>网际层(IP层)</h2><p>网际层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网际层不提供服务质量的承诺,即所传输的分组可能出错、丢失、重复和失序,当然也不保证分组交付的时限。</p>
+<p>网际层中主要协议有IP协议,地址解析协议ARP和网际控制报文协议ICMP等。</p>
+<ul>
+<li>IP协议是网际层的核心,通过路由选择将下一跳IP封装后交给网络接口层。IP 数据报是无连接服务。</li>
+<li>ICMP是网际层的补充,可以回送报文。用来检测网络是否通畅(使用ping命令)。</li>
+<li>ARP是通过已知IP,寻找对于主机的MAC地址。</li>
+</ul>
+<h2 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h2><p>运输层为应用进程之间提供端到端(host- to-host)的逻辑通信,并具有复用和分用的功能,即发送方不同的应用进程都可以使用同一个运输层协议传送数据；接收方的运输层在剥去报文的首部后能够把这些数据正确交付到目的应用进程。运输层还将对报文进行差错控制,以提供可靠传输。运输层中主要协议有用户数据报协议UDP和传输控制协议TCP。   </p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>应用层为用户提供应用程序。<br>应用层中主要协议有域名系统DNS,文件传输协议FTP,远程终端协议TELNET,超文本传输协议HTTP,简单邮件传送协议SMTP,邮件读取协议POP3和IMAP,动态主机配置协议DHCP等。</p>
+<ul>
+<li>DNS：提供域名解析服务,提供域名到IP地址之间的转换,使用端口53</li>
+<li>HTTP：用于实现万维网上的各种链接,即万维网客户程序与万维网服务器之间的连接,使用端口80</li>
+</ul>
+<h1 id="概念回顾之数据封装（Data-Encapsulation）"><a href="#概念回顾之数据封装（Data-Encapsulation）" class="headerlink" title="概念回顾之数据封装（Data Encapsulation）"></a>概念回顾之数据封装（Data Encapsulation）</h1><p> <img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/data%20encapsulation.jpg" alt></p>
+<p>从上到下是进行数据的加封装，反之是解封装，在网络中传输会经过解封装和加封装的过程，如路由器是网络层设备，需要解封装得到IP地址然后向目的网络转发，需再加封装。</p>
+<ol>
+<li>应用层: 主机产生需要传输的数据，统一称为 <strong>Message或者PDU（Protocol Data Unit）;</strong></li>
+<li>传输层:  加上TCP或者UDP的报头，封装成 <strong>数据段(Segment);</strong></li>
+<li>网络层: 加上IP的报头，封装成 <strong>数据包(IP Datagram/Packet);</strong></li>
+<li>数据链路层: 加上LLC和MAC的报头，由数据域(Data)通过CRC等方法生成FCS加到数据包尾部，封装成 <strong>数据帧(Frame)</strong>, 最后在物理介质以 <strong>比特流(Bits)</strong> 的形式进行传输。</li>
+</ol>
+<h1 id="应用层协议之HTTP协议"><a href="#应用层协议之HTTP协议" class="headerlink" title="应用层协议之HTTP协议"></a>应用层协议之HTTP协议</h1><p>HTTP协议是 <strong>Hyper Text Transfer Protocol（超文本传输协议）</strong> 的缩写,是用于从Web服务器传输超文本到本地浏览器的传送协议。<br>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）; HTTP协议工作于客户端-服务端架构为上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。<br>典型的HTTP请求响应过程(Request-Response)如图所示：</p>
+<p> <img src="https://raw.githubusercontent.com/bodycoder101/MarkdownPhotos/master/HTTP_Steps.png" alt></p>
+<h2 id="HTTP-请求方法-request-methods"><a href="#HTTP-请求方法-request-methods" class="headerlink" title="HTTP 请求方法 (request methods)"></a>HTTP 请求方法 (request methods)</h2><p><strong>HTTP1.0</strong> 定义了三种请求方法： GET, POST 和 HEAD方法;</p>
+<p><strong>HTTP1.1</strong> 新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">GET      请求指定的页面信息，并返回实体主体。</span><br><span class="line"></span><br><span class="line">HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</span><br><span class="line"></span><br><span class="line">POST     向指定资源提交数据进行处理请求（例如提交表单或者上传文件）,数据被包含在       </span><br><span class="line">         请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</span><br><span class="line"></span><br><span class="line">PUT      从客户端向服务器传送的数据取代指定的文档的内容。</span><br><span class="line"></span><br><span class="line">DELETE   请求服务器删除指定的页面。</span><br><span class="line"></span><br><span class="line">CONNECT  HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</span><br><span class="line"></span><br><span class="line">OPTIONS  允许客户端查看服务器的性能。</span><br><span class="line"></span><br><span class="line">TRACE    回显服务器收到的请求，主要用于测试或诊断</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP响应状态码-response-status-codes"><a href="#HTTP响应状态码-response-status-codes" class="headerlink" title="HTTP响应状态码 (response status codes)"></a>HTTP响应状态码 (response status codes)</h2><p>状态代码有 <strong>三位数字</strong> 组成，第一个数字定义了 <strong>响应的类别</strong> ，共分五种类别:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Information  1xx：指示信息--表示请求已接收，继续处理</span><br><span class="line"></span><br><span class="line">Success      2xx：成功--表示请求已被成功接收、理解、接受</span><br><span class="line"></span><br><span class="line">Redirection  3xx：重定向--要完成请求必须进行更进一步的操作</span><br><span class="line"></span><br><span class="line">Client Error 4xx：客户端错误--请求有语法错误或请求无法实现</span><br><span class="line"></span><br><span class="line">Server Error 5xx：服务器端错误--服务器未能实现合法的请求</span><br></pre></td></tr></table></figure>
+<p><strong>常见状态码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">100 Continue                  // 服务器仅接收到部分请求，但一旦服务器未拒绝该请求，客户端应该继续发送其余的请求</span><br><span class="line">200 OK                        //客户端请求成功</span><br><span class="line">301 Moved Permanently         //所请求的页面转移至新的URI，重定向</span><br><span class="line">400 Bad Request               //客户端请求有语法错误，不能被服务器所理解</span><br><span class="line">401 Unauthorized              //请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</span><br><span class="line">403 Forbidden                 //服务器收到请求，但是拒绝提供服务</span><br><span class="line">404 Not Found                 //请求资源不存在，eg：输入了错误的URL</span><br><span class="line">500 Internal Server Error     //服务器发生不可预期的错误</span><br><span class="line">501 Not Implemented           //请求未完成，服务器不支持所请求的功能</span><br><span class="line">503 Server Unavailable        //服务器当前不能处理客户端的请求，一段时间后能恢复正常</span><br></pre></td></tr></table></figure>
+<p>更多的状态码参考:<br><a href="https://tools.ietf.org/html/rfc7231" target="_blank" rel="noopener">RFC 7231</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">ranyonsue的博客</a></li>
+<li><a href="http://blog.csdn.net/zjf280441589/article/details/44900353" target="_blank" rel="noopener">翡青的博客</a></li>
+<li><a href="http://baike.baidu.com/link?url=2-ysP8g7KesdPy_V2gMbJcrzqG21Fqthumzu8ObCUCbHPnEvpTByySPC9wKdh0Man7k4OOFm8xuA9ekggxDg4kKL8LvQhnkwYAS494wA342KvthGWUJFOAjcJ0mn_8in9I2UbJHllO6w5YRQtvLyqa" target="_blank" rel="noopener">百度百科</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7231" target="_blank" rel="noopener">RFC7231</a></li>
+<li><a href="http://blog.csdn.net/dadoneo/article/details/8315833" target="_blank" rel="noopener">Dartagnan的博客</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2017/06/29/Network-Protocol总结-1-HTTP协议/" title="Network Protocol总结[1]--HTTP协议">http://bodycoder101.github.io/2017/06/29/Network-Protocol总结-1-HTTP协议/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"><i class="fa fa-tag"></i> HTTP</a>
+          
+            <a href="/tags/Network-Protocol/" rel="tag"><i class="fa fa-tag"></i> Network Protocol</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/24/读《向死而生-我修的死亡学分》/" rel="next" title="读《向死而生 - 我修的死亡学分》">
+                <i class="fa fa-chevron-left"></i> 读《向死而生 - 我修的死亡学分》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/07/Python基础学习之-list、tuple、dic-set/" rel="prev" title="Python基础学习之[list、tuple、dic & set]">
+                Python基础学习之[list、tuple、dic & set] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之网络模型（Model）"><span class="nav-number">1.</span> <span class="nav-text">概念回顾之网络模型（Model）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络接口层"><span class="nav-number">1.1.</span> <span class="nav-text">网络接口层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网际层-IP层"><span class="nav-number">1.2.</span> <span class="nav-text">网际层(IP层)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层"><span class="nav-number">1.3.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层"><span class="nav-number">1.4.</span> <span class="nav-text">应用层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念回顾之数据封装（Data-Encapsulation）"><span class="nav-number">2.</span> <span class="nav-text">概念回顾之数据封装（Data Encapsulation）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层协议之HTTP协议"><span class="nav-number">3.</span> <span class="nav-text">应用层协议之HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-请求方法-request-methods"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP 请求方法 (request methods)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP响应状态码-response-status-codes"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP响应状态码 (response status codes)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

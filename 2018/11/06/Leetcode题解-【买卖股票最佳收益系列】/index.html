@@ -1,0 +1,1070 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="E5XVfnFEZ7cKjYj2T_e6HTYOyUSBOlUj4KCKRHrfuR8">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3uRyhvWtVy">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="stock,maxProfit,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="修行者" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
+<meta name="keywords" content="stock,maxProfit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode题解:【买卖股票最佳收益系列】">
+<meta property="og:url" content="http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/index.html">
+<meta property="og:site_name" content="修行者">
+<meta property="og:description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-17T09:49:43.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode题解:【买卖股票最佳收益系列】">
+<meta name="twitter:description" content="leetcode中关于买卖股票最佳时机的题目有：  121.Best Time to Buy and Sell Stock 122.Best Time to Buy and Sell Stock 2 123.Best Time to Buy and Sell Stock 3 188.Best Time to Buy and Sell Stock 4 309.Best Time to Buy and">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/">
+
+
+
+
+
+  <title>Leetcode题解:【买卖股票最佳收益系列】 | 修行者</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd8827e73226b2d2b93d0b55640287c0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/bodycoder101"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">修行者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Zero</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bodycoder">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="修行者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Leetcode题解:【买卖股票最佳收益系列】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T15:59:36+08:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode题解/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>leetcode中关于买卖股票最佳时机的题目有：</p>
+<ul>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">121.Best Time to Buy and Sell Stock</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="noopener">122.Best Time to Buy and Sell Stock 2</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">123.Best Time to Buy and Sell Stock 3</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">188.Best Time to Buy and Sell Stock 4</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/" target="_blank" rel="noopener">309.Best Time to Buy and Sell Stock with Cooldown</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener">714.Best Time to Buy and Sell Stock with Transaction Fee</a></li>
+</ul>
+<p>除了第122使用贪心法，其他题目可以使用动态规划解决。<br><a id="more"></a></p>
+<h1 id="121-Best-Time-to-Buy-and-Sell-stock"><a href="#121-Best-Time-to-Buy-and-Sell-stock" class="headerlink" title="121.Best Time to Buy and Sell stock"></a>121.Best Time to Buy and Sell stock</h1><p><strong>使用动态规划：</strong> 只能买卖一次，求最大收益。<br>从前往后扫描，最大化第i天的收益即第i天的价格 - 第i天及之前的最低价格 <strong>（可以当天买当天卖）</strong>，因此可以使用一个数组minPrice记录第i天及之前的最低价格，maxProfit记录最大收益，即有状态转移方程：</p>
+<ul>
+<li><code>minPrice[i]=min{minPrice[i-1], prices[i]}</code></li>
+<li><code>maxProfit=max{maxProfit, prices[i]-minPrice[i]}</code></li>
+</ul>
+<p>复杂度：</p>
+<ul>
+<li>时间：o(n)</li>
+<li>空间：o(n)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size()&lt;<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; minPrice(prices.size(),<span class="number">0</span>);</span><br><span class="line">        minPrice[<span class="number">0</span>] = prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;prices.size();++i)&#123;</span><br><span class="line">            minPrice[i] = min(minPrice[i<span class="number">-1</span>],prices[i]);</span><br><span class="line">            maxProfit = max(maxProfit,prices[i]-minPrice[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="122-Best-Time-to-Buy-and-Sell-Stock-2"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-2" class="headerlink" title="122. Best Time to Buy and Sell Stock 2"></a>122. Best Time to Buy and Sell Stock 2</h1><p><strong>使用贪心法：</strong> 可以交易多次，但每次只能买卖一只股票，手里只能有一手的股票，买之前必须将手里的股票卖出去。<br>从前往后扫描，只要当天的价格比前一天的价格高，就可以卖出去，获取收益，同时当天也可以买入。然后贪心累加即为结果。<br>复杂度：</p>
+<ul>
+<li>时间：o(n)</li>
+<li>空间：o(1)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size()&lt;<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>; i&lt;prices.size(); ++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> diff = prices[i] - prices[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">if</span>(diff &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                maxProfit += diff;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="123-Best-Time-to-Buy-and-Sell-Stock-3"><a href="#123-Best-Time-to-Buy-and-Sell-Stock-3" class="headerlink" title="123. Best Time to Buy and Sell Stock 3"></a>123. Best Time to Buy and Sell Stock 3</h1><p><strong>使用动态规划:</strong> 最多交易两次，求最大收益。<br>思路：使用二分法，将<code>prices[0...n]</code>分为<code>prices[0...i] and prices[i+1..n]</code>，对两部分使用题号为121的方法，求的最大值<br>然后，顺序扫描一遍，求的最大值。</p>
+<p>方法一：直接复用题号为121的方法，迭代进行求解,会超时；<br>复杂度：</p>
+<ul>
+<li>时间：o(n^2)</li>
+<li>空间：o(n)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (prices.size()&lt;<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prices.size(); i++) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; firstPart(prices.begin(),prices.begin()+i);</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; secondPart(prices.begin()+i,prices.end());</span><br><span class="line">            <span class="keyword">int</span> first = maxProfitHelper(firstPart);<span class="comment">//o(n^2)</span></span><br><span class="line">            <span class="keyword">int</span> second = maxProfitHelper(secondPart);<span class="comment">//o(n^2))</span></span><br><span class="line">            maxProfit = max(maxProfit, first+second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfitHelper</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size()&lt;<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; minPrice(prices.size(),<span class="number">0</span>);</span><br><span class="line">        minPrice[<span class="number">0</span>] = prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;prices.size();++i)&#123;</span><br><span class="line">            minPrice[i] = min(minPrice[i<span class="number">-1</span>],prices[i]);</span><br><span class="line">            maxProfit = max(maxProfit,prices[i]-minPrice[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>方法二：对方法一进行改良，使用两个数组将第一部分和第二部分的收益保存到数组，然后依次遍历求结果<br>复杂度：</p>
+<ul>
+<li>时间o(n)</li>
+<li>空间o(n)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (prices.size()&lt;<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = prices.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; first(len,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; second(len,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从前往后扫描，第i天卖出</span></span><br><span class="line">        <span class="keyword">int</span> min_buy = prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            min_buy = min(min_buy, prices[i]);</span><br><span class="line">            first[i] = max(first[i<span class="number">-1</span>], prices[i]-min_buy);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从后往前扫描，第i天买入</span></span><br><span class="line">        <span class="keyword">int</span> max_sold = prices[len<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            max_sold = max(max_sold, prices[i]);</span><br><span class="line">            second[i] = max(second[i+<span class="number">1</span>], max_sold - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从头到尾扫描，前后两部分相加。求出最大利润</span></span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            maxProfit = max(maxProfit, first[i] + second[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="188-Best-Time-to-Buy-and-Sell-Stock-4"><a href="#188-Best-Time-to-Buy-and-Sell-Stock-4" class="headerlink" title="188. Best Time to Buy and Sell Stock 4"></a>188. Best Time to Buy and Sell Stock 4</h1><p><strong>使用动态规划法：</strong> 与<strong>题122</strong>不同的是，股票<strong>最多交易k次</strong>，求最大收益。</p>
+<p>使用 <strong>局部最优和全局最优解法，</strong>定义两个二维数组：</p>
+<ul>
+<li>local[i][j]: 表示当前到达第i天，最多可以进行j次交易，且最后一次交易(卖出)在当天卖出的局部最大利润</li>
+<li>global[i][j]: 表示当前到达第i天，最多可以进行j次交易的全局最大利润</li>
+<li>diff = prices[i] - prices[i-1]： 表示第i天与第i-1天的价格差<br>两者的区别是local[i][j]表明 <strong> 第i天一定有交易（卖出）发生，</strong> 可以是第i-1天买入，第i天卖出，也可以是第i天买入，并在当天（第i天）卖出。</li>
+</ul>
+<p>分析过程：</p>
+<ol>
+<li>局部最优 = max{情况1，情况2}<ul>
+<li>情况1：第i-1天已经<strong>恰好</strong>交易j次<code>(local[i-1][j])</code>; 而第i天必须有交易（卖出）发生，那么如果第i-1天买入，第i天卖出，并”不会”增加交易次数【这里比较难理解，可以这样理解：第一天买入，第二天卖出，然后第二天又买入，第三天卖出的情形和第一天买入，第三天卖出的情形获利效果是一样的，因为没有交易费。】，因此<code>情况1 = local[i-1][j] + diff</code></li>
+<li>情况2：在第i-1天<strong>已经</strong>交易了j-1次<code>global[i-1][j-1]</code>; 为了满足 <strong>“第i天过后进行了j次交易，并且第i天必须有交易发生”</strong> 的条件；我们可以选择两种方式：1)第i-1天买入，第i天卖出，收益为diff; 2)第i天买入，第i天卖出，收益为0。 因此<code>情形2 = global[i-1][j-1]+max{diff, 0}</code></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>全局最优 = max{情况1，情况2}； 全局最优<code>global[i][j]</code>表示的是第i天最多进行了j次交易的最大收益<ul>
+<li>情况1：第i天过后恰好满足j次交易，也就是第i天一定有交易（卖出）发生，此时为局部最优，因此<code>情况1 = local[i][j]</code></li>
+<li>情况2：第i-1天过后已经满足了j次交易，第i天没有没有交易（卖出）发生，因此为前一个的全局最优，<code>情况2 = global[i-1][j]</code></li>
+</ul>
+</li>
+</ol>
+<p>因此可以得到的状态转移方程为：</p>
+<ul>
+<li><code>local[i][j] = max{local[i-1][j] + diff, global[i-1][j-1]+max{diff,0}}</code></li>
+<li><code>global[i][j] = max{local[i][j], global[i-1][j]}</code></li>
+</ul>
+<p>注意：<strong>当k&gt;=days时，</strong> 该情况退化成题122的情形，可以交易多次的情况。</p>
+<p>因此我们想要的结果是:<code>global[days-1][k]</code> 表示的是最后一天结束后，交易k次的全局最大利润。</p>
+<p>复杂度：</p>
+<ul>
+<li>时间：o(n*k)</li>
+<li>空间：o(n*k)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (prices.size()&lt;<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> days = prices.size();</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= days) &#123;</span><br><span class="line">            <span class="keyword">return</span> maxProfitHelper(prices);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//初始化二维数组都为0</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; local(days);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; global(days);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; days; i++) &#123;</span><br><span class="line">            local[i].resize(k+<span class="number">1</span>);</span><br><span class="line">            global[i].resize(k+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//迭代计算</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; days; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> diff = prices[i] - prices[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; j++) &#123;</span><br><span class="line">                local[i][j] = max(local[i<span class="number">-1</span>][j] + diff, global[i<span class="number">-1</span>][j<span class="number">-1</span>] + max(diff,<span class="number">0</span>));</span><br><span class="line">                global[i][j] = max(local[i][j], global[i<span class="number">-1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> global[days<span class="number">-1</span>][k];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfitHelper</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size()&lt;<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>; i&lt;prices.size(); ++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> diff = prices[i] - prices[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">if</span>(diff &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                maxProfit += diff;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown"><a href="#309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown" class="headerlink" title="309.Best Time to Buy and Sell Stock with Cooldown"></a>309.Best Time to Buy and Sell Stock with Cooldown</h1><p><strong>使用动态规划：</strong> 与122不同的是，这题限制了sell之后需要cooldown一天，然后才能buy，即操作为<code>[buy, sell, cooldown, buy, sell]</code>.<br>分析：<br>维护三个数组：</p>
+<ul>
+<li>buy[i]表示的是第i天及之前的最后一个操作为买，此时的最大利润</li>
+<li>sell[i]表示的是第i天及之前的最后一个动作为卖，此时的最大利润</li>
+<li>rest[i]表示的是第i天及之前的最后一个动作为cooldown或者没有任何动作，此时的最大利润</li>
+</ul>
+<p>可以得到三个状态转移方程为：</p>
+<ul>
+<li>buy[i]=max{buy[i-1], rest[i-1]-prices[i]} 表示的是：1）第i天没有动作，和第i-1天一样, 都是持股的状态；2）第i天买入，转为持股状态</li>
+<li>sell[i]=max{sell[i-1], buy[i-1]+prices[i]} 表示的是：1）第i天没有动作，和第i-1天一样，都是未持股状态；2）第i-1天买入，第i天卖出，在第i天转为未持股状态</li>
+<li>rest[i]=max{sell[i-1], buy[i-1], rest[i-1]} 表示的是：过渡期的最大利润有三种状态</li>
+</ul>
+<p>由于存在冷冻区，在rest的状态的最大利润可以表示为：<code>rest[i] = sell[i-1]</code> ;因此状态转移方程可以精简为：</p>
+<ul>
+<li>buy[i] = max{buy[i-1], sell[i-2]-prices[i]} 也就是说前天卖了股票，今天才能买</li>
+<li>sell[i] = max{sell[i-1], buy[i-1]+prices[i]}</li>
+</ul>
+<p>因此我们想要的结果是:<code>maxProfit = sell[n-1]</code>表示的是最后一天结束后，未持股状态下的最大收益。<br>还有一种方法是使用<strong>有限状态机</strong>的方法，也很清晰，详见 <strong>References 3。</strong></p>
+<p>复杂度：</p>
+<ul>
+<li>时间o(n)</li>
+<li>空间o(n)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.size();</span><br><span class="line">        <span class="keyword">if</span> (n&lt;<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; buy(n,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sell(n,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//赋予初始值</span></span><br><span class="line">        buy[<span class="number">0</span>]= - prices[<span class="number">0</span>];</span><br><span class="line">        sell[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            sell[i] = max(sell[i<span class="number">-1</span>], buy[i<span class="number">-1</span>]+prices[i]);</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">                buy[i] = max(buy[i<span class="number">-1</span>], sell[i<span class="number">-2</span>]-prices[i]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                buy[i] = max(buy[i<span class="number">-1</span>], -prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell[n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee"><a href="#714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee" class="headerlink" title="714.Best Time to Buy and Sell Stock with Transaction Fee"></a>714.Best Time to Buy and Sell Stock with Transaction Fee</h1><p><strong>使用动态规划：</strong>与122题不同的是，加了限制条件，每次买卖有交易费，求最大的收益。<br>分析：账户状态只有两种情况，要么满仓持有股票，要么空仓不持股票；<br>维护两个变量数组：</p>
+<ul>
+<li>unhold[i]:表示第i天账户不持有股票，此时的最大收益。只有两种情况：1）与第i-1天一样，空仓不持有股票；2）第i-1天持有股票，第i天卖出股票，空仓。</li>
+<li>hold[i]:表示第i天持有股票，此时的最大利润。也只有两种情况：1）与第i-1天一样，满仓持有股票；2）第i-1天不持有股票，第i天买入股票，满仓。</li>
+</ul>
+<p>因此有状态转移方程：</p>
+<ul>
+<li>unhold[i]=max{unhold[i-1], hold[i-1]+prices[i]-fee}</li>
+<li>hold[i]=max{hold[i-1], unhold[i-1]-prices[i]}</li>
+</ul>
+<p>初始值为：</p>
+<ul>
+<li>unhold[0] = 0</li>
+<li>hold[0]= - prices[0]</li>
+</ul>
+<p>因此我们想要的结果是：<code>unhold[n-1]</code>, 表示的是最后一天结束后不持有股票的最大收益。</p>
+<p>复杂度：</p>
+<ul>
+<li>时间o(n)</li>
+<li>空间o(n)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices, <span class="keyword">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.size();</span><br><span class="line">        <span class="keyword">if</span> (n&lt;<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; unhold(n,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; hold(n,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//赋予初始值</span></span><br><span class="line">        unhold[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        hold[<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            unhold[i] = max(unhold[i<span class="number">-1</span>], hold[i<span class="number">-1</span>] + prices[i] - fee);</span><br><span class="line">            hold[i] = max(hold[i<span class="number">-1</span>], unhold[i<span class="number">-1</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> unhold[n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://blog.csdn.net/dr_unknown/article/details/51939121" target="_blank" rel="noopener">Leetcode动态规划</a></li>
+<li><a href="https://blog.csdn.net/u013325815/article/details/52829802?locationNum=12&amp;fps=1" target="_blank" rel="noopener">Best Time to Buy and Sell Stock with Cooldown</a></li>
+<li><a href="https://segmentfault.com/a/1190000006672807" target="_blank" rel="noopener">动态规划中五道股票买卖题目详解</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>觉得不错的话，那就请博主喝个茶吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Bodycoder WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Bodycoder
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/" title="Leetcode题解:【买卖股票最佳收益系列】">http://bodycoder101.github.io/2018/11/06/Leetcode题解-【买卖股票最佳收益系列】/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/stock/" rel="tag"><i class="fa fa-tag"></i> stock</a>
+          
+            <a href="/tags/maxProfit/" rel="tag"><i class="fa fa-tag"></i> maxProfit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/02/二叉树的序列化和反序列化/" rel="next" title="二叉树的序列化和反序列化">
+                <i class="fa fa-chevron-left"></i> 二叉树的序列化和反序列化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/28/【从0开始学大数据】-模块一学习记录/" rel="prev" title="【从0开始学大数据】--模块一学习记录">
+                【从0开始学大数据】--模块一学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTA3Ny81NjQ2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Bodycoder">
+          <p class="site-author-name" itemprop="name">Bodycoder</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程界的健身爱好者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bodycoder101" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5773719517?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/bodycoder101" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zouzls.github.io" title="帅哥" target="_blank">帅哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-stock"><span class="nav-number">1.</span> <span class="nav-text">121.Best Time to Buy and Sell stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-2"><span class="nav-number">2.</span> <span class="nav-text">122. Best Time to Buy and Sell Stock 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#123-Best-Time-to-Buy-and-Sell-Stock-3"><span class="nav-number">3.</span> <span class="nav-text">123. Best Time to Buy and Sell Stock 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#188-Best-Time-to-Buy-and-Sell-Stock-4"><span class="nav-number">4.</span> <span class="nav-text">188. Best Time to Buy and Sell Stock 4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown"><span class="nav-number">5.</span> <span class="nav-text">309.Best Time to Buy and Sell Stock with Cooldown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee"><span class="nav-number">6.</span> <span class="nav-text">714.Best Time to Buy and Sell Stock with Transaction Fee</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">7.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bodycoder</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
